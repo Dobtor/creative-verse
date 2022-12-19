@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="view_demand_form" model="ir.ui.view" >
+            <field name="name">event.demand.form</field>
+            <field name="model">event.demand</field>
+            <field name="arch" type="xml">
+                <form string="Events">
+                    <header>
+                        <field name="state" widget="statusbar" options="{'clickable': '1'}"/>
+                        <field name="is_finished" invisible="1"/>
+                        <button name="actoin_finish_all" icon="fa-check" string="Cron Test" type="object" groups="base.group_no_one" attrs="{'invisible': ['|', '|',('is_finished', '=', True), ('demand_type', '!=', 'taker'), ('state', '!=', 'open')]}"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box" groups="base.group_user">
+                            <button name="action_demand_open_attendee" type="object" context="{'search_default_expected': True}" class="oe_stat_button" icon="fa-users" help="Total Registrations for this Event">
+                                <field name="seats_expected" widget="statinfo" string="Giver or Taker"/>
+                            </button>
+                            <field name="currency_id" invisible="1"/>
+                            <button name="action_view_linked_orders" type="object" class="oe_stat_button" icon="fa-dollar" groups="sales_team.group_sale_salesman" help="Total sales for this event" attrs="{'invisible': ['|', ('sale_price_subtotal', '=', 0), ('sale_price_subtotal', '=', False)]}">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_value">
+                                        <field string="Sales" name="sale_price_subtotal" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                    </span>
+                                    <span class="o_stat_text">Sales</span>
+                                </div>
+                            </button>
+                            <field name="is_published" widget="website_redirect_button"/>
+                        </div>
+                        <widget name="web_ribbon" text="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                        <!-- <widget name="web_ribbon" title="Published" bg_color="bg-success" attrs="{'invisible': [('is_published', '=', False), ('active', '=', False)]}" /> -->
+                        <widget name="web_ribbon" title="Cancelled" bg_color="bg-warning" attrs="{'invisible': ['|', ('state', '!=', 'cancel'), ('active', '=', False)]}" />
+
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only" string="Demand Name"/>
+                            <h1>
+                                <field name="name" placeholder="e.g. Conference for Architects"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="active" invisible="1"/>
+                                <label for="date_begin" string="Demand Date"/>
+                                <div class="o_row">
+                                    <field name="date_begin" widget="daterange" nolabel="1" class="oe_inline" options="{'related_end_date': 'date_end'}"/>
+                                    <i class="fa fa-long-arrow-right mx-2" aria-label="Arrow icon" title="Arrow"/>
+                                    <field name="date_end" widget="daterange" nolabel="1" class="oe_inline" options="{'related_start_date': 'date_begin'}"/>
+                                </div>
+                                <field name="demand_type" />
+                                
+                                <!-- #region: 地址隱藏 -->
+                                <field name="event_address_disabled"/>
+                                <!-- #endregion -->
+
+                                <!-- #region: 線上地址欄位 -->
+                                <label for="online_address"/>
+                                <div>
+                                    <field name="online_address"/>
+                                    <field name="event_address" placeholder="e.g. https://www.odoo.com" attrs="{'invisible': [('online_address', '=', False)], 'required': [('online_address', '=', True)]}"/>
+                                </div>
+                                <!-- #endregion -->
+
+                                <!-- #region: 線下地址欄位 -->
+                                <label for="offline_address"/>
+                                <div>
+                                    <field name="offline_address"/>
+                                    <div class="o_address_format" attrs="{'invisible': [('offline_address', '=', False)]}">
+                                        <field name="street" placeholder="Street..." class="o_address_street" attrs="{'required': [('offline_address', '=', True)]}"/>
+                                        <!-- #TODO: street2、offline_country_id還沒用到所以先行隱藏(純粹以防萬一之後有用所以先行建立) -->
+                                        <field name="street2" placeholder="Street 2..." class="o_address_street" invisible="1"/>
+                                        <field name="city" placeholder="City" class="o_address_city" attrs="{'required': [('offline_address', '=', True)]}"/>
+                                        <field name="state_id" class="o_address_state" placeholder="State" options='{"no_open": True}' attrs="{'required': [('offline_address', '=', True)]}"/>
+                                        <field name="zip" placeholder="ZIP" class="o_address_zip" attrs="{'required': [('offline_address', '=', True)]}"/>
+                                        <field name="offline_country_id" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}' invisible="1"/>
+                                    </div>
+                                </div>
+                                <!-- #endregion -->
+                            </group>
+                            <group>
+                                <field name="organizer_id"/>
+                                <field name="user_id" domain="[('share', '=', False)]"/>
+                                <field name="event_creator" />
+                                <field name="event_creator_partner" />
+                                <field name="is_frontend_invisible"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Pricing" name="pricing">
+                                <field name="event_ticket_ids" context="{'default_event_name': name}" mode="tree">
+                                    <tree string="Pricing" editable="bottom">
+                                        <field name="name" />
+                                        <field name="product_id" />
+                                        <field name="price" />
+                                        <field name="pricing_method" />
+                                        <field name="min_request_unit" />
+                                        <field name="request_qty" />
+                                        <field name="request_reserved" />
+                                        <field name="request_total_amount" />
+                                        <field name="reserved_total_amount" optional="hide"/>
+                                        <field name="description" optional="hide" />
+                                        <field name="start_sale_date" optional="hide" />
+                                        <field name="end_sale_date" optional="hide" />
+                                        <field name="seats_max" sum="Total" width="105px" string="Maximum" optional="hide" />
+                                        <field name="seats_reserved" sum="Total" width="105px" string="Confirmed" optional="hide" />
+                                        <field name="seats_unconfirmed" sum="Total" width="110px" string="Unconfirmed" optional="hide" />
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Demand Schedule">
+                                <field name="minion_ids" widget="section_one2many">
+                                    <tree editable="top">
+                                        <field name="name"/>
+                                        <field name="date"/>
+                                        <field name="hour_from" widget="float_time"/>
+                                        <field name="hour_to" widget="float_time"/>
+                                        <field name="master_id" invisible="1" />
+                                        <field name="event_id" invisible="1" />
+                                        <field name="manpower" />
+                                        <field name="amount" />
+                                        <!-- <field name="event_from" optional="hide"/>
+                                        <field name="event_to" optional="hide"/> -->
+                                        <field name="dayofweek" readonly="1" optional="hide"/>
+                                        <field name="note" optional="hide"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Common" name="common">
+                                <group>
+                                    <group>
+                                        <field name="date_tz"/>
+                                        <field name="event_type_id" domain="[('mode', '=', 'demand')]" string="Template" options="{'no_create':True}"/>
+                                        <field name="tag_ids" domain="[('category_id.mode', '=', 'demand')]" widget="many2many_tags" options="{'color_field': 'color', 'no_quick_create': True}"/>
+                                    </group>
+                                    <group>
+                                        <field name="company_id" groups="base.group_multi_company"/>
+                                        <field name="address_id" context="{'show_address': 1}" options='{"always_reload": True}'/>
+                                        <label for="seats_limited" string="Limit Registrations"/>
+                                        <div>
+                                            <field name="seats_limited"/>
+                                            <span attrs="{'invisible': [('seats_limited', '=', False)], 'required': [('seats_limited', '=', False)]}">to <field name="seats_max" class="oe_inline"/>Attendees</span>
+                                        </div>
+                                        <field name="auto_confirm"/>
+                                        <field name="depend_events_ids" widget="many2many_tags"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Communication" name="event_communication">
+                                <field name="event_mail_ids">
+                                    <tree string="Communication" editable="bottom">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="notification_type" invisible="1"/>
+                                        <field name="template_id" attrs="{'required': [('notification_type', '=', 'mail')]}" context="{'default_model': 'event.registration'}"/>
+                                        <field name="interval_nbr" attrs="{'readonly':[('interval_unit','=','now')]}"/>
+                                        <field name="interval_unit"/>
+                                        <field name="interval_type"/>
+                                        <field name="done"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Notes" name="event_notes">
+                                <field name="note" placeholder="Add a note..."/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_demand_tree" model="ir.ui.view">
+            <field name="name">event.demand.tree</field>
+            <field name="model">event.demand</field>
+            <field name="arch" type="xml">
+                <tree string="Demand" multi_edit="1" sample="1">
+                    <field name="name" />
+                    <field name="user_id" readonly="1" widget="many2one_avatar_user" />
+                    <field name="event_creator" invisible="1"/>
+                    <field name="event_creator_partner" invisible="1"/>
+                    <field name="organizer_id" readonly="1" optional="hide" />
+                    <field name="company_id" groups="base.group_multi_company" readonly="1" optional="hide" />
+                    <field name="website_id" groups="website.group_multi_website" domain="['|', ('company_id', '=', company_id), ('company_id', '=', False)]" optional="hide" />
+                    <field name="date_begin" readonly="1" widget="date" />
+                    <field name="date_end" readonly="1" widget="date" />
+                    <field name="stage_id" readonly="1" optional="hide" />
+                    <field name="demand_type" />
+                    <field name="state" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_demand_search" model="ir.ui.view">
+            <field name="name">event.demand.search</field>
+            <field name="model">event.demand</field>
+            <field name="arch" type="xml">
+                <search string="Demand">
+                    <field name="name" string="Demand"/>
+                    <field name="demand_type"/>
+                    <field name="user_id"/>
+                    <field name="state"/>
+                    <filter string="My Demand" name="mydemands" help="My Demand" domain="[('user_id', '=', uid)]"/>
+                    <separator/>
+                    <separator/>
+                    <filter string="Giver" name="giver" domain="[('demand_type', '=', 'giver')]"/>
+                    <filter string="Taker" name="taker" domain="[('demand_type', '=', 'taker')]"/>
+                    <separator/>
+                    <filter string="Start Date" name="start_date" date="date_begin"/>
+                    <separator/>
+                    <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Responsible" name="responsible" context="{'group_by': 'user_id'}"/>
+                        <filter string="Giver and Taker" name="demand_type_id" context="{'group_by': 'demand_type'}"/>
+                        <filter string="Check State" name="demand_check_state_id" context="{'group_by': 'state'}"/>
+                        <filter string="Start Date" name="date_begin" domain="[]" context="{'group_by': 'date_begin'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="event_demand_view_form_quick_create" model="ir.ui.view">
+            <field name="name">event.demand.form.quick_create</field>
+            <field name="model">event.demand</field>
+            <field name="priority">1000</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="name"/>
+                        <field name="date_begin"/>
+                        <field name="date_end"/>
+                        <field name="demand_type"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_demand_kanban" model="ir.ui.view">
+            <field name="name">event.demand.kanban</field>
+            <field name="model">event.demand</field>
+            <field name="arch" type="xml">
+                <kanban class="o_event_kanban_view" default_group_by="state" quick_create_view="dobtor_demand.event_demand_view_form_quick_create" sample="1">
+                    <field name="user_id"/>
+                    <field name="name"/>
+                    <field name="event_id" invisible="1" />
+
+                    <field name="demand_type"/>
+                    <field name="date_begin"/>
+                    <field name="date_end"/>
+                    <field name="auto_confirm"/>
+                    <field name="seats_reserved"/>
+                    <field name="seats_used"/>
+                    <field name="seats_expected"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="d-flex flex-column p-0 oe_kanban_card oe_kanban_global_click">
+                                <div class="o_kanban_content p-0 m-0 position-relative row d-flex flex-fill">
+                                    <div class="col-3 bg-primary p-2 text-center d-flex flex-column justify-content-center">
+                                        <div t-esc="record.date_begin.raw_value.getDate()" class="o_event_fontsize_20"/>
+                                        <div>
+                                            <t t-esc="moment(record.date_begin.raw_value).format('MMM')"/>
+                                            <t t-esc="record.date_begin.raw_value.getFullYear()"/>
+                                        </div>
+                                        <div>
+                                            <t t-esc="moment(record.date_begin.raw_value).format('LT')"/>
+                                        </div>
+                                        <div t-if="moment(record.date_begin.raw_value).dayOfYear() !== moment(record.date_end.raw_value).dayOfYear()">
+                                            <i class="fa fa-arrow-right o_event_fontsize_09" title="End date"/>
+                                            <t t-esc="moment(record.date_end.raw_value).format('D MMM')"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-9 py-2 px-3 d-flex flex-column justify-content-between pt-3">
+                                        <div>
+                                            <div class="o_kanban_record_title o_text_overflow" t-att-title="record.name.value">
+                                                <field name="name"/>
+                                            </div>
+                                            <div t-if="record.demand_type.value">
+                                                <i class="fa fa-exchange" title="Demand Type"/>
+                                                <span class="o_text_overflow" t-esc="record.demand_type.value"/>
+                                            </div>
+                                        </div>
+                                        <h5 class="o_event_fontsize_11 p-0">
+                                            <a name="action_demand_open_attendee" type="object" context="{'search_default_expected': True }">
+                                                <t t-esc="record.seats_expected.raw_value"/>Expected attendees
+                                            </a>
+                                            <t t-set="total_seats" t-value="record.seats_reserved.raw_value + record.seats_used.raw_value"/>
+                                            <div class="pt-2 pt-md-0" t-if="total_seats > 0 and ! record.auto_confirm.raw_value">
+                                                <br/>
+                                                <a class="pl-2" name="action_demand_open_attendee" type="object" context="{'search_default_confirmed': True }">
+                                                    <i class="fa fa-level-up fa-rotate-90" title="Confirmed"/>
+                                                    <span class="pl-2">
+                                                        <t t-esc="total_seats"/>Confirmed</span>
+                                                </a>
+                                            </div>
+                                        </h5>
+                                        <div class="o_kanban_record_bottom">
+                                            <div class="oe_kanban_bottom_left">
+                                            </div>
+                                            <div class="oe_kanban_bottom_right">
+                                                <field name="user_id" widget="many2one_avatar_user"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="action_demand_view" model="ir.actions.act_window">
+            <field name="name">Demand</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">event.demand</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="search_view_id" ref="view_demand_search"/>
+            <field name="context">{ 'search_need_register' : False}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new demand
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

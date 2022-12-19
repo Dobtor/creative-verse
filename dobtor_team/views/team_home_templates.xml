@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="team_index" name="Team Homepage">
+            <t t-call="website.layout">
+                <div id="wrap" class="team_home__wrapper">
+                    <!-- Topbar -->
+                    <t t-call="dobtor_team.team_top"/>
+                    <!-- Drag/Drop Area -->
+                    <div id="oe_structure_team_index_1" class="oe_structure oe_empty"/>
+                    <!-- Content -->
+                    <div style="background-color: white !important;">
+                        <div class="container">
+                            <div class="row">
+                                <t t-foreach="teams" t-as="team">
+                                    <div class="col-lg-3 col-6 d-flex flex-grow-1">
+                                        <t t-call="dobtor_team.team_card"/>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Drag/Drop Area -->
+                    <div id="oe_structure_team_index_2" class="oe_structure oe_empty"/>
+                </div>
+            </t>
+        </template>
+
+        <template id="team_top" name="Team Homepage Top">
+            <div class="container">
+                <t t-call="dobtor_team.team_homepage_oe_structure"/>
+                <div class="team_home__topbar_wrapper d-flex flex-column flex-sm-row justify-content-between w-100">
+                    <div class="d-flex align-items-center flex-wrap flex-grow-1">
+                        <form t-attf-class="team_home__searchbar o_wait_lazy_js w-100 my-1 my-lg-0" action="/team" method="get">
+                            <t t-set="search" t-value="search or searches and searches['search']"/>
+                            <div class="input-group" role="search">
+                                <input type="search" name="search" class="search-query form-control oe_search_box" placeholder="Search team..." t-att-value="search"/>
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-primary oe_search_button" aria-label="Search" title="Search"><i class="fa fa-search"/></button>
+                                </div>
+                            </div>
+                            <t t-foreach="searches" t-as="search">
+                                <input t-if="search != 'search' and search_value != 'all'" type="hidden"
+                                    t-att-name="search" t-att-value="search_value"/>
+                            </t>
+                        </form>
+                    </div>
+                    <ul class="team_home__topbar_filters nav">
+                        <li class="nav-item dropdown mr-2">
+                            <a href="#" role="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                                <t t-if="current_date" t-esc="current_date"/>
+                                <t t-else="">All</t>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item d-flex align-items-center justify-content-between">
+                                    All
+                                </a>
+                                <a href="#" class="dropdown-item d-flex align-items-center justify-content-between">
+                                    This Week
+                                </a>
+                                <a href="#" class="dropdown-item d-flex align-items-center justify-content-between">
+                                    This Month
+                                </a>
+                                <a href="#" class="dropdown-item d-flex align-items-center justify-content-between">
+                                    Three Months
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="form-inline justify-content-center">
+                        <t t-call="website.pager"/>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="team_homepage_oe_structure">
+            <div class="oe_structure"/>
+        </template>
+    </data>
+</odoo>

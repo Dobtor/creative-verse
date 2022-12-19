@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_partner_form_inherit_profile_info" model="ir.ui.view">
+        <field name="name">res.partner.form.profile.info.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/field[@name='image_1920']" position="before">
+                <field name="profile_section" widget='image' class="oe_avatar" options='{"preview_image": "profile_section"}'/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="team_information_inherit" inherit_id="dobtor_user_profile.db-user-information" name="Team Information Inherit">
+            <xpath expr="//t[@t-set='browsable']" position="attributes">
+                <attribute name="t-value" add="request.env.user.partner_id.id in partner_join_teams_managers" separator=" or "/>
+            </xpath>
+        </template>
+    </data>
+</odoo>

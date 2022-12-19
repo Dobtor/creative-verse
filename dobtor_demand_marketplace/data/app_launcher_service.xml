@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="app_launcher_my_service_data" model="app.launcher">
+            <field name="name">My Service</field>
+            <field name="url">/my/service</field>
+            <field name="group_ids" eval="[(4, ref('base.group_user')), (4, ref('dobtor_partner_group_extend.group_active_partner'))]"/>
+            <field name="image_64" type="base64" file="dobtor_demand_marketplace/static/src/img/app_launcher_my_service.svg"/>
+        </record>
+    </data>
+</odoo>

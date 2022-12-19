@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="dobtor.demand.give_up.modal">
+       <input type="hidden" name="demand_id" t-att-value="options.demand_id" />
+       <input type="hidden" name="give_up" t-att-value="options.give_up" />
+    </t>
+</templates>

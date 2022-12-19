@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="assets_frontend" inherit_id="website.assets_frontend" name="Profile Frontend Assets">
+            <xpath expr="//link[last()]" position="after">
+                <link rel="stylesheet" type="text/scss" href="/dobtor_user_profile/static/src/scss/user_profile.scss"/>
+                <link rel="stylesheet" type="text/scss" href="/dobtor_user_profile/static/src/scss/member_list.scss" />
+            </xpath>
+            <xpath expr="//script[last()]" position="after">
+                <script type="text/javascript" src="/dobtor_user_profile/static/src/js/profile_edit.js"></script>
+                <script type="text/javascript" src="/dobtor_user_profile/static/src/js/profile_user_info_edit.js"></script>
+                <script type="text/javascript" src="/dobtor_user_profile/static/src/js/profile_user_about_edit.js"></script>
+                <script type="text/javascript" src="/dobtor_user_profile/static/src/js/profile_share.js"></script>
+                <script type="text/javascript" src="/dobtor_user_profile/static/src/js/member_chapternav_scroll.js"></script>
+            </xpath>
+        </template>
+    </data>
+</odoo>

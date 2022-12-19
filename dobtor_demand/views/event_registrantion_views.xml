@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="demand_event_registration_view_form" model="ir.ui.view">
+            <field name="name">demand.event.registration.form</field>
+            <field name="model">event.registration</field>
+            <field name="inherit_id" ref="event.view_event_registration_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="action_view_purchase_order" type="object" class="oe_stat_button" icon="fa-usd" string="Purchase Order">
+                    </button>
+                </xpath>
+
+                <xpath expr="//field[@name='event_ticket_id']" position="before">
+                    <field name="mode" invisible="1"/>
+                </xpath>
+
+                <xpath expr="//field[@name='event_ticket_id']" position="after">
+                    <field name="request_qty" attrs="{'invisible': [('mode', '!=', 'demand')]}"/>
+                    <field name="request_total_amount" attrs="{'invisible': [('mode', '!=', 'demand')]}"/>
+                </xpath>
+
+                <xpath expr="//sheet" position="inside">
+                    <notebook attrs="{'invisible': [('mode', '!=', 'demand')]}">
+                        <!-- Region : Demand Purchase Infomation -->
+                        <page string="Demand Giver Info">
+                            <group>
+                                <group>
+                                    <field name="demand_po_id" />
+                                    <field name="demand_po_line_id" />
+                                </group>
+                            </group>
+                        </page>
+                        <!-- EndRegion -->
+                    </notebook>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

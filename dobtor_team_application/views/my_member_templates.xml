@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="my_team_index_inherit" inherit_id="dobtor_team.my_team_index" name="My Team Index Inherit">
+            <xpath expr="//a[hasclass('js_upload_team')]" position="attributes">
+                <attribute name="t-att-data-unpublish_counts">my_unpublish_team_counts</attribute>
+            </xpath>
+        </template>
+    </data>
+</odoo>

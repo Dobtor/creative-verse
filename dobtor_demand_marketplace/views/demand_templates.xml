@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="demand_project_list_extend" inherit_id="dobtor_demand.demand_project_list" name="Demand homepage team badge">
+        <xpath expr="//small[@t-if='not event.website_published']" position="before">
+            <span class="demand_homepage__badge event__badge badge bg-white">
+                <t t-if="event.demand_ids.is_team">Team</t>
+                <t t-else="">Personal</t>
+            </span>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="team_card" name="Team Card">
+            <div class="team__card_wrapper card w-100 mb-4">
+                <a class="team__card_header" t-att-href="'/user/profile/%s' % slug(team)" t-title="team.name">
+                    <img class="team__card_header-section h-100 w-100 bg-900" t-att-src="image_data_uri(team.profile_section) if team.profile_section else '/dobtor_team/static/src/img/team_section_default.jpg'"/>
+                    <div class="team__card_header-avatar">
+                        <img t-att-src="image_data_uri(team.image_256) if team.image_256 else '/dobtor_team/static/src/img/team_avatar_default.jpg'" width="72" height="72"/>
+                    </div>
+                    <t t-if="team_status_badge">
+                        <span t-if="team.leader_id == partner" class="team__card_header-badge badge leader">Leader</span>
+                        <span t-elif="partner in team.assistant_ids" class="team__card_header-badge badge">Manager</span>
+                        <span t-elif="partner in team.team_member_ids" class="team__card_header-badge badge member">Member</span>
+                    </t>
+                </a>
+                <div class="team__card_body_wrapper card-body text-center">
+                    <a class="team__card_body_name" t-att-href="'/user/profile/%s' % slug(team)" t-esc="team.name"/>
+                    <div class="d-flex team__card_body_statistics_wrapper">
+                        <div class="team__card_body_statistics d-flex align-items-center justify-content-center">
+                            <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.9,12.5c-0.9,0-1.6,0.4-2.2,1.1H5.6c-0.5,0-0.8-0.1-1.2-0.3C4.2,13,4,12.6,4,12.2c0-2,0.3-2.9,1-2.9
+                                    c0,0,0.2,0.1,0.4,0.2c0.2,0.1,0.5,0.2,0.8,0.4c0.3,0.1,0.7,0.2,1,0.2c0.4,0,0.7-0.1,1.1-0.2c0,0.2,0,0.4,0,0.5
+                                    C8.3,11.1,8.5,11.8,8.9,12.5z M17.9,17.8c0,0.7-0.2,1.2-0.6,1.6c-0.4,0.4-0.9,0.6-1.6,0.6H8.4c-0.7,0-1.2-0.2-1.6-0.6
+                                    c-0.4-0.4-0.6-0.9-0.6-1.6c0-0.3,0-0.6,0-0.9c0-0.3,0.1-0.6,0.1-0.9c0.1-0.3,0.1-0.6,0.2-0.9c0.1-0.3,0.2-0.5,0.4-0.8
+                                    C7,14,7.2,13.8,7.4,13.6s0.4-0.3,0.7-0.4C8.4,13.1,8.7,13,9,13c0.1,0,0.2,0.1,0.4,0.2c0.2,0.1,0.4,0.3,0.6,0.4
+                                    c0.2,0.1,0.5,0.3,0.9,0.4c0.4,0.1,0.7,0.2,1.1,0.2s0.8-0.1,1.1-0.2c0.4-0.1,0.7-0.3,0.9-0.4c0.2-0.1,0.4-0.3,0.6-0.4
+                                    c0.2-0.1,0.3-0.2,0.4-0.2c0.3,0,0.6,0.1,0.9,0.2c0.3,0.1,0.5,0.3,0.7,0.4s0.4,0.4,0.5,0.7c0.1,0.3,0.3,0.5,0.4,0.8
+                                    c0.1,0.3,0.2,0.6,0.2,0.9c0.1,0.3,0.1,0.6,0.1,0.9S17.9,17.5,17.9,17.8z M9.3,7.1c0,0.6-0.2,1.1-0.6,1.5C8.3,9.1,7.8,9.3,7.2,9.3
+                                    S6.1,9.1,5.7,8.6C5.3,8.2,5.1,7.7,5.1,7.1S5.3,6,5.7,5.6C6.1,5.2,6.6,5,7.2,5s1.1,0.2,1.5,0.6C9.1,6,9.3,6.5,9.3,7.1z M15.2,10.3
+                                    c0,0.9-0.3,1.6-0.9,2.3s-1.4,0.9-2.3,0.9s-1.6-0.3-2.3-0.9s-0.9-1.4-0.9-2.3c0-0.9,0.3-1.6,0.9-2.3s1.4-0.9,2.3-0.9s1.6,0.3,2.3,0.9
+                                    S15.2,9.4,15.2,10.3z M20,12.2c0,0.4-0.2,0.8-0.5,1c-0.3,0.2-0.7,0.3-1.1,0.3h-1.1c-0.6-0.7-1.3-1-2.2-1.1c0.4-0.6,0.7-1.4,0.7-2.1
+                                    c0-0.2,0-0.3,0-0.5c0.4,0.1,0.7,0.2,1.1,0.2c0.3,0,0.7-0.1,1-0.2c0.3-0.1,0.6-0.2,0.8-0.4c0.2-0.1,0.3-0.2,0.4-0.2
+                                    C19.7,9.3,20,10.2,20,12.2z M18.9,7.1c0,0.6-0.2,1.1-0.6,1.5c-0.4,0.4-0.9,0.6-1.5,0.6c-0.6,0-1.1-0.2-1.5-0.6
+                                    c-0.4-0.4-0.6-0.9-0.6-1.5s0.2-1.1,0.6-1.5C15.7,5.2,16.2,5,16.8,5c0.6,0,1.1,0.2,1.5,0.6C18.7,6,18.9,6.5,18.9,7.1z"/>
+                            </svg>
+                            <span class="team__card_body_num team_card_truncate_1" t-esc="len(team.assistant_ids + team.team_member_ids)"/>
+                        </div>
+                    </div>
+                    <t t-if="apply">
+                        <span class="badge team__card_body_badge w-100 text-wrap">Audit</span>
+                    </t>
+                    <div t-else="" class="team__card_body_content team_card_truncate_2">
+                        <span t-if="team.profile_description" t-field="team.profile_description"/>
+                        <span t-else="" t-esc="'-'"/>
+                    </div>
+                </div>
+                <div class="card-footer team__card_footer_wrapper bg-white text-600 p-0" style="border-top: unset;"/>
+            </div>
+        </template>
+
+        <template id="team_member_card">
+            <div class="team_member__wrapper d-flex flex-column flex-lg-row h-100">
+                <a class="team_member__header flex-shrink-0" t-att-href="'/user/profile/%s' % (slug(partner))" t-att-title="partner.name">
+                    <img class="team_member__header-section h-100 w-100 bg-900" t-att-src="website.image_url(partner, 'profile_section') if partner.profile_section else '/dobtor_user_profile/static/src/img/profile_section_default.jpg'"/>
+                    <div class="team_member__header-avatar">
+                        <img t-att-src="website.image_url(partner, 'image_256') if partner.image_256 else '/dobtor_user_profile/static/src/img/profile_avatar_default.jpg'" width="80" height="80"/>
+                    </div>
+                </a>
+                <div class="team_member__body_wrapper team_profile__members_wrapper d-flex flex-column flex-grow-1" t-att-data-organizer_id="team.id">
+                    <div class="d-flex team_member__body_badge_wrapper justify-content-between">
+                        <span t-attf-class="team_member__body_badge #{mode == 'apply' and 'audit_badge'}">
+                            <span t-if="mode == 'apply'">Audit</span>
+                            <span t-elif="mode == 'member'">Member</span>
+                            <span t-elif="mode == 'assistant'">Asst.</span>
+                        </span>
+                        <div t-if="mode == 'apply' and member_options" class="team_member__body_audit_operate d-flex">
+                            <a class="d-flex audit_approve" href="#" role="button" t-att-data-member_id="partner.id">
+                                <svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19.8428 6H18.4723C18.2801 6 18.0978 6.09086 17.9802 6.24633L9.89616 16.7921L6.01984 11.7343C5.96121 11.6576 5.88646 11.5956 5.80123 11.5529C5.71599 11.5103 5.62248 11.488 5.52771 11.4879H4.15717C4.02581 11.4879 3.95326 11.6434 4.03365 11.7484L9.40402 18.7547C9.65499 19.0818 10.1373 19.0818 10.3903 18.7547L19.9664 6.25845C20.0467 6.15547 19.9742 6 19.8428 6V6Z"/>
+                                </svg>
+                            </a>
+                            <a class="d-flex audit_reject" href="#" role="button" t-att-data-member_id="partner.id">
+                                <svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13.2143 12L19.3666 4.66641C19.4697 4.54453 19.383 4.35938 19.2236 4.35938H17.3533C17.2432 4.35938 17.1377 4.40859 17.065 4.49297L11.9908 10.5422L6.91659 4.49297C6.84628 4.40859 6.74081 4.35938 6.62831 4.35938H4.758C4.59863 4.35938 4.51191 4.54453 4.61503 4.66641L10.7674 12L4.61503 19.3336C4.59193 19.3608 4.57711 19.394 4.57233 19.4293C4.56755 19.4647 4.57301 19.5006 4.58806 19.533C4.60312 19.5653 4.62713 19.5926 4.65725 19.6117C4.68737 19.6308 4.72234 19.6408 4.758 19.6406H6.62831C6.73847 19.6406 6.84394 19.5914 6.91659 19.507L11.9908 13.4578L17.065 19.507C17.1353 19.5914 17.2408 19.6406 17.3533 19.6406H19.2236C19.383 19.6406 19.4697 19.4555 19.3666 19.3336L13.2143 12Z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-grow-1 justify-content-between">
+                        <div class="team_member__body_info_wrapper">
+                            <a class="team_member__body_name mb-2" t-att-href="'/user/profile/%s' % (slug(partner))" t-esc="partner.name"/>
+                            <div class="team_member__body_date d-flex align-items-center">
+                                <svg class="flex-shrink-0" width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.23938 18.7692H7.07692C6.26087 18.7692 5.47824 18.4451 4.90121 17.868C4.32417 17.291 4 16.5084 4 15.6923V8.92308H10.5686C9.67947 9.54724 8.95384 10.3765 8.45315 11.3406C7.95247 12.3046 7.69149 13.3752 7.69231 14.4615C7.69231 16.0985 8.27323 17.6 9.23938 18.7692ZM4 7.69231H18.7692V7.07692C18.7692 6.26087 18.4451 5.47824 17.868 4.90121C17.291 4.32417 16.5084 4 15.6923 4H7.07692C6.26087 4 5.47824 4.32417 4.90121 4.90121C4.32417 5.47824 4 6.26087 4 7.07692V7.69231ZM20 14.4615C20 15.1889 19.8567 15.9091 19.5784 16.581C19.3001 17.253 18.8921 17.8635 18.3778 18.3778C17.8635 18.8921 17.253 19.3001 16.581 19.5784C15.9091 19.8567 15.1889 20 14.4615 20C13.7342 20 13.014 19.8567 12.3421 19.5784C11.6701 19.3001 11.0595 18.8921 10.5453 18.3778C10.031 17.8635 9.623 17.253 9.34467 16.581C9.06633 15.9091 8.92308 15.1889 8.92308 14.4615C8.92308 12.9926 9.50659 11.5839 10.5453 10.5453C11.5839 9.50659 12.9926 8.92308 14.4615 8.92308C15.9304 8.92308 17.3392 9.50659 18.3778 10.5453C19.4165 11.5839 20 12.9926 20 14.4615V14.4615ZM15.0769 12C15.0769 11.8368 15.0121 11.6803 14.8967 11.5649C14.7813 11.4495 14.6247 11.3846 14.4615 11.3846C14.2983 11.3846 14.1418 11.4495 14.0264 11.5649C13.911 11.6803 13.8462 11.8368 13.8462 12V13.8462H12C11.8368 13.8462 11.6803 13.911 11.5649 14.0264C11.4495 14.1418 11.3846 14.2983 11.3846 14.4615C11.3846 14.6247 11.4495 14.7813 11.5649 14.8967C11.6803 15.0121 11.8368 15.0769 12 15.0769H13.8462V16.9231C13.8462 17.0863 13.911 17.2428 14.0264 17.3582C14.1418 17.4736 14.2983 17.5385 14.4615 17.5385C14.6247 17.5385 14.7813 17.4736 14.8967 17.3582C15.0121 17.2428 15.0769 17.0863 15.0769 16.9231V15.0769H16.9231C17.0863 15.0769 17.2428 15.0121 17.3582 14.8967C17.4736 14.7813 17.5385 14.6247 17.5385 14.4615C17.5385 14.2983 17.4736 14.1418 17.3582 14.0264C17.2428 13.911 17.0863 13.8462 16.9231 13.8462H15.0769V12Z"/>
+                                </svg>
+                                <span t-esc="partner.create_date" t-options="{'widget': 'datetime', 'format': 'yyyy-MM-dd'}"/>
+                            </div>
+                        </div>
+                        <div t-if="mode != 'apply' and member_options" class="team_member__body_manage_operate">
+                            <t t-call="dobtor_team.member_option_dropdown"/>
+                        </div>
+                    </div>
+                    <t t-raw="0"/>
+                </div>
+            </div>
+            <hr class="team_member__hr bg-o-color-1"/>
+        </template>
+    </data>
+</odoo>

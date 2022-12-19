@@ -1,0 +1,775 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* dobtor_team
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0-20210504\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-07 08:54+0000\n"
+"PO-Revision-Date: 2022-07-07 08:54+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.apply_cancel_modal
+msgid ""
+"<i class=\"fa fa-check-circle fa-2x success_display d-none\"/>\n"
+"                                <i class=\"fa fa-exclamation-triangle fa-2x double_check\"/>\n"
+"                                <span class=\"double_check text-center\">Are you sure you want to cancel the request to join the team？</span>\n"
+"                                <span class=\"success_display text-center d-none\">Team request cancelled</span>"
+msgstr ""
+"<i class=\"fa fa-check-circle fa-2x success_display d-none\"/>\n"
+"                                <i class=\"fa fa-exclamation-triangle fa-2x double_check\"/>\n"
+"                                <span class=\"double_check text-center\">您確定要取消加入群組申請？</span>\n"
+"                                <span class=\"success_display text-center d-none\">群組申請已取消</span>"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.leave_modal
+msgid ""
+"<i class=\"fa fa-check-circle fa-2x success_display d-none\"/>\n"
+"                                <i class=\"fa fa-exclamation-triangle fa-2x double_check\"/>\n"
+"                                <span class=\"double_check text-center\">Are you sure you want to leave this team？</span>\n"
+"                                <span class=\"success_display text-center d-none\">You are logged out</span>"
+msgstr ""
+"<i class=\"fa fa-check-circle fa-2x success_display d-none\"/>\n"
+"                                <i class=\"fa fa-exclamation-triangle fa-2x double_check\"/>\n"
+"                                <span class=\"double_check text-center\">您確定要退出該群組？</span>\n"
+"                                <span class=\"success_display text-center d-none\">您已退出</span>"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.apply_confirm_modal
+msgid ""
+"<i class=\"fa fa-check-circle fa-2x\"/>\n"
+"                                <span class=\"text-center\">Request to join message has been sent</span>"
+msgstr ""
+"<i class=\"fa fa-check-circle fa-2x\"/>\n"
+"                                <span class=\"text-center\">申請加入訊息已送出</span>"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_list
+msgid ""
+"<i class=\"fa fa-users\"/>\n"
+"                                                                    <span class=\"small px-2 text-muted\">Member List</span>"
+msgstr ""
+"<i class=\"fa fa-users\"/>\n"
+"                                                                    <span class=\"small px-2 text-muted\">成員</span>"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.my_team_index
+msgid "<span class=\"align-middle\">Create Team</span>"
+msgstr "<span class=\"align-middle\">建立群組</span>"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_card
+msgid "<span class=\"badge team__card_body_badge w-100 text-wrap\">Audit</span>"
+msgstr "<span class=\"badge team__card_body_badge w-100 text-wrap\">審核中</span>"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_profile_left_panel
+msgid "<span class=\"db-profile__widget_content_title\">Introduction</span>"
+msgstr "<span class=\"db-profile__widget_content_title\">簡介</span>"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_inherit_member_sidebar_layout
+msgid ""
+"<span class=\"member_chapternav_label px-2\">\n"
+"                            My Join Team\n"
+"                        </span>"
+msgstr ""
+"<span class=\"member_chapternav_label px-2\">\n"
+"                            我的群組\n"
+"                        </span>"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_inherit_member_sidebar_layout
+msgid ""
+"<span class=\"member_chapternav_label px-2\">\n"
+"                            My Team\n"
+"                        </span>"
+msgstr ""
+"<span class=\"member_chapternav_label px-2\">\n"
+"                            我的群組\n"
+"                        </span>"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_inherit_member_sidebar_layout
+msgid ""
+"<span class=\"member_chapternav_label px-2\">\n"
+"                            Team Member\n"
+"                        </span>"
+msgstr ""
+"<span class=\"member_chapternav_label px-2\">\n"
+"                            我的會員\n"
+"                        </span>"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_list
+msgid "<span class=\"small px-2 text-muted\">Child Team</span>"
+msgstr "<span class=\"small px-2 text-muted\">子群組總數</span>"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_list
+msgid "<span class=\"small px-2 text-muted\">Member Counts</span>"
+msgstr "<span class=\"small px-2 text-muted\">人數</span>"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_list
+msgid "<span class=\"small\">Assistants</span>"
+msgstr "<span class=\"small\">協同管理</span>"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_list
+msgid "<span class=\"small\">Leader</span>"
+msgstr "<span class=\"small\">管理</span>"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_member_list
+msgid "<span class=\"small\">birthday</span>"
+msgstr "<span class=\"small\">生日</span>"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_content_tabpanel
+msgid ""
+"<span class=\"team_profile__members_headline w-100 mt-4\">Assistants</span>"
+msgstr "<span class=\"team_profile__members_headline w-100 mt-4\">協同管理</span>"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_content_tabpanel
+msgid "<span class=\"team_profile__members_headline w-100 mt-4\">Members</span>"
+msgstr "<span class=\"team_profile__members_headline w-100 mt-4\">成員</span>"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_content_tabpanel
+msgid "<span class=\"team_profile__members_headline w-100\">Apply</span>"
+msgstr "<span class=\"team_profile__members_headline w-100\">待審核</span>"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.db-team-members
+msgid "<span class=\"team_profile__members_title\">Applicant</span>"
+msgstr "<span class=\"team_profile__members_title\">申請人</span>"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.db-team-members
+msgid "<span class=\"team_profile__members_title\">Date</span>"
+msgstr "<span class=\"team_profile__members_title\">日期</span>"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.profile_header_inherit
+msgid "<span class=\"team_profile__members_title\">Leader</span>"
+msgstr "<span class=\"team_profile__members_title\">負責人</span>"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_content_tabpanel
+msgid ""
+"<span class=\"text-center\">\n"
+"                                        Your group join request\n"
+"                                        <span class=\"badge\">Audit</span>\n"
+"                                    </span>"
+msgstr ""
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_content_tabpanel
+msgid ""
+"<span class=\"text-center\">\n"
+"                                        Your team join request\n"
+"                                        <span class=\"badge\">Audit</span>\n"
+"                                    </span>"
+msgstr ""
+"<span class=\"text-center\">\n"
+"                                        您的群組加入申請\n"
+"                                        <span class=\"badge\">審核中</span>\n"
+"                                    </span>"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_content_tabpanel
+msgid "<span class=\"text-center\">Join our team？</span>"
+msgstr "<span class=\"text-center\">想加入我們的群組？</span>"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_breadcrumbs
+msgid "<span>Assistants</span>"
+msgstr "<span>協同管理</span>"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_top
+msgid "All"
+msgstr ""
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.member_apply_list_form_view
+msgid "Applicant"
+msgstr "申請人"
+
+#. module: dobtor_team
+#: model:ir.model.fields,field_description:dobtor_team.field_res_partner__apply_count
+#: model:ir.model.fields,field_description:dobtor_team.field_res_users__apply_count
+msgid "Apply Count"
+msgstr "申請數"
+
+#. module: dobtor_team
+#: model:ir.model.fields,field_description:dobtor_team.field_res_partner__apply_ids
+#: model:ir.model.fields,field_description:dobtor_team.field_res_users__apply_ids
+#: model_terms:ir.ui.view,arch_db:dobtor_team.view_partner_form_inherit_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.view_team_form
+msgid "Apply List"
+msgstr "申請清單"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_content_tabpanel
+msgid "Apply to join a team"
+msgstr "申請加入群組"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.member_option_dropdown
+msgid "Approve"
+msgstr "核准"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.view_team_form
+msgid "Archived"
+msgstr ""
+
+#. module: dobtor_team
+#: model:ir.model.fields,field_description:dobtor_team.field_res_partner__assistant_ids
+#: model:ir.model.fields,field_description:dobtor_team.field_res_users__assistant_ids
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_breadcrumbs
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_list
+msgid "Assistants"
+msgstr "協同管理"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.db-team-members
+msgid "Asst."
+msgstr "協同管理"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.db-team-members
+msgid "Audit"
+msgstr "待審核"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.db-team-members
+#: model_terms:ir.ui.view,arch_db:dobtor_team.profile_header_inherit
+#: model_terms:ir.ui.view,arch_db:dobtor_team.view_partner_form_inherit_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.view_team_form
+msgid "Avatar"
+msgstr "頭像"
+
+#. module: dobtor_team
+#: model:res.groups,comment:dobtor_team.group_team_manager
+msgid "Backend Manage Teams"
+msgstr "後台管理群組"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.db-team-about
+#: model_terms:ir.ui.view,arch_db:dobtor_team.db-team-information
+msgid "Update"
+msgstr "儲存"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_content_tabpanel
+msgid "Cancel apply"
+msgstr "取消申請"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.member_option_dropdown
+msgid "Cancel assistant"
+msgstr "取消協同管理"
+
+#. module: dobtor_team
+#. openerp-web
+#: code:addons/dobtor_team/static/src/xml/team_upload.xml:0
+#, python-format
+msgid "Choose file"
+msgstr ""
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.view_team_form
+msgid "Company"
+msgstr ""
+
+#. module: dobtor_team
+#: model:ir.ui.menu,name:dobtor_team.team_configuration
+msgid "Configuration"
+msgstr "設置"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.apply_cancel_modal
+#: model_terms:ir.ui.view,arch_db:dobtor_team.apply_confirm_modal
+#: model_terms:ir.ui.view,arch_db:dobtor_team.leave_modal
+msgid "Confirm"
+msgstr "確定"
+
+#. module: dobtor_team
+#: model:ir.model,name:dobtor_team.model_res_partner
+msgid "Contact"
+msgstr "聯繫人"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.view_team_form
+msgid "Create company"
+msgstr ""
+
+#. module: dobtor_team
+#. openerp-web
+#: code:addons/dobtor_team/static/src/js/team_upload.js:0
+#, python-format
+msgid "Create new %s '%s'"
+msgstr ""
+
+#. module: dobtor_team
+#: model:ir.model.fields,field_description:dobtor_team.field_member_apply_list__create_uid
+#: model:ir.model.fields,field_description:dobtor_team.field_team_title__create_uid
+msgid "Created by"
+msgstr "創立者"
+
+#. module: dobtor_team
+#: model:ir.model.fields,field_description:dobtor_team.field_member_apply_list__create_date
+#: model:ir.model.fields,field_description:dobtor_team.field_team_title__create_date
+msgid "Created on"
+msgstr "建立於"
+
+#. module: dobtor_team
+#. openerp-web
+#: code:addons/dobtor_team/static/src/js/team_upload.js:0
+#, python-format
+msgid "Discard"
+msgstr ""
+
+#. module: dobtor_team
+#: model:ir.model.fields,field_description:dobtor_team.field_member_apply_list__display_name
+#: model:ir.model.fields,field_description:dobtor_team.field_res_partner__display_name
+#: model:ir.model.fields,field_description:dobtor_team.field_res_partner_title__display_name
+#: model:ir.model.fields,field_description:dobtor_team.field_res_users__display_name
+#: model:ir.model.fields,field_description:dobtor_team.field_team_title__display_name
+msgid "Display Name"
+msgstr "顯示名稱"
+
+#. module: dobtor_team
+#. openerp-web
+#: code:addons/dobtor_team/static/src/js/team_upload.js:0
+#, python-format
+msgid "Event Tags"
+msgstr ""
+
+#. module: dobtor_team
+#. openerp-web
+#: code:addons/dobtor_team/static/src/js/team_upload.js:0
+#, python-format
+msgid "File is too big. File size cannot exceed 25MB"
+msgstr ""
+
+#. module: dobtor_team
+#: model:ir.model.fields,help:dobtor_team.field_team_title__sequence
+msgid ""
+"Gives the sequence order when displaying a list of analytic distribution"
+msgstr "給出顯示分析分佈明細的序列順序"
+
+#. module: dobtor_team
+#: model:ir.model.fields,field_description:dobtor_team.field_member_apply_list__id
+#: model:ir.model.fields,field_description:dobtor_team.field_res_partner__id
+#: model:ir.model.fields,field_description:dobtor_team.field_res_partner_title__id
+#: model:ir.model.fields,field_description:dobtor_team.field_res_users__id
+#: model:ir.model.fields,field_description:dobtor_team.field_team_title__id
+msgid "ID"
+msgstr ""
+
+#. module: dobtor_team
+#: code:addons/dobtor_team/controllers/controllers.py:0
+#, python-format
+msgid ""
+"Internal server error, please try again later or contact administrator.\n"
+"Here is the error message: %s"
+msgstr ""
+
+#. module: dobtor_team
+#. openerp-web
+#: code:addons/dobtor_team/static/src/js/team_upload.js:0
+#, python-format
+msgid "Invalid file type. Please select image file"
+msgstr ""
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.view_partner_form_inherit_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.view_team_form
+msgid "Join"
+msgstr "加入"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.view_partner_form_inherit_team
+msgid "Join Team"
+msgstr "加入的群組"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.member_option_dropdown
+msgid "Kick"
+msgstr "請離群組"
+
+#. module: dobtor_team
+#: model:ir.model.fields,field_description:dobtor_team.field_member_apply_list____last_update
+#: model:ir.model.fields,field_description:dobtor_team.field_res_partner____last_update
+#: model:ir.model.fields,field_description:dobtor_team.field_res_partner_title____last_update
+#: model:ir.model.fields,field_description:dobtor_team.field_res_users____last_update
+#: model:ir.model.fields,field_description:dobtor_team.field_team_title____last_update
+msgid "Last Modified on"
+msgstr "最後修改於"
+
+#. module: dobtor_team
+#: model:ir.model.fields,field_description:dobtor_team.field_member_apply_list__write_uid
+#: model:ir.model.fields,field_description:dobtor_team.field_team_title__write_uid
+msgid "Last Updated by"
+msgstr "最後更新者"
+
+#. module: dobtor_team
+#: model:ir.model.fields,field_description:dobtor_team.field_member_apply_list__write_date
+#: model:ir.model.fields,field_description:dobtor_team.field_team_title__write_date
+msgid "Last Updated on"
+msgstr "最後更新於"
+
+#. module: dobtor_team
+#: model:ir.model.fields,field_description:dobtor_team.field_res_partner__leader_id
+#: model:ir.model.fields,field_description:dobtor_team.field_res_users__leader_id
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_card
+msgid "Leader"
+msgstr "負責人"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_card
+msgid "Manager"
+msgstr "管理者"
+
+#. module: dobtor_team
+#: model:ir.model.fields,field_description:dobtor_team.field_res_partner__leader_title_display
+#: model:ir.model.fields,field_description:dobtor_team.field_res_users__leader_title_display
+msgid "Leader Title"
+msgstr "負責人頭銜"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_content_tabpanel
+msgid "Leave team"
+msgstr "退出群組"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_breadcrumbs
+msgid "Mange:"
+msgstr "管理："
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.content_collapse_inherit
+#: model_terms:ir.ui.view,arch_db:dobtor_team.db-team-members
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_card
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_member_card
+msgid "Member"
+msgstr "成員"
+
+#. module: dobtor_team
+#: model:ir.model,name:dobtor_team.model_member_apply_list
+msgid "Member Apply List"
+msgstr "會友申請清單"
+
+#. module: dobtor_team
+#: model:ir.model.fields,field_description:dobtor_team.field_res_partner__member_count
+#: model:ir.model.fields,field_description:dobtor_team.field_res_users__member_count
+msgid "Member Count"
+msgstr "成員數"
+
+#. module: dobtor_team
+#: model:ir.model.fields,field_description:dobtor_team.field_team_title__name
+#: model_terms:ir.ui.view,arch_db:dobtor_team.view_team_form
+#: model_terms:ir.ui.view,arch_db:dobtor_team.view_team_list_tree
+msgid "Name"
+msgstr "類型名稱"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_list
+msgid "No subordinate team."
+msgstr "該群組無任何下層群組"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.view_res_partner_team_filter
+msgid "Parent Team"
+msgstr "上層群組"
+
+#. module: dobtor_team
+#: model:ir.model.fields,field_description:dobtor_team.field_res_partner__parents_domain_ids
+#: model:ir.model.fields,field_description:dobtor_team.field_res_users__parents_domain_ids
+msgid "Parents Domain"
+msgstr ""
+
+#. module: dobtor_team
+#: model:ir.model.fields,field_description:dobtor_team.field_res_partner_title__partner_ids
+msgid "Partner"
+msgstr "聯絡人"
+
+#. module: dobtor_team
+#: model:ir.model,name:dobtor_team.model_res_partner_title
+msgid "Partner Title"
+msgstr "業務夥伴稱謂"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.view_partner_form_inherit_team
+msgid "Project Team"
+msgstr "群組"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.member_option_dropdown
+msgid "Reject"
+msgstr "拒絕"
+
+#. module: dobtor_team
+#. openerp-web
+#: code:addons/dobtor_team/static/src/js/team_upload.js:0
+#, python-format
+msgid "Save"
+msgstr ""
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.my_team_index
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_top
+msgid "Search"
+msgstr ""
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.my_team_index
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_top
+msgid "Search team..."
+msgstr "搜尋群組"
+
+#. module: dobtor_team
+#: model:ir.model.fields,field_description:dobtor_team.field_team_title__sequence
+msgid "Sequence"
+msgstr "序號"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.member_option_dropdown
+msgid "Set assistant"
+msgstr "設為協同管理"
+
+#. module: dobtor_team
+#: model:ir.ui.menu,name:dobtor_team.menu_tema_tags
+#: model_terms:ir.ui.view,arch_db:dobtor_team.view_team_form
+msgid "Tags"
+msgstr "標籤"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.view_team_form
+msgid "Tags..."
+msgstr "標籤"
+
+#. module: dobtor_team
+#. openerp-web
+#: code:addons/dobtor_team/static/src/xml/select_team_dialog.xml:0
+#: code:addons/dobtor_team/static/src/xml/select_team_dialog.xml:0
+#: model:ir.model.fields,field_description:dobtor_team.field_res_partner__team_join_ids
+#: model:ir.model.fields,field_description:dobtor_team.field_res_users__team_join_ids
+#: model:ir.model.fields,field_description:dobtor_team.field_team_title__partner_ids
+#: model:ir.ui.menu,name:dobtor_team.team_managed_main_menu
+#: model:website.menu,name:dobtor_team.website_menu_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.view_team_form
+#: model_terms:ir.ui.view,arch_db:dobtor_team.view_team_list_tree
+#, python-format
+msgid "Team"
+msgstr "群組"
+
+#. module: dobtor_team
+#. openerp-web
+#: code:addons/dobtor_team/static/src/xml/team_upload.xml:0
+#: code:addons/dobtor_team/static/src/xml/team_upload.xml:0
+#, python-format
+msgid "Team Description"
+msgstr "群組簡介"
+
+#. module: dobtor_team
+#. openerp-web
+#: code:addons/dobtor_team/static/src/xml/team_upload.xml:0
+#: code:addons/dobtor_team/static/src/xml/team_upload.xml:0
+#, python-format
+msgid "Team Image"
+msgstr "群組照片"
+
+#. module: dobtor_team
+#: model:ir.actions.act_window,name:dobtor_team.action_team_list
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_list
+msgid "Team List"
+msgstr "群組清單"
+
+#. module: dobtor_team
+#: model:res.groups,name:dobtor_team.group_team_manager
+msgid "Team Manager"
+msgstr "群組管理員"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_member_list
+msgid "Team Member List"
+msgstr "群組會員清單"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.view_team_form
+msgid "Team Members"
+msgstr "群組會員"
+
+#. module: dobtor_team
+#. openerp-web
+#: code:addons/dobtor_team/static/src/xml/team_upload.xml:0
+#: code:addons/dobtor_team/static/src/xml/team_upload.xml:0
+#: code:addons/dobtor_team/static/src/xml/team_upload.xml:0
+#, python-format
+msgid "Team Name"
+msgstr "群組名稱"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_portal_profile
+msgid "Team Profile"
+msgstr "群組檔案"
+
+#. module: dobtor_team
+#: model:ir.model,name:dobtor_team.model_team_title
+#: model:ir.model.fields,field_description:dobtor_team.field_res_partner__team_title
+#: model:ir.model.fields,field_description:dobtor_team.field_res_users__team_title
+msgid "Team Title"
+msgstr "群組類型名稱"
+
+#. module: dobtor_team
+#: model:ir.model.fields,field_description:dobtor_team.field_res_partner__team_title_display
+#: model:ir.model.fields,field_description:dobtor_team.field_res_users__team_title_display
+msgid "Team Title Display"
+msgstr ""
+
+#. module: dobtor_team
+#: model:ir.actions.act_window,name:dobtor_team.action_team_title_contact
+#: model:ir.ui.menu,name:dobtor_team.menu_team_title_contact
+#: model_terms:ir.ui.view,arch_db:dobtor_team.view_team_title_form
+#: model_terms:ir.ui.view,arch_db:dobtor_team.view_team_title_tree
+msgid "Team Titles"
+msgstr "群組類型名稱"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.db-team-information
+msgid "Info"
+msgstr "聯繫"
+
+#. module: dobtor_team
+#: model:ir.model.fields,field_description:dobtor_team.field_res_partner__team_member_ids
+#: model:ir.model.fields,field_description:dobtor_team.field_res_users__team_member_ids
+msgid "Team member"
+msgstr "成員"
+
+#. module: dobtor_team
+#: model:ir.model.fields,field_description:dobtor_team.field_res_partner__team_names
+#: model:ir.model.fields,field_description:dobtor_team.field_res_users__team_names
+#: model:ir.ui.menu,name:dobtor_team.menu_team_list
+#: model_terms:ir.ui.view,arch_db:dobtor_team.view_res_partner_team_filter
+msgid "Teams"
+msgstr "群組"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_member_list
+msgid "The team has no members."
+msgstr "該群組無任何會友"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_top
+msgid "This Month"
+msgstr ""
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_top
+msgid "This Week"
+msgstr ""
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_top
+msgid "Three Months"
+msgstr ""
+
+#. module: dobtor_team
+#. openerp-web
+#: code:addons/dobtor_team/static/src/js/team_upload.js:0
+#, python-format
+msgid "Upload Team"
+msgstr "建立群組"
+
+#. module: dobtor_team
+#: model:ir.model,name:dobtor_team.model_res_users
+msgid "Users"
+msgstr "使用者"
+
+#. module: dobtor_team
+#: model:ir.model.fields,field_description:dobtor_team.field_member_apply_list__member_id
+msgid "applicant"
+msgstr "申請人"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.team_breadcrumbs
+msgid "breadcrumb"
+msgstr "導覽列"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.view_team_form
+msgid "e.g. BE0477472701"
+msgstr ""
+
+#. module: dobtor_team
+#. openerp-web
+#: code:addons/dobtor_team/static/src/js/team_upload.js:0
+#, python-format
+msgid "input error"
+msgstr ""
+
+#. module: dobtor_team
+#: model:ir.model.fields,field_description:dobtor_team.field_res_partner__is_team
+#: model:ir.model.fields,field_description:dobtor_team.field_res_users__is_team
+msgid "is team"
+msgstr "為群組"
+
+#. module: dobtor_team
+#. openerp-web
+#: code:addons/dobtor_team/static/src/xml/select_team_dialog.xml:0
+#, python-format
+msgid "organizer_id"
+msgstr ""
+
+#. module: dobtor_team
+#: model:ir.model.fields,field_description:dobtor_team.field_res_partner__parents_id
+#: model:ir.model.fields,field_description:dobtor_team.field_res_users__parents_id
+msgid "parents team"
+msgstr "上層群組"
+
+#. module: dobtor_team
+#: model:ir.model.fields,field_description:dobtor_team.field_member_apply_list__partner_id
+msgid "team"
+msgstr "群組"
+
+#. module: dobtor_team
+#. openerp-web
+#: code:addons/dobtor_team/static/src/js/team_upload.js:0
+#, python-format
+msgid "」 input error"
+msgstr ""
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.db-team-about
+msgid "About"
+msgstr "關於"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.db-team-information
+msgid ""
+"<span class=\"mt-3 align-self-end\">\n"
+"                            <span class=\"text-danger\">*</span> mark are required\n"
+"                        </span>"
+msgstr ""
+"<span class=\"mt-3 align-self-end\">\n"
+"                                <span class=\"text-danger\">*</span> 號為必填欄位，未填無法儲存\n"
+"                            </span>"
+
+#. module: dobtor_team
+#: model_terms:ir.ui.view,arch_db:dobtor_team.db-team-about
+#: model_terms:ir.ui.view,arch_db:dobtor_team.db-team-information
+msgid "Cancel"
+msgstr "取消"

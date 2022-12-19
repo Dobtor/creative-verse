@@ -1,0 +1,254 @@
+.db-cover-content{
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    position: absolute;
+}
+
+.db-profile-photo{
+    bottom: 0; 
+    position: absolute; 
+    margin-bottom: -75px; 
+    border-radius: 100%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.db-photo-circle{
+    border-radius: 100%;
+
+    .db-profile-img{
+        border-radius: 100%;
+        
+        img{
+            border-radius: 100%;
+        }
+    }
+}
+
+.db-profile {
+
+    &__wrapper {
+        $truncate-limits: 1, 2;
+
+        @each $limit in $truncate-limits {
+            .desc_truncate_#{$limit} {
+                word-wrap: break-word;
+                word-break: break-all;
+                white-space: normal;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: $limit;
+            }
+        }
+    }
+
+    &__header {
+
+        &_wrapper {
+            
+        }
+
+        &-cover {
+            position: relative; 
+            background-position: center;
+            height: 210px;
+
+            &-wrapper {
+                margin-bottom: 4.75rem;
+            }
+
+            &-content {
+                left: 0; 
+                right: 0; 
+                bottom: 0; 
+                position: absolute;
+            }
+
+            &-photo {
+                bottom: 0; 
+                position: absolute; 
+                margin-bottom: -4.75rem;
+                border: 6px solid transparent;  
+                border-radius: 100%;
+                left: 11%;
+                // transform: translate(-50%);
+
+                img {
+                    width: 175px;
+                    height: 175px;
+                    border-radius: 100%;
+                    // #region: 邊框樣式 (因使用border會有與圖片之間會有間隙，所以改用這種方式)
+                    padding: 5px;
+                    background-color: #FFFFFF;
+                    // #endregion
+                    object-fit: cover;
+                }
+            }
+
+            section {
+                border-radius: 0.625rem 0.625rem 0 0;
+            }
+        }
+
+        &_title {
+
+            &_wrapper {
+                display: flex;
+                min-height: 76px; 
+                position: relative;
+                padding-top: 0.75rem;
+                margin-top: -4.75rem;
+                margin-left: calc(175px + 15%);
+
+                @include media-breakpoint-down(sm) {
+                    flex-wrap: wrap;
+                    margin-top: 0;
+                    margin-left: 0;
+                }
+            }
+
+            &_name {
+                font-size: 1.5rem;
+                line-height: 1.5rem;
+                font-weight: 400;
+            }
+        }
+
+        &_desc {
+
+            &_wrapper {
+                display: flex;
+                flex: 1;
+
+                svg {
+                    fill: color('o-color-1');
+                }
+
+                span {
+                    font-size: 0.875rem;
+                    line-height: 0.875rem;
+                    font-weight: 300;
+                }
+            }
+        }
+    }
+
+    &__nav_tabs {
+        border: 0;
+
+        .nav-link {
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            font-weight: 400;
+            border: 0;
+            border-bottom: 2px solid $border-color;
+            height: 100%;
+            color: #9B918C;
+    
+            &.active {
+                border-bottom: 3px solid color('o-color-1');
+                color: darken(#9B918C, 15%)
+            }
+        }
+    }
+
+    &__body {
+
+        &_wrapper {
+            background-color: #EDEDED;
+        }
+
+        &_content {
+
+            &_wrapper {
+
+            }
+        }
+
+        &_main {
+
+            &_wrapper {
+                padding: 2.25rem 0 2.25rem;
+                position: relative;
+            }
+        }
+    }
+
+    &__widget {
+
+        &_wrapper {
+            background: white; 
+            border-radius: 0.375rem;
+            padding: 2.25rem 1.5rem;
+        }
+
+        &_content {
+
+            &_wrapper {
+                padding: 1.5rem 0.75rem;
+                border-bottom: 0.5px solid #9B918C;
+                gap: 6px;
+            }
+
+            &_title {
+                font-size: 1.125rem;
+                line-height: 1.125rem;
+                font-weight: 400;
+            }
+
+            &_info {
+                font-size: 0.875rem;
+                line-height: 1.25rem;
+                font-weight: 400;
+            }
+        }
+
+    }
+
+    &__share {
+
+        &_wrapper {
+            border-bottom: 0.5px solid #9B918C;
+        }
+
+        &_link {
+            > * {
+                display: inline-block;
+            }
+    
+            a {
+                width: 2rem;
+            }
+        }
+    }
+
+    &__about {
+
+        &_wrapper {
+            background-color: white;
+            border-radius: 6px;
+
+            textarea.o_wysiwyg_loader + .note-editor {
+                border: 0;
+        
+                .note-toolbar {
+                    @include border-top-radius($border-radius);
+                    height: 32px;
+                }
+        
+                .note-editable, .note-statusbar {
+                    border: 1px solid $border-color;
+                    border-width: 0 1px;
+                }
+        
+                .note-statusbar {
+                    display: block;
+                    border-bottom-width: 1px;
+                }
+            }
+        }
+    }
+}

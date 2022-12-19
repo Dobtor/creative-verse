@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="app_upload_demand_data" model="app.upload">
+            <field name="name">Demand</field>
+            <field name="icon">fa-thumbs-up</field>
+            <field name="is_js_feature" eval="True"/>
+            <field name="js_selector">js_upload_demand_portal</field>
+            <field name="constraint">request.env.user.partner_id.check_access_rights_via_team(7)</field>
+            <field name="tips">你尚未加入群組</field>
+        </record>
+
+        <record id="app_upload_demand_team_data" model="app.upload">
+            <field name="name">Demand Team</field>
+            <field name="icon">fa-thumbs-o-up</field>
+            <field name="is_js_feature" eval="True"/>
+            <field name="js_selector">js_upload_demand_team_portal</field>
+            <field name="constraint">request.env.user.partner_id.check_access_rights_via_team(3)</field>
+            <field name="tips">你尚未成為群組管理者</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="demand_header" name="Demand header">
+        <div class="container">
+            <div class="oe_structure"/>
+            <div class="event_homepage__topbar_wrapper d-flex flex-column justify-content-between w-100 my-4">
+                <ul class="event_homepage__tag_category_wrapper o_wevent_index_topbar_filters customization_wevent_index_topbar_filters nav">
+                    <t t-foreach="categories" t-as="category">
+                        <li t-if="category.tag_ids" class="nav-item dropdown">
+                            <a href="#" role="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                                <t t-esc="category.name"/>
+                            </a>
+                            <div class="dropdown-menu">
+                                <t t-foreach="category.tag_ids" t-as="tag">
+                                    <a t-att-href="'/demand?%s' % keep_query('*', tags=str((search_tags - tag).ids if tag in search_tags else (tag | search_tags).ids))"
+                                        t-attf-class="dropdown-item d-flex align-items-center justify-content-between #{'active' if tag in search_tags else ''}">
+                                        <t t-esc="tag.name"/>
+                                    </a>
+                                </t>
+                            </div>
+                        </li>
+                    </t>
+                </ul>
+                <div class="event_homepage__filters_wrapper d-flex flex-column flex-sm-row flex-wrap">
+                    <div class="d-flex align-items-center flex-wrap flex-grow-1">
+                        <t t-call="website_event.events_search_box">
+                            <t t-set="_classes" t-value="'my-md-0'"/>
+                            <t t-set="_searches" t-value="searches"/>
+                            <t t-set="action" t-value="'/demand'"/>
+                            <t t-set="_placeholder">Search demand project...</t>
+                        </t>
+                    </div>
+                    <t t-call="website.pager">
+                        <t t-set="_classes" t-value="'justify-content-end justify-content-sm-start align-items-center'"/>
+                    </t>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="demand_project_list" name="Demand Project List">
+        <!-- Options -->
+        <t t-set="opt_index_sidebar" t-value="is_view_active('website_event.opt_index_sidebar')"/>
+        <t t-if="opt_events_list_columns" t-set="opt_event_size" t-value="opt_index_sidebar and 'col-md-6' or 'col-md-6 col-lg-3'"/>
+        <t t-else="" t-set="opt_event_size" t-value="opt_index_sidebar and 'col-12' or 'col-xl-10 offset-xl-1'"/>
+
+        <t t-if="not event_ids">
+            <div class="col-12">
+                <div class="h2 mb-3 text-center">No demand project found.</div>
+            </div>
+        </t>
+        <div t-else="" t-foreach="event_ids" t-as="event" t-attf-class=" #{opt_event_size} mb-4" style="padding: 0 8px;">
+            <a t-attf-href="/demand/#{ slug(event) }" class="text-decoration-none">
+                <article t-attf-class="h-100 event_homepage_main demand_home__main_wrapper #{opt_events_list_cards and 'card'}" itemscope="itemscope" itemtype="http://schema.org/Event">
+                    <div class="h-100 row align-content-start no-gutters">
+                        <!-- Header -->
+                        <header t-attf-class="overflow-hidden #{opt_events_list_columns and 'col-12 rounded-top' or 'col-sm-4 col-lg-3 rounded-left'} #{(not opt_events_list_cards) and 'rounded shadow'} #{(not opt_events_list_cards and not opt_events_list_columns) and 'rounded-top'}">
+                            <!-- Image + Link -->
+                            <div class="d-block h-100 w-100">
+                                <t t-call="website.record_cover">
+                                    <t t-set="_record" t-value="event"/>
+                                    <t t-set="_json_cover" t-value="json.loads(event.cover_properties)"/>
+
+                                    <t t-if="_json_cover.get('background-image') == 'none'">
+                                        <t t-set="_cp" t-value="{
+                                            'background_color_style': _json_cover.get('background_color_style'),
+                                            'background_color_class': _json_cover.get('background_color_class'),
+                                            'resize_class': _json_cover.get('resize_class'),
+                                            'text_align_class': _json_cover.get('text_align_class'),
+                                            'background-image': 'url(%s)' % website.image_url(event.sudo().organizer_id, 'image_256') if event.organizer_id else 'none',
+                                            'opacity': _json_cover.get('opacity'),
+                                        }"/>
+                                        <t t-set="additionnal_classes" t-value="'demand_home__cover_wrapper'"/>
+                                    </t>
+
+                                    <!-- Participating -->
+                                    <!-- <small t-if="event.is_participating" class="o_wevent_participating bg-success">
+                                            <i class="fa fa-check mr-2"/>Registered
+                                        </small> -->
+                                    
+                                    <span t-if="event.event_current_date &lt; event.event_date_begin_located_date" class="event_homepage__badge event__badge badge upcoming">Upcoming</span>
+                                    <span t-elif="event.event_current_date &gt; event.event_date_end_located_date" class="event_homepage__badge event__badge badge ended">Ended</span>
+                                    <span t-else="" class="event_homepage__badge event__badge badge badge">In progress</span>
+                                    
+                                    <!-- Unpublished -->
+                                    <small t-if="not event.website_published" class="o_wevent_unpublished bg-danger">
+                                        <i class="fa fa-ban mr-2"/>Unpublished
+                                    </small>
+                                    <small t-elif="event.demand_ids.state == 'closed'" class="o_wevent_closed">
+                                        Registration has ended
+                                    </small>
+                                    <small t-else="" class="o_wevent_register">
+                                            Register
+                                    </small>
+                                </t>
+                            </div>
+                        </header>
+                        <div t-att-class="'%s %s' % (
+                                opt_events_list_columns and 'col-12' or 'col',
+                                opt_events_list_columns and event.event_registrations_open and not event.event_registrations_sold_out and 'h-100' or '')">
+                            <!-- Body -->
+                            <main t-attf-class="demand_home__detail_wrapper d-flex flex-column #{opt_events_list_cards and 'card-body' or (opt_events_list_columns and 'py-3' or 'px-4')}">
+                                <!-- #region: Origanizer -->
+                                <div t-if="event.organizer_id" class="demand_home__detail_organizer_wrapper d-flex align-items-center">
+                                    <t t-if="event.sudo().organizer_id and event.sudo().organizer_id.image_256" t-set="avatar_source" t-value="image_data_uri(event.sudo().organizer_id.image_256)"/>
+                                    <t t-else="" t-set="avatar_source" t-value="'/web/static/src/img/placeholder.png'"/>
+                                    <img t-att-src="avatar_source" alt="Icon"/>
+                                    <span class="text-truncate" t-field="event.organizer_id"/>
+                                </div>
+                                <!-- #endregion -->
+
+                                <!-- #region: Title -->
+                                <div t-attf-class="demand_home__detail_title_wrapper card-title mb-0 text-truncate #{(not event.website_published) and 'text-danger'}">
+                                    <span t-field="event.name" itemprop="name"/>
+                                </div>
+                                <!-- #endregion -->
+
+                                <!-- #region: Price -->
+                                <t t-if="event.event_ticket_ids">
+                                    <t t-set="ticket" t-value="event.event_ticket_ids[:1]"/>
+                                    <div class="demand_home__detail_price_wrapper d-flex align-items-center justify-content-between flex-wrap">
+                                        <div class="d-flex align-items-center text-truncate qty">
+                                            Demand qty <span class="point text-truncate" t-esc="ticket.request_qty"/>
+                                        </div>
+                                        <div class="d-flex align-items-center text-truncate reserved">
+                                            Get
+                                            <span class="point text-truncate" t-esc="website.convert_pricelist_pirce(event, ticket.price, website.pricelist_id)"/>
+                                            <t t-esc="website.currency_id.symbol"/>
+                                        </div>
+                                    </div>
+                                    <div class="demand_home__detail_progress_wrapper d-flex flex-column">
+                                        <div class="demand_home__detail_progress_title_wrapper d-flex align-items-end">
+                                            Completed progress
+                                            <span class="stats_wrapper">
+                                                <span class="reserved" t-esc="ticket.request_reserved"/> / <span t-esc="ticket.request_qty"/>
+                                            </span>
+                                        </div>
+                                        <div class="demand_home__detail_progress_bar_wrapper progress">
+                                            <div class="progress-bar" role="progressbar" t-attf-aria-valuenow="#{ticket.request_reserved}" aria-valuemin="0" t-attf-aria-valuemax="#{ticket.request_qty}" t-attf-style="width: #{ticket.request_reserved / ticket.request_qty * 100}%;"/>
+                                        </div>
+                                    </div>
+                                </t>
+                                <!-- #endregion -->
+
+                                <!-- #region: Subtitle -->
+                                <div t-if="event.subtitle" class="demand_home__detail_subtitle_wrapper">
+                                    <span t-field="event.subtitle"/>
+                                </div>
+                                <!-- #endregion -->
+
+                                <!-- #region: Tag & Tag cate -->
+                                <t t-if="event.tag_ids">
+                                    <div class="demand_home__detail_tags_wrapper d-flex flex-wrap">
+                                        <t t-foreach="event.tag_ids" t-as="tag">
+                                            <span t-esc="'#' + tag.name"/>
+                                        </t>
+                                    </div>
+                                    <div class="demand_home__detail_tags_cate_wrapper d-flex">
+                                        <svg class="flex-shrink-0" width="18" height="18" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M18.3979 12.6086H11.8896V6.10031C11.8896 6.02024 11.8241 5.95472 11.744 5.95472H11.2708C10.3158 5.95374 9.37007 6.14134 8.48778 6.50675C7.60548 6.87216 6.80402 7.4082 6.12938 8.08409C5.46514 8.74627 4.93602 9.5313 4.57147 10.3955C4.19292 11.2927 4 12.2446 4 13.2274C4 14.2101 4.19292 15.1602 4.57147 16.0574C4.93729 16.9219 5.46144 17.7009 6.12938 18.3688C6.79731 19.0367 7.57444 19.5609 8.44075 19.9267C9.33643 20.3067 10.2997 20.5017 11.2726 20.5C12.2276 20.501 13.1734 20.3134 14.0557 19.948C14.938 19.5825 15.7394 19.0465 16.4141 18.3706C17.082 17.7027 17.6062 16.9255 17.972 16.0592C18.352 15.1636 18.547 14.2003 18.5453 13.2274V12.7542C18.5435 12.6741 18.4779 12.6086 18.3979 12.6086ZM19.9976 11.5985L19.9503 11.0852C19.7956 9.41086 19.053 7.83111 17.8555 6.63903C16.6591 5.4436 15.0825 4.7039 13.3984 4.54787L12.8833 4.50055C12.7978 4.49327 12.725 4.55879 12.725 4.64433V11.6276C12.725 11.7077 12.7905 11.7732 12.8706 11.7732L19.852 11.755C19.9376 11.7532 20.0049 11.6822 19.9976 11.5985Z"/>
+                                        </svg>
+                                        <div class="demand_home__detail_tags_cate d-flex align-items-center flex-wrap">
+                                            <t t-foreach="event.tag_ids.category_id" t-as="cate">
+                                                <span t-esc="cate.name"/>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </t>
+                                <!-- #endregion -->
+                            </main>
+                        </div>
+                    </div>
+                </article>
+            </a>
+        </div>
+        <div class="form-inline justify-content-end col-12">
+            <t t-call="website.pager"/>
+        </div>
+    </template>
+
+    <!-- Index -->
+    <template id="index" name="Demands">
+        <t t-set="additional_title">Demand Project</t>
+        <t t-call="website.layout">
+            <div id="wrap" class="o_wevent_index">
+                <!-- Options -->
+                <t t-set="opt_events_list_cards" t-value="is_view_active('website_event.opt_events_list_cards')"/>
+                <t t-set="opt_events_list_columns" t-value="is_view_active('website_event.opt_events_list_columns')"/>
+                <t t-call="dobtor_demand.demand_header"/>
+                <!-- Drag/Drop Area -->
+                <div id="oe_structure_we_index_1" class="oe_structure oe_empty"/>
+                <!-- Content -->
+                <div t-attf-class="demand_home__list_wrapper o_wevent_events_list #{opt_events_list_cards}">
+                    <div class="container">
+                        <div class="row">
+                            <!-- <t t-call="website_event.searched_tags"/> -->
+                            <div class="d-flex align-items-center mt16">
+                                <t t-foreach="search_tags" t-as="tag">
+                                    <span class="align-items-baseline border d-inline-flex pl-2 rounded ml16 mb-2 bg-white">
+                                        <i class="fa fa-tag mr-2 text-muted"/>
+                                        <t t-esc="tag.display_name"/>
+                                        <a t-att-href="'/demand?%s' % keep_query('*', tags=str((search_tags - tag).ids))" class="btn border-0 py-1">&#215;</a>
+                                    </span>
+                                </t>
+                            </div>
+                        </div>
+                        <div class="row" style="margin: 0 -8px;">
+                            <div id="o_wevent_index_main_col" t-attf-class="mt0 col-md my-5 #{opt_events_list_columns and 'opt_events_list_columns' or 'opt_events_list_rows'}" style="padding: 0 8px;">
+                                <div class="row" style="margin: 0 -8px;">
+                                    <!-- Events List -->
+                                    <t t-call="dobtor_demand.demand_project_list"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Drag/Drop Area -->
+                <div id="oe_structure_we_index_2" class="oe_structure oe_empty"/>
+            </div>
+        </t>
+    </template>
+
+</odoo>

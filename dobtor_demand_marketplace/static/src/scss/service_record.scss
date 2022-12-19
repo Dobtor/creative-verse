@@ -1,0 +1,53 @@
+.service {
+
+    &_record, &_audit {
+
+        &__header {
+
+            &_situation {
+            
+                &_wrapper {
+                    gap: 20px;
+    
+                    @include media-breakpoint-up(sm) {
+                        flex-shrink: 0;
+                    }
+    
+                    @include media-breakpoint-down(sm) {
+                        justify-content: center;
+                        flex-wrap: wrap;
+                        gap: 6px;
+                    }
+                }
+            }
+        
+            &_operate {
+    
+                &_wrapper {
+                    gap: 12px;
+
+                    @include media-breakpoint-down(sm) {
+                        gap: 6px;
+                    }
+
+                    a {
+                        svg {
+                            fill: #9B918C;
+                            background: #EDEDED;
+                            border-radius: 6px;
+                        }
+            
+                        &:hover, &:focus {
+                            box-shadow: none;
+            
+                            svg {
+                                fill: darken(#9B918C, 15%);
+                                background: darken(#EDEDED, 15%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }   
+}

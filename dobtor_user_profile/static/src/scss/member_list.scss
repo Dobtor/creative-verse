@@ -1,0 +1,113 @@
+.memberchapternav{
+    width: 100%;
+    position: relative;
+}
+
+.member_chapternav_items{
+    // margin: 0 34px;
+    margin: 16px 0 45px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    list-style: none;
+}
+
+.member_chapternav_item{
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 -.11765em;
+    border-left: 1px solid;
+    
+    &:last-child{
+        border-right: 1px solid;
+    }
+}
+
+.member_chapternav_link{
+    color: #1d1d1f;
+    display: block;
+    padding: 5px 20px;
+    position: relative;
+    z-index: 1;
+
+    &:hover, &:focus, &.active {
+        background-color: #ededed;
+        border-radius: 0.5rem;
+        text-decoration: none;
+    }
+}
+
+.member_chapternav_icon{
+    background-repeat: no-repeat;
+    background: center bottom no-repeat;
+    background-size: contain;
+    display: block;
+    margin: 0 auto 7px;
+    height: 45px;
+}
+
+.member_chapternav_label{
+    font-size: 12px;
+    line-height: 1.33337;
+    font-weight: 400;
+    letter-spacing: -.01em;
+    font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+    display: block;
+    margin: 0;
+}
+
+.member_chapternav_paddle{
+    font-size: 17px;
+    line-height: 1.76471;
+    font-weight: 300;
+    letter-spacing: 0em;
+    font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+    border: 0 solid #d2d2d7;
+    border-radius: 0;
+    color: #1d1d1f;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+    width: 33px;
+    transition: opacity 150ms ease-out;
+    z-index: 1;
+}
+
+.member_chapternav_paddle_left{
+    border-right-width: 1px;
+    left: 0;
+}
+
+.member_chapternav_paddle_right{
+    border-left-width: 1px;
+    right: 0;
+}
+
+.o_wmember_desc_truncate{
+    display: block;
+}
+
+.db-member-list-header-cover{
+    position: relative; 
+    background-position: center;
+    height: 120px;
+
+    @include media-breakpoint-down(sm) {
+        height: 70px;
+    }
+}
+
+.o_wmember_list_card{
+
+    .card-body{
+        padding: 1rem;
+
+        @include media-breakpoint-down(sm) {
+            padding: 1rem 1rem 0.5rem;
+        }
+    }
+}

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_application_tree" model="ir.ui.view">
+            <field name="name">request.application.tree</field>
+            <field name="model">request.application</field>
+            <field name="arch" type="xml">
+                <tree multi_edit="1" sample="1" expand="1">
+                    <field name="name" readonly="1"/>
+                    <field name="res_model" readonly="1" optional="hide"/>
+                    <field name="rel_model" readonly="1" optional="hide"/>
+                    <field name="rel_name" readonly="1" optional="hide"/>
+                    <field name="create_date" optional="show"/>
+                    <field name="action_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                    <field name="note" optional="show"/>
+                    <field name="reject_reason" optional="hide"/>
+                    <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-danger="state == 'cancel'" decoration-success="state == 'confirm'"/>
+                    <field name="auditor" readonly="1" widget="many2one_avatar_user" />
+                    <field name="send_mail_partner_id" string="email to" optional="hide"/>
+                    <field name="partner_id" optional="hide"/>
+                    <button name="action_confirm" states="draft" string="Confirm" type="object" icon="fa-check"/>
+                    <button name="%(action_request_application_reject)d" states="draft" string="Cancel" type="action" icon="fa-times"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_application_record_tree" model="ir.ui.view">
+            <field name="name">request.application.record.tree</field>
+            <field name="model">request.application</field>
+            <field name="arch" type="xml">
+                <tree sample="1" expand="1" create="false" delete="true" edit="false">
+                    <field name="name" />
+                    <field name="res_model" optional="hide"/>
+                    <field name="create_date" optional="show"/>
+                    <field name="rel_model" readonly="1" optional="hide"/>
+                    <field name="rel_name" readonly="1" optional="hide"/>
+                    <field name="action_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                    <field name="note" optional="show"/>
+                    <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-danger="state == 'cancel'" decoration-success="state == 'confirm'"/>
+                    <field name="auditor" readonly="1" widget="many2one_avatar_user" />
+                    <field name="send_mail_partner_id" string="email to" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_application_from" model="ir.ui.view">
+            <field name="name">request.application.from</field>
+            <field name="model">request.application</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="action_id" options="{'no_create': True, 'no_create_edit':True ,'no_open': True}"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="res_model" invisible="1"/>
+                            <field name="res_id" widget="generic_m2o" options="{'model_field' : 'res_model'}" />
+                            <field name="rel_model_id" optional="hide"/>
+                            <field name="rel_model" invisible="1"/>
+                            <field name="rel_id" widget="generic_m2o" options="{'model_field' : 'rel_model'}" attrs="{'invisible': [('rel_model','=',False)]}" optional="hide"/>
+
+                            <field name="send_mail_partner_id" string="email to" />
+                        </group>
+                        <group>
+                            <field name="note" optional="show"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+
+        <record id="view_request_application_search" model="ir.ui.view">
+            <field name="name">request.application.search</field>
+            <field name="model">request.application</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="action_id" filter_domain="[('action_id','ilike',self)]" string="Action"/>
+                    <field name="send_mail_partner_id" filter_domain="[('send_mail_partner_id','ilike',self)]" string="Mail To"/>
+                    <separator/>
+                    <field name="action_id"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Action Type" name="group_action_id" domain="" context="{'group_by':'action_id'}"/>
+                    </group>
+                    <searchpanel>
+                        <field name="state" icon="fa-filter" enable_counters="1"/>
+                    </searchpanel>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="view_action_from" model="ir.ui.view">
+            <field name="name">request.action.from</field>
+            <field name="model">request.action</field>
+            <field name="arch" type="xml">
+                <form string="Tags">
+                    <sheet>
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                        <group>
+                            <div class="oe_title">
+                                <h1>
+                                    <field name="name" />
+                                </h1>
+                            </div>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="active" invisible="1"/>
+                                <field name="model_id"/>
+                                <field name="auto_confirm"/>
+                            </group>
+                            <group>
+
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="Apply">
+                                <group>
+                                    <group string="Function">
+                                        <field name="apply_code"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group string="Notic">
+                                        <field name="apply_notic_type" string="Type"/>
+                                        <field name="apply_text_template" attrs="{'invisible': [('apply_notic_type', '!=', 'text')]}"/>
+                                        <field name="apply_confirmation_template_id" attrs="{'invisible': [('apply_notic_type', '!=', 'email')]}"/>
+                                    </group>
+                                </group>
+                            </page>
+
+                            <page string="Confirm">
+                                <group>
+                                    <group string="Function">
+                                        <field name="code"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group string="Notic">
+                                        <field name="notic_type" string="Type"/>
+                                        <field name="text_template" attrs="{'invisible': [('notic_type', '!=', 'text')]}"/>
+                                        <field name="confirmation_template_id" attrs="{'invisible': [('notic_type', '!=', 'email')]}"/>
+                                    </group>
+                                </group>
+                            </page>
+
+                            <page string="Reject">
+                                <group>
+                                    <group string="Function">
+                                        <field name="reject_code"/>
+                                    </group>
+                                </group>
+                                <group string="Notic">
+                                    <field name="reject_notic_type" string="Type"/>
+                                    <field name="reject_text_template" attrs="{'invisible': [('reject_notic_type', '!=', 'text')]}"/>
+                                    <field name="reject_confirmation_template_id" attrs="{'invisible': [('reject_notic_type', '!=', 'email')]}"/>
+                                </group>
+                            </page>
+
+                        </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_application_view" model="ir.actions.act_window">
+            <field name="name">Applications</field>
+            <field name="res_model">request.application</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('mode', '=', 'action')]</field>
+            <field name="context">{'search_default_group_action_id':1}</field>
+            <field name="view_id" ref="view_application_tree"/>
+            <field name="search_view_id" ref="view_request_application_search"/>
+        </record>
+
+        <record id="action_record_view" model="ir.actions.act_window">
+            <field name="name">Record</field>
+            <field name="res_model">request.application</field>
+            <field name="view_mode">tree</field>
+            <field name="domain">[('mode', 'in', ('action','record'))]</field>
+            <field name="context">{'search_default_group_action_id':1}</field>
+            <field name="view_id" ref="view_application_record_tree"/>
+            <field name="search_view_id" ref="view_request_application_search"/>
+        </record>
+
+        <record id="action_request_actions_view" model="ir.actions.act_window">
+            <field name="name">Actions</field>
+            <field name="res_model">request.action</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

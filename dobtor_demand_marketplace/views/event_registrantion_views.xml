@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="demand_event_registration_view_form_inhert" model="ir.ui.view">
+            <field name="name">demand.event.registration.form.inhert</field>
+            <field name="model">event.registration</field>
+            <field name="inherit_id" ref="dobtor_demand.demand_event_registration_view_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//header" position="inside">
+                    <!-- TODO : 之後可以替換一個 option 有專們在做這個的 option 先用 invisible 來達到效果 -->
+                    <field name="mode" invisible="1"/>
+                    
+                    <field name="organizer_state" invisible="1" options="{'no_create':True}"/>
+                    <button name="set_organizer_state_open" icon="fa-check" string="Org Confirm" type="object" attrs="{'invisible': ['|','|',('mode', '!=', 'demand'), ('organizer_state', '!=', 'draft'), ('state', '=', 'cancel')]}"/>
+                    <button name="set_organizer_state_cancel" icon="fa-close" string="Org Reject" type="object" attrs="{'invisible': ['|','|',('mode', '!=', 'demand'), ('organizer_state', '!=', 'draft'), ('state', '=', 'cancel')]}"/>
+
+                    <field name="demand_creator_state" invisible="1" options="{'no_create':True}"/>
+                    <button name="set_demand_creator_state_open" icon="fa-check" string="Creator Confirm" type="object" attrs="{'invisible': ['|','|','|',('mode', '!=', 'demand'), ('organizer_state', '!=', 'open'), ('demand_creator_state', '!=', 'draft'), ('state', '=', 'cancel')]}"/>
+                    <button name="set_demand_creator_state_cancel" icon="fa-close" string="Creator Reject" type="object" attrs="{'invisible': ['|','|','|',('mode', '!=', 'demand'), ('organizer_state', '!=', 'open'), ('demand_creator_state', '!=', 'draft'), ('state', '=', 'cancel')]}"/>
+
+                    <field name="is_creator_check" invisible="1" options="{'no_create':True}"/>
+                    <field name="appeal_state" invisible="1" options="{'no_create':True}"/>
+                    <button name="action_creator_check" icon="fa-check" string="Creator Check" type="object" attrs="{'invisible': ['|','|','|','|','|',('mode', '!=', 'demand'), ('is_creator_check', '=', True), ('state', 'not in', ('draft', 'open')), ('organizer_state', '!=', 'open'), ('demand_creator_state', '!=', 'open'), ('appeal_state', '!=', 'no_one')]}"/>
+                    <button name="action_creator_appeal" icon="fa-gavel" string="Creator Appeal" type="object" attrs="{'invisible': ['|','|','|','|','|',('mode', '!=', 'demand'), ('is_creator_check', '=', True), ('state', '=', 'cancel'), ('organizer_state', '!=', 'open'), ('demand_creator_state', '!=', 'open'), ('appeal_state', 'in', ('creator', 'both'))]}"/>
+                    <!-- <button name="action_creator_check" icon="fa-close" string="Creator Uncheck" type="object" attrs="{'invisible': ['|','|','|','|',('mode', '!=', 'demand'), ('is_creator_check', '=', False), ('state', '!=', 'draft'), ('organizer_state', '!=', 'open'), ('demand_creator_state', '!=', 'open')]}"/> -->
+                    
+                    <field name="is_attendee_finish" invisible="1" options="{'no_create':True}"/>
+                    <button name="action_attendee_finish" icon="fa-check" string="Attendee Finish" type="object" attrs="{'invisible': ['|','|','|','|','|',('mode', '!=', 'demand'), ('is_attendee_finish', '=', True), ('state', 'not in', ('draft', 'open')), ('organizer_state', '!=', 'open'), ('demand_creator_state', '!=', 'open'), ('appeal_state', '!=', 'no_one')]}"/>
+                    <button name="action_attendee_appeal" icon="fa-gavel" string="Attendee Appeal" type="object" attrs="{'invisible': ['|','|','|','|','|',('mode', '!=', 'demand'), ('is_attendee_finish', '=', True), ('state', '=', 'cancel'), ('organizer_state', '!=', 'open'), ('demand_creator_state', '!=', 'open'), ('appeal_state', 'in', ('attendee', 'both'))]}"/>
+
+                    <!-- <button name="action_attendee_finish" icon="fa-close" string="Attendee Unfinish" type="object" attrs="{'invisible': ['|','|','|','|',('mode', '!=', 'demand'), ('is_attendee_finish', '=', False), ('state', '!=', 'draft'), ('organizer_state', '!=', 'open'), ('demand_creator_state', '!=', 'open')]}"/> -->
+                    <field name="payment_status" invisible="1" />
+                    <button name="action_settle" string="Settle" type="object" attrs="{'invisible': ['|','|','|','|','|','|', ('mode', '!=', 'demand'), ('organizer_state', '!=', 'open'), ('demand_creator_state', '!=', 'open'), ('is_creator_check', '=', False), ('is_attendee_finish', '=', False), ('payment_status', '!=', 'to_pay'), ('state', '=', 'cancel')]}"/>
+
+                </xpath>
+
+                <xpath expr="//group" position="before">
+                    <widget name="web_ribbon" title="Creator Appleal" icon="fa-gavel" bg_color="bg-danger" attrs="{'invisible': [('appeal_state', '!=', 'creator')]}"/>
+                    <widget name="web_ribbon" title="Attendee Appleal" icon="fa-gavel" bg_color="bg-danger" attrs="{'invisible': [('appeal_state', '!=', 'attendee')]}"/>
+                    <widget name="web_ribbon" title="Both Appleal" icon="fa-gavel" bg_color="bg-danger" attrs="{'invisible': [('appeal_state', '!=', 'both')]}"/>
+                </xpath>
+
+                <xpath expr="//notebook" position="inside">
+                    <!-- Region : Demand Sale Infomation -->
+                    <page string="Demand Taker Info">
+                        <group>
+                            <group>
+                                <field name="demand_so_id" />
+                                <field name="demand_so_line_id" />
+                            </group>
+                        </group>
+                    </page>
+                    <!-- EndRegion -->
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

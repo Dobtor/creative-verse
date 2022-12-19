@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="website.demand.portal.upload.modal">
+        <div>
+            <form class="d-flex flex-column" id="demand_upload_form">
+                <input type="hidden" name="csrf_token" t-att-value="csrf_token"/>
+                <div class="form-group row" aria-label="upload">
+                    <label class="col-form-label col-md-3" for="upload">Demand Image</label>
+                    <div class="col-md-9">
+                        <div class="custom-file">
+                            <input id="upload" type="file" class="custom-file-input" accept="image/*"/>
+                            <label class="custom-file-label" for="upload">Choose file</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- region : 之後如果有要遷移, 該區塊可保留於 dobtor_demand_marketplace 模組 -->
+                <div t-if="!widget.old_values or widget.re_edit" class="form-group row" aria-label="Event_Organizer">
+                    <label class="col-form-label col-md-3" for="event_organizer">Organizer</label>
+                    <div class="col-md-9">
+                        <div id="organizer_block">
+                            <input type="text" id="organizer_id" placeholder="Organizer" class="form-control" required="required"/>
+                        </div>
+                    </div>
+                </div>
+                <!-- endregion -->
+                <div class="form-group row" aria-label="Demand_Name">
+                    <label class="col-form-label col-md-3" for="name">Demand Name</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="name" placeholder="Demand Name" required="required" t-att-value="widget.old_values and widget.old_values.name or None"/>
+                    </div>
+                </div>
+                <div class="form-group row" aria-label="Demand_Subtitle">
+                    <label class="col-form-label col-md-3" for="subtitle">Demand Subtitle</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="subtitle" placeholder="Demand Subtitle" t-att-value="widget.old_values and widget.old_values.subtitle or None"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="description" class="control-label">Demand Description</label>
+                    <textarea id="description" class="form-control o_wysiwyg_loader"></textarea>
+                </div>
+                <div class="form-group row">
+                    <label for="tag_ids" class="col-form-label col-md-3">Demand Tags</label>
+                    <div class="col-md-9">
+                        <input id="tag_ids" name="tag_ids" type="hidden"/>
+                    </div>
+                </div>
+                <div class="form-group row" id="event_date">
+                    <label class="control-label col-md-3" for="date_publish">Demand Date</label>
+                    <div class="col-md-9">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" id="all_day_event_date" class="custom-control-input" checked="checked"/>
+                            <label class="custom-control-label" for="all_day_event_date">day and night</label>
+                        </div>
+                        <div id="event_jq_date" class="d-flex">
+                            <div class="mr-2">
+                                <input type="text" class="date start form-control" required="required"/>
+                            </div>
+                            <div class="mr-2 d-none">
+                                <input type="text" class="time start form-control"/>
+                            </div>
+                            to
+                            <div class="ml-2 d-none">
+                                <input type="text" class="time end form-control"/>
+                            </div>
+                            <div class="ml-2">
+                                <input type="text" class="date end form-control" required="required"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row" id="show_public">
+                    <label class="col-form-label col-md-3">Is Show Public</label>
+                    <div class="col-md-9 d-flex align-items-center">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" id="is_show_public" class="custom-control-input" t-att-checked="(!widget.old_values or widget.old_values.is_show_public) and 'checked' or None"/>
+                            <label class="custom-control-label" for="is_show_public">Yes</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row" aria-label="Event_Address">
+                    <label class="col-form-label col-md-3" for="event_address">Demand Address</label>
+                    <div class="col-md-9 align-items-center">
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="radio" id="event_address_no_show" name="event_address_option" class="custom-control-input" checked="checked"/>
+                            <label class="custom-control-label" for="event_address_no_show">Disabled</label>
+                        </div>
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="radio" id="event_address_show" name="event_address_option" class="custom-control-input"/>
+                            <label class="custom-control-label" for="event_address_show">Show</label>
+                        </div>
+                        <div id="address_block" class="d-none">
+                            <div class="d-flex flex-column flex-sm-row mt8">
+                                <div class="custom-control custom-checkbox flex-shrink-0" style="margin-right: 1.125rem;">
+                                    <input type="checkbox" id="online_address_option" name="online_address_option" class="custom-control-input show_option_required"/>
+                                    <label class="custom-control-label" for="online_address_option">Online</label>
+                                </div>
+                                <div class="flex-grow-1"><input type="text" class="form-control" id="event_address" placeholder="https://www.yourwebsite.com/"/></div>
+                            </div>
+                            <div class="d-flex flex-column flex-sm-row mt8">
+                                <div class="custom-control custom-checkbox flex-shrink-0" style="margin-right: 1.125rem;">
+                                    <input type="checkbox" id="offline_address_option" name="offline_address_option" class="custom-control-input show_option_required"/>
+                                    <label class="custom-control-label" for="offline_address_option">Offline</label>
+                                </div>
+                                <div id="offline_main" class="flex-grow-1 d-none">
+                                    <div class="custom_offline_address_wrapper">
+                                        <div class="d-flex">
+                                            <div class="mr-2"><input type="text" class="form-control" id="state_id" placeholder="Counties"/></div>
+                                            <div><input type="text" class="form-control" id="city" placeholder="Dist."/></div>
+                                            <div class="ml-2"><input type="text" class="form-control" id="zip" placeholder="Zip"/></div>
+                                        </div>
+                                        <div class="d-flex mt8">
+                                            <div class="flex-grow-1"><input type="text" class="form-control" id="street" placeholder="Street"/></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <t t-if="!widget.old_values or widget.re_edit">
+                    <div class="form-group row" aria-label="Event_Price">
+                        <label class="col-form-label col-md-3">Demand Price</label>
+                        <div class="col-md-9 d-flex align-items-center">
+                            <div id="price_block">
+                                <div class="custom-control custom-checkbox custom-control-inline">
+                                    <input type="radio" id="pricing_method_times" name="pricing_method" value="times" class="custom-control-input" checked="checked"/>
+                                    <label class="custom-control-label" for="pricing_method_times">times</label>
+                                </div>
+                                <div class="custom-control custom-checkbox custom-control-inline">
+                                    <input type="radio" id="pricing_method_hours" name="pricing_method" value="timing" class="custom-control-input"/>
+                                    <label class="custom-control-label" for="pricing_method_hours">timing</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 d-flex">
+                            <div class="price_times" style="display: inline; margin-right: 10px;" >
+                                <label style="margin-top: 0.5rem;">once times : </label>
+                            </div>
+                            <div class="price_timing" style="display: none;" >
+                                <label style="margin-top: 0.5rem;">per </label>
+                                <input type="number" class="form-control" style="width: 150px; display: inline; margin-right: 10px;" id="min_request_unit" placeholder="Request Unit" min="1"/>
+                                <select class="form-control" style="width: 100px; display: inline; margin-right: 10px;" id="select_unit">
+                                    <option value="per_hour">hours.</option>
+                                    <option value="per_min">mins.</option>
+                                </select>
+                            </div>
+                            <input type="number" class="form-control" style="width: 150px; display: inline; margin-right: 10px;" id="price" placeholder="Demand Price" min="1" required="required"/> 
+                            <label class="" style="margin-top: 0.5rem;">point</label>
+                        </div>
+                    </div>
+                    <div class="form-group row" aria-label="Demand_Request_Qty">
+                        <label class="col-form-label col-md-3" for="request_qty">Request Qty</label>
+                        <div class="col-md-6">
+                            <input type="number" class="form-control" id="request_qty" placeholder="Request Qty" min="1" required="required"/>
+                        </div>
+                    </div>
+                </t>
+            </form>
+        </div>
+    </t>
+</templates>

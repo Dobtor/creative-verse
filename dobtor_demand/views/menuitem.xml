@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        
+        <menuitem id="dobtor_demand_root_menu" name="Demand" web_icon="dobtor_demand,static/description/icon.png">
+
+            <menuitem id="demand_menu" name="Demand" action="action_demand_view" sequence="1">
+              
+            </menuitem>
+            <menuitem id="demand_tag_category_menu" name="Demand Tags Categories" action="demand_tag_category_action_tree" sequence="2"/>
+        </menuitem>
+
+    </data>
+</odoo>

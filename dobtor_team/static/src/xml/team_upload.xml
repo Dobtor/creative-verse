@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="website.team.upload.modal">
+        <div>
+            <form class="d-flex flex-column" id="team_upload_form">
+                <div class="form-group" aria-label="Team Name">
+                    <label class="control-label" for="name">Team Name</label>
+                    <div>
+                        <input type="text" class="form-control" id="name" placeholder="Team Name" required="required"/>
+                    </div>
+                </div>
+                <div class="form-group" aria-label="Team Image">
+                    <label class="control-label" for="upload">Team Image</label>
+                    <div>
+                        <div class="custom-file">
+                            <input id="upload" type="file" class="custom-file-input" accept="image/*"/>
+                            <label class="custom-file-label" for="upload">Choose file</label>
+                        </div>        
+                    </div>
+                </div>
+                <div class="form-group" aria-label="Team Description">
+                    <label for="description" class="control-label">Team Description</label>
+                    <textarea id="description" class="form-control o_wysiwyg_loader"></textarea>
+                </div>
+            </form>
+        </div>
+    </t>
+</templates>

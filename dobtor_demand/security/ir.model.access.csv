@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_event_demand_all,ALL : Demand,model_event_demand,,1,0,0,0
+access_event_demand_user,User : Demand,model_event_demand,event.group_event_user,1,1,1,0
+access_event_demand_manager,Manager : Demand,model_event_demand,event.group_event_manager,1,1,1,1
+
+access_event_demand_schedule_all,ALL : Demand Schedule,model_event_demand_schedule,,1,0,0,0
+access_event_demand_schedule_user,User : Demand Schedule,model_event_demand_schedule,event.group_event_user,1,1,1,0
+access_event_demand_schedule_manager,Manager : Demand Schedule,model_event_demand_schedule,event.group_event_manager,1,1,1,1
+
+access_demand_registration_editor,Purchase User : Demand Attendee Editor,model_demand_registration_editor,purchase.group_purchase_user,1,1,1,1
+access_demand_registration_editor_line,Purchase User : Demand Attendee Editor Line,model_demand_registration_editor_line,purchase.group_purchase_user,1,1,1,1

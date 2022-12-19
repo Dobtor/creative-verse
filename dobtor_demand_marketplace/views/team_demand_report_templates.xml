@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="custom_demand_report_full" name="Demand Report" track="1">
+        <t t-call="dobtor_event.custom_event_details">
+            <section>
+                <div class="container overflow-hidden">
+                    <div class="card h-100 w-100 shadow-sm" style="padding: 35px; margin-bottom: 60px;">
+                        <t t-call="dobtor_demand_marketplace.demand_report_total_info"/>
+                        <div class="o_portal_wrap table-responsive table_info mt32">
+                            <t t-call="dobtor_demand_marketplace.demand_report_table"/>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </t>
+    </template>
+
+    <template id="demand_report_total_info">
+        <div id="total_info">
+            <t t-set="register_all_count" t-value="len(event.registration_ids)"/>
+            <t t-set="register_expected_count" t-value="len(event.registration_ids.filtered(lambda self: self.state != 'cancel'))"/>
+            <t t-set="register_present_count" t-value="len(event.registration_ids.filtered(lambda self: self.state in ('done')))"/>
+            <div class="font-weight-bold" t-esc="event.name" style="font-size: 2rem; margin-bottom: 35px;"/>
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-md bg-200" style="border: 2px solid rgba(0, 0, 0, 0.125); border-radius: 0.75rem; word-break: break-all;">
+                        <div class="p-4 h-100 d-flex flex-column justify-content-center">
+                            <h6 style="font-weight:bold;">Attend Num</h6>
+                            <h1 class="text-center"><t t-esc="register_present_count"/> / <t t-esc="register_expected_count"/></h1>
+                        </div>
+                    </div>
+                    <div class="col-md bg-200 ml-md-3 mt-md-0" style="margin-top: 20px; border: 2px solid rgba(0, 0, 0, 0.125); border-radius: 0.75rem; word-break: break-all;">
+                        <div class="p-4 h-100 d-flex flex-column justify-content-center">
+                            <h6 style="font-weight:bold;">Number of applicants<t t-if="event.seats_limited or event.event_ticket_ids and event.event_ticket_ids[:1].seats_max">/ ppl</t></h6>
+                            <h1 class="text-center">
+                                <t t-esc="register_all_count"/>
+                                <t t-if="event.seats_limited">
+                                    / <t t-esc="event.seats_max"/>
+                                </t>
+                                <t t-elif="event.event_ticket_ids and event.event_ticket_ids[:1].seats_max">
+                                    / <t t-esc="event.event_ticket_ids[:1].seats_max"/>
+                                </t>
+                            </h1>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md bg-200" style="border: 2px solid rgba(0, 0, 0, 0.125); border-radius: 0.75rem; word-break: break-all;">
+                        <div class="p-4 h-100 d-flex flex-column justify-content-center">
+                            <h6 style="font-weight:bold;">實際收益 / 預期收益(時間幣)</h6>
+                            <h1 class="text-center">9999 / 99999</h1>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="mt16">
+            <span><i class="fa fa-list-ul"/>Attend List</span>
+            <div class="d-flex justify-content-end event_report_operate_block">
+            </div>
+        </div>
+        <form class="form-inline o_event_report_search_panel mt32">
+            <div class="input-group input-group w-100">
+                <input type="search" class="form-control form-control" placeholder="Search" t-att-value='search' name="search"/>
+                <span class="input-group-append">
+                    <button class="btn bg-primary search-submit" type="button">
+                        <span class="fa fa-search"/>
+                    </button>
+                </span>
+            </div>
+        </form>
+    </template>
+
+    <template id="demand_report_table">
+        <table class="table" style="white-space:nowrap">
+            <thead>
+                <tr>
+                    <th>
+                    Date
+                    </th>
+                    <th>
+                    Partner
+                    </th>
+                    <th>
+                    Name
+                    </th>
+                    <th>
+                    Email
+                    </th>
+                    <th class="text-center">
+                    Pay
+                    </th>
+                    <th class="text-center">
+                    Status
+                    </th>
+                    <th>
+                    Audit
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr t-foreach="registrations.partner_id.ids" t-as="partner_id">
+                    <t t-set="registration" t-value="registrations.filtered(lambda self: self.partner_id.id == partner_id)[:1]"/>
+                    <td data-title="Date">
+                        <t t-esc="registration.with_context(tz=registration.event_id.date_tz).date_open" t-options="{'widget': 'datetime', 'format': 'yyyy/MM/dd HH:mm'}"/>
+                    </td>
+                    <td data-title="Partner">
+                        <t t-esc="registration.sudo().partner_id.name"/>
+                    </td>
+                    <td data-title="Name">
+                        <t t-esc="registration.name"/>
+                    </td>
+                    <td data-title="Email">
+                        <t t-esc="registration.email"/>
+                    </td>
+                    <td class="text-sm-center" data-title="Pay">
+                        <!-- <i class="fa fa-check-circle"/> -->
+                        <i class="fa fa-info-circle"/>
+                    </td>
+                    <td class="text-sm-center state_icon_block" data-title="Status">
+                        <t t-call="dobtor_demand_marketplace.registration_state_show"/>
+                    </td>
+                    <td>
+                        <div t-if="registration.organizer_state == 'draft'" class="team_demand__report_operate_wrapper d-flex">
+                            <a class="btn p-0 open" href="#" role="button" t-att-data-registration_id="registration.id">
+                                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19.8428 6H18.4723C18.2801 6 18.0978 6.09086 17.9802 6.24633L9.89616 16.7921L6.01984 11.7343C5.96121 11.6576 5.88646 11.5956 5.80123 11.5529C5.71599 11.5103 5.62248 11.488 5.52771 11.4879H4.15717C4.02581 11.4879 3.95326 11.6434 4.03365 11.7484L9.40402 18.7547C9.65499 19.0818 10.1373 19.0818 10.3903 18.7547L19.9664 6.25845C20.0467 6.15547 19.9742 6 19.8428 6V6Z"/>
+                                </svg>
+                            </a>
+                            <a class="btn p-0 cancel" href="#" role="button" t-att-data-registration_id="registration.id">
+                                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13.2143 12L19.3666 4.66641C19.4697 4.54453 19.383 4.35938 19.2236 4.35938H17.3533C17.2432 4.35938 17.1377 4.40859 17.065 4.49297L11.9908 10.5422L6.91659 4.49297C6.84628 4.40859 6.74081 4.35938 6.62831 4.35938H4.758C4.59863 4.35938 4.51191 4.54453 4.61503 4.66641L10.7674 12L4.61503 19.3336C4.59193 19.3608 4.57711 19.394 4.57233 19.4293C4.56755 19.4647 4.57301 19.5006 4.58806 19.533C4.60312 19.5653 4.62713 19.5926 4.65725 19.6117C4.68737 19.6308 4.72234 19.6408 4.758 19.6406H6.62831C6.73847 19.6406 6.84394 19.5914 6.91659 19.507L11.9908 13.4578L17.065 19.507C17.1353 19.5914 17.2408 19.6406 17.3533 19.6406H19.2236C19.383 19.6406 19.4697 19.4555 19.3666 19.3336L13.2143 12Z"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <t t-else="">
+                            <svg t-if="registration.organizer_state == 'open'" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19.8428 6H18.4723C18.2801 6 18.0978 6.09086 17.9802 6.24633L9.89616 16.7921L6.01984 11.7343C5.96121 11.6576 5.88646 11.5956 5.80123 11.5529C5.71599 11.5103 5.62248 11.488 5.52771 11.4879H4.15717C4.02581 11.4879 3.95326 11.6434 4.03365 11.7484L9.40402 18.7547C9.65499 19.0818 10.1373 19.0818 10.3903 18.7547L19.9664 6.25845C20.0467 6.15547 19.9742 6 19.8428 6V6Z"/>
+                            </svg>
+                            <svg t-elif="registration.organizer_state == 'cancel'" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.2143 12L19.3666 4.66641C19.4697 4.54453 19.383 4.35938 19.2236 4.35938H17.3533C17.2432 4.35938 17.1377 4.40859 17.065 4.49297L11.9908 10.5422L6.91659 4.49297C6.84628 4.40859 6.74081 4.35938 6.62831 4.35938H4.758C4.59863 4.35938 4.51191 4.54453 4.61503 4.66641L10.7674 12L4.61503 19.3336C4.59193 19.3608 4.57711 19.394 4.57233 19.4293C4.56755 19.4647 4.57301 19.5006 4.58806 19.533C4.60312 19.5653 4.62713 19.5926 4.65725 19.6117C4.68737 19.6308 4.72234 19.6408 4.758 19.6406H6.62831C6.73847 19.6406 6.84394 19.5914 6.91659 19.507L11.9908 13.4578L17.065 19.507C17.1353 19.5914 17.2408 19.6406 17.3533 19.6406H19.2236C19.383 19.6406 19.4697 19.4555 19.3666 19.3336L13.2143 12Z"/>
+                            </svg>
+                        </t>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </template>
+
+    <template id="registration_state_show">
+        <t t-if="registration.state in ('cancel')">
+            <i class="fa fa-times-circle"/>
+        </t>
+        <t t-elif="registration.state in ('draft', 'open')">
+            <i class="fa fa-info-circle"/>
+        </t>
+        <t t-elif="registration.state == 'done'">
+            <i class="fa fa-check-circle"/>
+        </t>
+    </template>
+</odoo>

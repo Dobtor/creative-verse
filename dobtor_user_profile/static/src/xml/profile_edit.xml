@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="website.profile.modal.loading">
+        <div class="text-center" role="status">
+            <div class="fa-3x">
+                <i class="fa fa-spinner fa-pulse"></i>
+            </div>
+            <h4>Uploading document ...</h4>
+        </div>
+    </t>
+
+    <t t-name="website.edit.info.modal">
+        <div class="form-group">
+            <label for="name" class="col-form-label">Name</label>
+            <input id="name" name="name" placeholder="Name" class="form-control" required="required" t-att-value="widget.old_values and widget.old_values.name or None"/>
+        </div>
+        <div class="form-group">
+            <label for="street" class="col-form-label">Street</label>
+            <input id="street" name="street" placeholder="Street" class="form-control" t-att-value="widget.old_values and widget.old_values.street or None"/>
+        </div>
+        <div class="form-group">
+            <label for="profile_description" class="col-form-label">Description</label>
+            <textarea rows="2" class="form-control" name="profile_description" id="profile_description" placeholder="Description" t-esc="widget.old_values and widget.old_values.profile_description or None"/>
+        </div>
+    </t>
+
+    <t t-name="website.edit.image.modal">
+        <div class="form-group">
+            <label for="upload" class="col-form-label">Choose an Image</label>
+            <input id="upload" name="file" class="form-control h-100" accept="image/*" type="file" required="required"/>
+            <img src="#" id="profile-image" title="Content" alt="Content" class="img-fluid d-none"/>
+        </div>
+    </t>
+
+
+    <t t-name="website.profile.pop.modal">
+        <div>
+            <form class="clearfix">
+                <t t-if="['section', 'avatar'].includes(widget.editType)" t-call="website.edit.image.modal"/>
+                <t t-if="widget.editType == 'info'" t-call="website.edit.info.modal"/>
+            </form>
+        </div>
+    </t>
+</templates>

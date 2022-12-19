@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="profile_desc_edit_modal" name="Profile - desc edit modal">
+            <div id="profile_desc_edit_wrapper" class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <form id="desc_edit_form" t-attf-action="#{can_edit and '/profile/%s/desc/edit' % slug(partner) or '#'}" method="post" class="modal-content js_website_submit_form w-100">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <div class="modal-header align-items-center border-0">
+                            <h3 class="font-weight-bold mb-0">Description Edit</h3>
+                            <button type="button" class="close p-0 m-0" data-dismiss="modal" aria-label="Close" tabindex="-1">&amp;times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <textarea t-if="can_edit" rows="5" class="form-control" name="profile_description" t-esc="partner.profile_description or ''"/>
+                            <div t-else="" class="alert alert-warning text-center" role="alert">Error</div>
+                        </div>
+                        <div class="modal-footer border-0 justify-content-between">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close" tabindex="-1">Cancel</button>
+                            <button t-if="can_edit" type="submit" class="btn btn-primary">Confirm</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </template>
+    </data>
+</odoo>

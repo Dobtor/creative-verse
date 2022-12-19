@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="member_sidebar_layout" name="Member Sidebar Layout">
+            <div class="wrapper">
+                <div class="container">
+                    <nav id="memberchapternav" class="memberchapternav">
+                        <ul class="member_chapternav_items p-2">
+                            <li class="member_chapternav_item">
+                                <a href="/my/member" t-attf-class="member_chapternav_link #{position == 'my_partner' and 'active'}" aria-expanded="false"> 
+                                    <figure class="member_chapternav_icon" style="background-image: url('/dobtor_user_profile/static/src/img/sidebar_member_icon.png');"></figure>
+                                    <span class="member_chapternav_label px-2">
+                                        My Partner
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="member_chapternav_paddles">
+                            <button class="member_chapternav_paddle member_chapternav_paddle_left d-none">
+                                <i class="fa fa-angle-left"/>
+                            </button>
+                            <button class="member_chapternav_paddle member_chapternav_paddle_right d-none">
+                                <i class="fa fa-angle-right"/>
+                            </button>
+                        </div>
+                    </nav>
+                    <div id="content" class="w-100">
+                        <t t-raw="0"/>
+                    </div>
+                </div>
+            </div> 
+        </template>
+
+        <template id="member_list_add_grid_or_list_option" name="Grid or List button">
+            <div class="btn-group btn-group-toggle ml-md-2 d-none d-sm-inline-flex o_wmember_apply_layout" data-toggle="buttons">
+                <label t-attf-class="btn btn-secondary #{'active' if layout_mode != 'list' else None} fa fa-th-large o_wmember_apply_grid" title="Grid">
+                    <input type="radio" name="wmembers_list_layout" t-att-checked="'checked' if layout_mode != 'list' else None"/>
+                </label>
+                <label t-attf-class="btn btn-secondary #{'active' if layout_mode == 'list' else None} fa fa-th-list o_wmember_apply_list" title="List">
+                    <input type="radio" name="wmembers_list_layout" t-att-checked="'checked' if layout_mode == 'list' else None"/>
+                </label>
+            </div>
+        </template>
+
+        <template id="member_sort" name="Show Sort by">
+            <t t-set="list_price_desc_label">Catalog price: High to Low</t>
+            <t t-set="list_price_asc_label">Catalog price: Low to High</t>
+            <t t-set="name_asc_label">Name: A to Z</t>
+            <t t-set="name_desc_label">Name: Z to A</t>
+            <t t-set="website_sale_sortable" t-value="[
+                (list_price_desc_label, 'list_price desc'),
+                (list_price_asc_label, 'list_price asc'),
+                (name_asc_label, 'name asc'),
+                (name_desc_label, 'name desc')
+            ]"/>
+            <t t-set="website_sale_sortable_current" t-value="[sort for sort in website_sale_sortable if sort[1]==request.params.get('order', '')]"/>
+            <div class="dropdown ml-md-2 dropdown_sorty_by">
+                <a role="button" href="#" class="dropdown-toggle btn btn-secondary" data-toggle="dropdown">
+                    <span class="d-none d-lg-inline">
+                        <t t-if='len(website_sale_sortable_current)'>
+                            排序依照 : <t t-raw='website_sale_sortable_current[0][0]'/>
+                        </t>
+                        <t t-else='1'>
+                            排序
+                        </t>
+                    </span>
+                    <i class="fa fa-sort-amount-asc d-lg-none"/>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" role="menu">
+                    <t t-foreach="website_sale_sortable" t-as="sortby">
+                        <a role="menuitem" rel="noindex,nofollow" t-att-href="keep('/ec/shop', order=sortby[1])" class="dropdown-item">
+                            <span t-raw="sortby[0]"/>
+                        </a>
+                    </t>
+                </div>
+            </div>
+        </template>
+
+        <template id="member_list" name="Member List">
+            <t t-call="website.layout">
+                <t t-call="dobtor_user_profile.member_sidebar_layout">
+                    <div id="wrap" class="container o_portal_wrap">
+                        <div class="mt32">
+                            <div class="products_pager form-inline flex-md-nowrap mb32">
+                                <form class="o_wsale_products_searchbar_form o_wait_lazy_js w-100 w-md-auto" action="/my/member" method="get" t-att-data-snippet="_snippet">
+                                    <div class="input-group" role="search">
+                                        <input type="search" name="search" class="search-query form-control oe_search_box" placeholder="My member..." t-att-value="search"/>
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn btn-primary oe_search_button" aria-label="Search" title="Search"><i class="fa fa-search"/></button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <t t-call="website.pager">
+                                    <t t-set="_classes" t-valuef="ml-md-2"/>
+                                </t>
+                                <!-- <t t-call="dobtor_user_profile.member_list_add_grid_or_list_option"/> -->
+                                <!-- <t t-call="dobtor_user_profile.member_sort"/> -->
+                            </div>
+                            <div class="o_wmember_content">
+                                <div class="row">
+                                    <t t-foreach="members" t-as="member">
+                                        <div class="col-lg-3 col-6 d-flex flex-grow-1">
+                                            <t t-call="dobtor_user_profile.member_card"/>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="products_pager form-inline justify-content-center py-3">
+                            <t t-call="website.pager"/>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+        
+        <template id='member_card' name="Member Card">
+            <div t-attf-class="card w-100 o_wmember_list_card mb-4" style="border-radius: 8px;">
+                <a class="mb32"  t-att-href="'/user/profile/%s' % slug(member)" t-title="member.nickname">
+                    <div class="db-member-list-header-cover rocket-lazyload">
+                        <section t-attf-class="overflow-hidden h-100 #{member.profile_section and ' ' or 'bg-900'}">
+                            <t t-set="obf" t-value="member.profile_section and 'object-fit: cover;' or 'object-fit: none;'"/>
+                            <div class="h-100">
+                                <img class="h-100 w-100 bg-900" t-att-src="website.image_url(member, 'profile_section')" t-att-style="obf"/>
+                            </div>
+                        </section>
+                        <div class="db-cover-content container">
+                            <div class="db-profile-photo db-photo-circle" style="margin-bottom: -40px;">
+                                <img class="db-profile-img" t-att-src="website.image_url(member, 'image_256')" width="96" height="96"/>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="card-body">
+                    <a class="card-title h5 mb-2 o_wmember_desc_truncate text-truncate text-center" t-att-href="'/user/profile/%s' % slug(member)" t-esc="member.nickname"/>
+                </div>
+                <div class="card-footer bg-white text-600 p-0" style="border-top: unset;"/>
+            </div>
+        </template>
+    </data>
+</odoo>

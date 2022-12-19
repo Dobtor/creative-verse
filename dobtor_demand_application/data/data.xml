@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!--  Request Action : Demand (Upload/Approve/Reject) -->
+        <record model="request.action" id="action_demand_reject">
+            <field name="name">Demand Apply Action</field>
+            <field name="model_id" ref="dobtor_demand.model_event_demand"/>
+            <!-- region : apply -->
+            <field name="apply_code">action_demand_upload_application</field>
+            <field name="apply_notic_type">no_notic_type</field>
+            <field name="apply_text_template">Demand Upload</field>
+            <!-- endregion -->
+            <!-- region : Approve -->
+            <field name="code">action_demand_approve_application</field>
+            <field name="notic_type">text</field>
+            <field name="text_template">Demand Approve</field>
+            <!-- endregion -->
+            <!-- regoin : reject -->
+            <field name="reject_code">action_demand_reject_application</field>
+            <!-- endregion -->
+            <field name="auto_confirm" eval="True"/>
+        </record>
+
+        <!--  Request Action (將由 creator close 取代) -->
+        <record model="request.action" id="action_demand_give_up">
+            <field name="name">Demand Give Up Action</field>
+            <field name="model_id" ref="dobtor_demand.model_event_demand"/>
+            <field name="reject_code">action_demand_give_up_application</field>
+            <field name="auto_confirm" eval="True"/>
+            <field name="active" eval="False" />
+        </record>
+
+        <!--  Request Action -->
+        <record model="request.action" id="action_demand_creator_closed">
+            <field name="name">Demand Create Close Action</field>
+            <field name="model_id" ref="dobtor_demand.model_event_demand"/>
+            <field name="reject_code">action_demand_creator_closed_application</field>
+            <field name="auto_confirm" eval="True"/>
+        </record>
+
+        <!--  Request (Service Apply Action) : (apply/approve/reject) -->
+        <record model="request.action" id="action_service_reject">
+            <field name="name">Service Apply Action</field>
+            <field name="model_id" ref="event.model_event_registration"/>
+            <!-- region : apply -->
+            <field name="apply_code"></field>
+            <field name="apply_notic_type">no_notic_type</field>
+            <field name="apply_text_template">Service Apply</field>
+            <!-- endregion -->
+            <!-- region : Approve -->
+            <field name="code">action_service_approve_application</field>
+            <field name="notic_type">text</field>
+            <field name="text_template">Service Approve (Team)</field>
+            <!-- endregion -->
+            <!-- regoin : reject -->
+            <field name="reject_code">action_service_reject_application</field>
+            <!-- endregion -->
+            <field name="auto_confirm" eval="True"/>
+        </record>
+
+        <!--  Request Action -->
+        <record model="request.action" id="action_creator_service_reject">
+            <field name="name">Service Creator Option Action</field>
+            <field name="model_id" ref="event.model_event_registration"/>
+            <!-- region : apply -->
+            <field name="apply_code"></field>
+            <field name="apply_notic_type">no_notic_type</field>
+            <field name="apply_text_template">Service Apply</field>
+            <!-- endregion -->
+            <!-- region : Approve -->
+            <field name="code">action_service_creator_approve_application</field>
+            <field name="notic_type">text</field>
+            <field name="text_template">Service Approve (Create)</field>
+            <!-- endregion -->
+            <!-- regoin : reject -->
+            <field name="reject_code">action_service_creator_reject_application</field>
+            <!-- endregion -->
+            <field name="auto_confirm" eval="True"/>
+        </record>
+
+        <!--  Request Action -->
+        <record model="request.action" id="action_creator_appeal_reject">
+            <field name="name">Service Finish Action (Creator)</field>
+            <field name="model_id" ref="event.model_event_registration"/>
+            <!-- region : apply -->
+            <field name="apply_code"></field>
+            <field name="apply_notic_type">no_notic_type</field>
+            <field name="apply_text_template">Is Service Finish</field>
+            <!-- endregion -->
+            <!-- region : Approve -->
+            <field name="code">action_service_creator_check_application</field>
+            <field name="notic_type">text</field>
+            <field name="text_template">Service is finish, thx</field>
+            <!-- endregion -->
+            <!-- regoin : reject -->
+            <field name="reject_code">action_service_creator_appeal_application</field>
+            <!-- endregion -->
+            <field name="auto_confirm" eval="True"/>
+        </record>
+
+        <record model="request.action" id="action_attendee_appeal_reject">
+            <field name="name">Service Finish Action (Attendee)</field>
+            <field name="model_id" ref="event.model_event_registration"/>
+            <!-- region : apply -->
+            <field name="apply_code"></field>
+            <field name="apply_notic_type">no_notic_type</field>
+            <field name="apply_text_template">Is Service Finish</field>
+            <!-- endregion -->
+            <!-- region : Approve -->
+            <field name="code">action_service_attendee_finish_application</field>
+            <field name="notic_type">text</field>
+            <field name="text_template">Service is finish, thx</field>
+            <!-- endregion -->
+            <!-- regoin : reject -->
+            <field name="reject_code">action_service_attendee_appeal_application</field>
+            <!-- endregion -->
+            <field name="auto_confirm" eval="True"/>
+        </record>
+
+    </data>
+</odoo>

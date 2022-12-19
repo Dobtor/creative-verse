@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="team_inherit_member_sidebar_layout" inherit_id="dobtor_user_profile.member_sidebar_layout" name="Team Member Sidebar Layout">
+            <xpath expr="//nav[@id='memberchapternav']/ul" position="inside">
+                <li class="member_chapternav_item">
+                    <a href="/my/team" t-attf-class="member_chapternav_link #{position == 'my_team' and 'active'}" aria-expanded="false" id="my_join_team_sidebar">
+                        <figure class="member_chapternav_icon" style="background-image: url('/dobtor_team/static/src/img/join_team.png');"></figure>
+                        <span class="member_chapternav_label px-2">
+                            My Join Team
+                        </span>
+                    </a>
+                </li>
+                <t t-set="my_join_team_ids" t-value="False" />
+                <t t-set="my_leader_team" t-value="request.env['res.partner'].search([('is_team', '=', True)]).filtered(lambda self: self.leader_id == request.env.user.partner_id or request.env.user.partner_id.id in self.assistant_ids.ids)" />
+                <li t-if="request.env['res.partner'].search([('parents_id', 'in', my_leader_team.ids)])" class="member_chapternav_item">
+                    <a href="/my/team/list" t-attf-class="member_chapternav_link #{position == 'my_team_list' and 'active'}" aria-expanded="false" id="my_team_sidebar">
+                        <figure class="member_chapternav_icon" style="background-image: url('/dobtor_team/static/src/img/team.png');"></figure>
+                        <span class="member_chapternav_label px-2">
+                            My Team
+                        </span>
+                    </a>
+                </li>
+                <t t-set="managed_family_teams" t-value="request.env.user.partner_id.check_access_rights_via_team(3)"/>
+                <li t-if="my_join_team_ids or managed_family_teams" class="member_chapternav_item">
+                    <a href="/my/team/member/list" t-attf-class="member_chapternav_link #{position == 'my_team_member_list' and 'active'}" aria-expanded="false" id="team_member_sidebar">
+                        <figure class="member_chapternav_icon" style="background-image: url('/dobtor_team/static/src/img/member.png');"></figure>
+                        <span class="member_chapternav_label px-2">
+                            Team Member
+                        </span>
+                    </a>
+                </li>
+            </xpath>
+        </template>
+
+        <template id="team_member_list" name="Team Member List">
+            <t t-set="additional_title">Team Member List</t>
+            <t t-call="website.layout">
+                <t t-call="dobtor_user_profile.member_sidebar_layout">
+                    <!-- #region: 原Team List(牧區-大家-小家)，在瀏覽到最後顯示小家成員時，可以回前面Team的麵包屑導覽 -->
+                    <!-- TODO:  這邊因群組成員版面有進行修改，但Team List還未進行修正且教會模組還在使用，所以先改用類開關方式處理，是否有更好的方法需在評估-->
+                    <t t-if="member_breadcrumbs" t-foreach="sm_team" t-as="sm">
+                        <t t-call="dobtor_team.team_breadcrumbs">
+                            <t t-set="additionnal_classes" t-value="'bg-transparent'" />
+                            <t t-set="breadcrumbs_team" t-value="parents_team or sm['team']" />
+                        </t>
+                    </t>
+                    <!-- #endregion -->
+                    <t t-if="team_select">
+                        <div class="team_member__top_select_wrapper d-flex flex-wrap">
+                            <a t-attf-class="text-decoration-none #{'active' if join_team == team else None}" t-foreach="my_join_teams" t-as="join_team" t-att-href="'/my/team/member/list?team_id=%s' %(slug(join_team))">
+                                <span t-esc="join_team.name"/>
+                            </a>
+                        </div>
+                        <t t-call="dobtor_team.team_leader_asst_info_tmpl">
+                            <t t-set="current_team" t-value="team"/>
+                        </t>
+                    </t>
+                    <div class="row">
+                        <t t-if="team.apply_ids or team.team_member_ids or team.assistant_ids">
+                            <div class="col-md-6 mb-4" t-foreach="team.apply_ids" t-as="apply">
+                                <t t-call="dobtor_team.team_member_card">
+                                    <t t-set="team" t-value="team"/>
+                                    <t t-set="partner" t-value="apply.member_id"/>
+                                    <t t-set="mode" t-value="'apply'"/>
+                                    <t t-set="member_options" t-value="is_leader or is_assistant"/>
+                                </t>
+                            </div>
+                            <div class="col-md-6 mb-4" t-foreach="team.team_member_ids" t-as="member">
+                                <t t-call="dobtor_team.team_member_card">
+                                    <t t-set="team" t-value="team"/>
+                                    <t t-set="partner" t-value="member"/>
+                                    <t t-set="mode" t-value="'member'"/>
+                                    <t t-set="member_options" t-value="is_leader or is_assistant"/>
+                                </t>
+                            </div>
+                            <div class="col-md-6 mb-4" t-foreach="team.assistant_ids" t-as="assistant">
+                                <t t-call="dobtor_team.team_member_card">
+                                    <t t-set="team" t-value="team"/>
+                                    <t t-set="partner" t-value="assistant"/>
+                                    <t t-set="mode" t-value="'assistant'"/>
+                                    <t t-set="member_options" t-value="is_leader"/>
+                                </t>
+                            </div>
+                        </t>
+                        <t t-else="">
+                            <div class="text-center text-muted" style="margin-bottom: 45px;">
+                                <h3>The team has no members.</h3>
+                            </div>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <template id="team_list" name="Team List">
+            <t t-set="additional_title">Team List</t>
+            <t t-call="website.layout">
+                <t t-call="dobtor_user_profile.member_sidebar_layout">
+                    <t t-foreach="all_team_info" t-as="info">
+                        <t t-call="dobtor_team.team_breadcrumbs">
+                            <t t-set="additionnal_classes" t-value="'bg-transparent'" />
+                            <t t-set="breadcrumbs_team" t-value="parents_team or info['team']" />
+                        </t>
+                        <t t-if="info['parents']">
+                            <div class="row" style="margin-bottom: 45px;">
+                                <t t-foreach="info['parents']" t-as="parent_team">
+                                    <t t-set="child_teams" t-value="request.env['res.partner'].search([('is_team', '=', True), ('parents_id', '=', parent_team.id)])" />
+                                    <section class="col-md-6" style="margin-bottom: 20px;">
+                                        <div class="card h-100" style="border-radius: 8px; overflow:inherit;">
+                                            <div class="row no-gutters h-100">
+                                                <div class="col-lg-4 d-flex no-gutters">
+                                                    <div class="team_img">
+                                                        <t t-if="not parent_team.profile_section and request.website.customize_default_section">
+                                                            <a class="text-decoration-none text-reset" t-if="child_teams" t-att-href="'/%s/list?main_team_id=%s' % (slug(parent_team), main_team_id or not parents_team and info['team'].id or '')">
+                                                                <img class="w-100 h-100 bg-900" t-att-src="website.image_url(request.website, 'signup_default_section')" style="object-fit: cover;" />
+                                                            </a>
+                                                            <a t-else="" class="text-decoration-none text-reset">
+                                                                <img class="w-100 h-100 bg-900" t-att-src="website.image_url(request.website, 'signup_default_section')" style="object-fit: cover;" />
+                                                            </a>
+                                                        </t>
+                                                        <t t-else="">
+                                                            <a class="text-decoration-none text-reset" t-if="child_teams" t-att-href="'/%s/list?main_team_id=%s' % (slug(parent_team), main_team_id or not parents_team and info['team'].id or '')">
+                                                                <img class="w-100 h-100 bg-900" t-att-src="website.image_url(parent_team, 'profile_section')" style="object-fit: cover;" />
+                                                            </a>
+                                                            <a t-else="" class="text-decoration-none text-reset">
+                                                                <img class="w-100 h-100 bg-900" t-att-src="website.image_url(parent_team, 'profile_section')" style="object-fit: cover;" />
+                                                            </a>
+                                                        </t>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <div class="team_info px-3 p-lg-0">
+                                                        <div class="pt8 parent_team_link">
+                                                            <a class="text-reset" t-if="child_teams" t-att-href="'/%s/list?main_team_id=%s' % (slug(parent_team), main_team_id or not parents_team and info['team'].id or '')">
+                                                                <span t-esc="parent_team.name" style="font-size: 1.2rem;" />
+                                                            </a>
+                                                            <span t-if="not child_teams" t-esc="parent_team.name" style="font-size: 1.2rem;" />
+                                                        </div>
+                                                        <div class="row d-flex align-items-end justify-content-between no-gutters">
+                                                            <div class="col-6">
+                                                                <div t-if="parent_team.leader_id" class="d-flex flex-column text-muted" style="line-height: 120%;">
+                                                                    <span class="small">Leader</span>
+                                                                    <span class="text-truncate" t-esc="parent_team.leader_id.name" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <div t-if="parent_team.assistant_ids" class="dropdown">
+                                                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <span class="small">Assistants</span>
+                                                                    </button>
+                                                                    <div class="team_asst__dropdown_wrapper dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" style="min-width: 400px; padding: 24px 36px;">
+                                                                        <div class="team_asst__dropdown_title">
+                                                                            <span>Assistants</span>
+                                                                        </div>
+                                                                        <div class="d-flex flex-column">
+                                                                            <div class="team_asst__dropdown_content_wrapper d-flex" t-foreach="parent_team.assistant_ids" t-as="assistant">
+                                                                                <div class="team_asst__dropdown_content_name w-25 flex-shrink-0">
+                                                                                    <span t-esc="assistant.name"/>
+                                                                                </div>
+                                                                                <div class="team_asst__dropdown_content_tag d-flex flex-wrap">
+                                                                                    <div t-foreach="assistant.category_id" t-as="tag">
+                                                                                        <span t-esc="tag.name"/>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div t-if="parent_team.leader_id.category_id" class="col-12 mt-2">
+                                                                <div class="d-flex flex-wrap mb-2" style="gap: 8px;">
+                                                                    <t t-foreach="parent_team.leader_id.category_id" t-as="tag">
+                                                                        <a href="#" class="font-weight-light badge badge-primary" t-esc="tag.name"/>
+                                                                    </t>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="team_statistics d-flex align-items-center justify-content-end px-3 my-2">
+
+                                                        <t t-set="has_parents_team" t-value="request.env['res.partner'].search([('is_team', '=', True), ('parents_id', '!=', False)])" />
+                                                        <t t-set="arrays" t-value="[]" />
+                                                        <t t-foreach="has_parents_team" t-as="team">
+                                                            <t t-set="arrays" t-value="arrays + [team.parents_id.id]" />
+                                                        </t>
+                                                        <t t-set="no_child_teams" t-value="request.env['res.partner'].search([('is_team', '=', True)]).filtered(lambda self: self.id not in arrays)" />
+                                                        <t t-set="total_members_count" t-value="0" />
+                                                        <t t-foreach="no_child_teams" t-as="n_ch_team">
+                                                            <t t-if="parent_team in request.env['res.partner'].search([('parents_id', 'parent_of', n_ch_team.id)])">
+                                                                <t t-set="total_members_count" t-value="total_members_count + len(n_ch_team.team_member_ids)" />
+                                                            </t>
+                                                        </t>
+                                                        <div t-if="not len(child_teams)" class="border-left d-flex flex-column align-items-center" style="font-size: large; line-height: 110%;">
+                                                            <a class="text-decoration-none text-reset" t-if="not child_teams" t-att-href="'/%s/list?main_team_id=%s' % (slug(parent_team), main_team_id or not parents_team and info['team'].id or '')">
+                                                                <div name="member_list_block" class="text-center d-flex flex-column align-items-center">
+                                                                    <i class="fa fa-users"></i>
+                                                                    <span class="small px-2 text-muted">Member List</span>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div t-if="child_teams" class="border-left d-flex flex-column align-items-center" style="font-size: large; line-height: 110%;">
+                                                            <a class="text-decoration-none text-reset" t-att-href="'/%s/list?main_team_id=%s' % (slug(parent_team), main_team_id or not parents_team and info['team'].id or '')">
+                                                                <b t-esc="len(child_teams)"/>
+                                                                <span class="small px-2 text-muted">Child Team</span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="border-left border-right d-flex flex-column align-items-center" style="font-size: large; line-height: 110%;">
+                                                            <b t-esc="total_members_count" />
+                                                            <span class="small px-2 text-muted">Member Counts</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr class="m-auto bg-o-color-1" style="width: 97%; height: 0.2rem;" />
+                                    </section>
+                                </t>
+                            </div>
+                        </t>
+                        <t t-else="">
+                            <div class="text-center text-muted" style="margin-bottom: 45px;">
+                                <h3 class="mt8">No subordinate team.</h3>
+                            </div>
+                        </t>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <template id="team_leader_asst_info_tmpl">
+            <div t-if="current_team" class="row">
+                <div class="col-12 col-md-6">
+                    <div class="row rounded bg-secondary align-items-center justify-content-around no-gutters mb16">
+                        <span style="padding: 0.375rem 0.75rem">
+                            Mange:
+                            <t t-esc="current_team.leader_id.name" />
+                        </span>
+                        <div t-if="current_team.assistant_ids" class="dropdown">
+                            <button class="btn dropdown-toggle bg-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span>Assistants</span>
+                            </button>
+                            <div class="team_asst__dropdown_wrapper dropdown-menu" aria-labelledby="dropdownMenuButton" style="min-width: 400px; padding: 24px 36px;">
+                                <div class="team_asst__dropdown_title">
+                                    <span>Assistants</span>
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <div class="team_asst__dropdown_content_wrapper d-flex" t-foreach="current_team.assistant_ids" t-as="assistant">
+                                        <div class="team_asst__dropdown_content_name w-25 flex-shrink-0">
+                                            <span t-esc="assistant.name"/>
+                                        </div>
+                                        <div class="team_asst__dropdown_content_tag d-flex flex-wrap">
+                                            <div t-foreach="assistant.category_id" t-as="tag">
+                                                <span t-esc="tag.name"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="team_breadcrumbs">
+            <nav aria-label="breadcrumb" t-attf-class="breadcrumb py-0 px-0 css_editable_mode_hidden #{additionnal_classes or ''}" style="font-size: 1.7rem;">
+                <t t-set="index" t-value="0" />
+                <t t-foreach="breadcrumbs_team" t-as="team">
+                    <t t-set="index" t-value="index + 1" />
+                    <li t-if="index == 1 and main_team_id" class="breadcrumb-item">
+                        <a href="/my/team/list" t-esc="team.name" />
+                    </li>
+                    <li t-elif="index == len(breadcrumbs_team)" class="breadcrumb-item active">
+                        <span t-esc="team.name" />
+                        <t t-set="current_team" t-value="team" />
+                    </li>
+                    <li t-else="" class="breadcrumb-item">
+                        <a t-att-href="'/%s/list?main_team_id=%s' % (slug(team), main_team_id or '')" t-esc="team.name" />
+                    </li>
+                </t>
+            </nav>
+            <t t-call="dobtor_team.team_leader_asst_info_tmpl">
+                <t t-set="current_team" t-value="breadcrumbs_team[-1] if breadcrumbs_team else False" />
+            </t>
+        </template>
+
+        <template id="team_info" name="Team Info">
+            <t t-if="related_team">
+                <t t-call="dobtor_team.team_list">
+                    <t t-set="all_team_info" t-value="[{'team': team, 'parents': related_team}]" />
+                    <t t-set="parents_team" t-value="parents" />
+                </t>
+            </t>
+            <t t-else="">
+                <t t-call="dobtor_team.team_member_list">
+                    <t t-set="sm_team" t-value="[{'team': team, 'parents': parents}]" />
+                    <t t-set="parents_team" t-value="parents" />
+                    <t t-set="member_breadcrumbs" t-value="True"/>
+                </t>
+            </t>
+        </template>
+
+        <!-- #region: 我的群組(含已加入、審核中) -->
+        <template id="my_team_index" name="My Team">
+            <t t-call="website.layout">
+                <t t-call="dobtor_user_profile.member_sidebar_layout">
+                    <div id="wrap" class="team_my__wrapper container o_portal_wrap">
+                        <div class="form-inline flex-md-nowrap mb-4">
+                            <form t-attf-class="team_my__searchbar o_wait_lazy_js w-100 my-1 my-lg-0" action="/my/team" method="get">
+                                <t t-set="search" t-value="search or searches and searches['search']"/>
+                                <div class="input-group" role="search">
+                                    <input type="search" name="search" class="search-query form-control oe_search_box" placeholder="Search team..." t-att-value="search"/>
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-primary oe_search_button" aria-label="Search" title="Search"><i class="fa fa-search"/></button>
+                                    </div>
+                                </div>
+                                <t t-foreach="searches" t-as="search">
+                                    <input t-if="search != 'search' and search_value != 'all'" type="hidden"
+                                        t-att-name="search" t-att-value="search_value"/>
+                                </t>
+                            </form>
+                            <a role="button" class="btn btn-primary js_upload_team flex-shrink-0 ml-md-4 w-100 w-md-auto" href="#" groups="dobtor_partner_group_extend.group_active_partner">
+                                <span class="align-middle">Create Team</span>
+                            </a>
+                        </div>
+                        <div class="team_my__join_wrapper row">
+                            <t t-foreach="apply_teams.partner_id" t-as="team">
+                                <div class="col-lg-3 col-6 d-flex flex-grow-1">
+                                    <t t-call="dobtor_team.team_card">
+                                        <t t-set="apply" t-value="True"/>
+                                    </t>
+                                </div>
+                            </t>
+                            <t t-foreach="my_join_teams" t-as="team">
+                                <div class="col-lg-3 col-6 d-flex flex-grow-1">
+                                    <t t-call="dobtor_team.team_card">
+                                        <t t-set="team_status_badge" t-value="True"/>
+                                    </t>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+        <!-- #endregion -->
+    </data>
+</odoo>

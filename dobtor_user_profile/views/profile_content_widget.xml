@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="content_collapse">
+            <ul class="nav nav-tabs db-profile__nav_tabs flex-nowrap d-flex justify-content-center" role="tablist">
+                <li class="nav-item">
+                    <a href="#about" aria-controls="about" class="nav-link active" role="tab" data-toggle="tab">
+                        About
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#info" aria-controls="info" class="nav-link" role="tab" data-toggle="tab">
+                        Info
+                    </a>
+                </li>
+            </ul>
+        </template>
+
+        <template id="profile_left_panel">
+            <div class="db-profile__widget_wrapper shadow-sm">
+                <div class="db-profile__widget_content_wrapper d-flex flex-column">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <span class="db-profile__widget_content_title">Introduction</span>
+                        <form t-if="request.env.user.partner_id == partner" id="o_wprofile_desc_edit_form" t-attf-action="/profile/#{slug(partner)}/desc/edit/modal" method="POST">
+                            <div class="d-flex">
+                                <a class="a-submit" href="#">
+                                    <svg width="36" height="36" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="currentColor" d="M15.2 4H8.8C6.1528 4 4 6.1528 4 8.8V19.2C4 19.4122 4.08429 19.6157 4.23431 19.7657C4.38434 19.9157 4.58783 20 4.8 20H15.2C17.8472 20 20 17.8472 20 15.2V8.8C20 6.1528 17.8472 4 15.2 4ZM9.5992 16H8V14.4008L12.424 9.9832L14.0232 11.5824L9.5992 16ZM14.7776 10.828L13.1784 9.2288L14.3976 8.0104L15.9968 9.6096L14.7776 10.828V10.828Z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                    <span t-if="partner.profile_description" class="db-profile__widget_content_info" t-field="partner.profile_description"/>
+                    <span t-else="" class="db-profile__widget_content_info" t-esc="'-'"/>
+                </div>
+                <t t-if="request.env.user.partner_id == partner">
+                    <t t-call="dobtor_user_profile.db-user-share"/>
+                    <a t-attf-href="/web/session/logout?redirect=/" id="o_logout" class="btn btn-light mt-4 w-100">Logout</a>
+                </t>
+            </div>
+        </template>
+
+        <template id="content_tabpanel">
+            <div class="row">
+                <div class="col-md-3">
+                    <t t-call="dobtor_user_profile.profile_left_panel"/>
+                </div>
+                <div class="col-md-9 tab-content mt-4 mt-md-0">
+                    <div role="tabpanel" class="tab-pane fade active show" id="about">
+                        <div id="user_about_block" class="db-profile__about_wrapper p-5" t-att-data-slug="request.env.user.partner_id == partner and slug(partner)">
+                            <t t-call="dobtor_user_profile.db-user-about"/>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="info">
+                        <div id="user_info_block">
+                            <t t-call="dobtor_user_profile.db-user-information"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="db-user-share">
+            <div class="db-profile__share_wrapper">
+                <div class="d-flex flex-column pl-4 pr-4">
+                    <t t-if="not partner.referral_key">
+                        <span class="text-center p-5">No Referral Code.</span>
+                    </t>
+                    <t t-else="">
+                        <span class="text-center mt-4">My QR CODE</span>
+                        <div class="text-center mb-2">
+                            <img class="w-75" t-att-src="partner.referral_qrcode"/>
+                        </div>
+                        <!-- <span class="text-center">Share</span> -->
+                        <div class="db-profile__share_link mb-4" style="margin: auto;">
+                            <input type="hidden" t-att-value="parse_url" id="parse_url"/>
+                            <a class="mr-4 o_wprofile_js_social_share" id="line_link" href="#" title="Share on Line">
+                                <!-- fontawesome https://fontawesome.com/icons/line?style=brands -->
+                                <svg focusable="false" data-prefix="fab" data-icon="line" class="svg-inline--fa fa-line fa-w-14" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                    <path fill="currentColor" d="M272.1 204.2v71.1c0 1.8-1.4 3.2-3.2 3.2h-11.4c-1.1 0-2.1-.6-2.6-1.3l-32.6-44v42.2c0 1.8-1.4 3.2-3.2 3.2h-11.4c-1.8 0-3.2-1.4-3.2-3.2v-71.1c0-1.8 1.4-3.2 3.2-3.2H219c1 0 2.1.5 2.6 1.4l32.6 44v-42.2c0-1.8 1.4-3.2 3.2-3.2h11.4c1.8-.1 3.3 1.4 3.3 3.1zm-82-3.2h-11.4c-1.8 0-3.2 1.4-3.2 3.2v71.1c0 1.8 1.4 3.2 3.2 3.2h11.4c1.8 0 3.2-1.4 3.2-3.2v-71.1c0-1.7-1.4-3.2-3.2-3.2zm-27.5 59.6h-31.1v-56.4c0-1.8-1.4-3.2-3.2-3.2h-11.4c-1.8 0-3.2 1.4-3.2 3.2v71.1c0 .9.3 1.6.9 2.2.6.5 1.3.9 2.2.9h45.7c1.8 0 3.2-1.4 3.2-3.2v-11.4c0-1.7-1.4-3.2-3.1-3.2zM332.1 201h-45.7c-1.7 0-3.2 1.4-3.2 3.2v71.1c0 1.7 1.4 3.2 3.2 3.2h45.7c1.8 0 3.2-1.4 3.2-3.2v-11.4c0-1.8-1.4-3.2-3.2-3.2H301v-12h31.1c1.8 0 3.2-1.4 3.2-3.2V234c0-1.8-1.4-3.2-3.2-3.2H301v-12h31.1c1.8 0 3.2-1.4 3.2-3.2v-11.4c-.1-1.7-1.5-3.2-3.2-3.2zM448 113.7V399c-.1 44.8-36.8 81.1-81.7 81H81c-44.8-.1-81.1-36.9-81-81.7V113c.1-44.8 36.9-81.1 81.7-81H367c44.8.1 81.1 36.8 81 81.7zm-61.6 122.6c0-73-73.2-132.4-163.1-132.4-89.9 0-163.1 59.4-163.1 132.4 0 65.4 58 120.2 136.4 130.6 19.1 4.1 16.9 11.1 12.6 36.8-.7 4.1-3.3 16.1 14.1 8.8 17.4-7.3 93.9-55.3 128.2-94.7 23.6-26 34.9-52.3 34.9-81.5z"></path>
+                                </svg>
+                            </a>
+                            <a class="o_wprofile_js_social_share" id="facebook_link" href="#" social-key="facebook" aria-label="Share on Facebook" title="Share on Facebook">
+                                <!-- fontawesome https://fontawesome.com/icons/facebook-square?style=brands -->
+                                <svg focusable="false" data-prefix="fab" data-icon="facebook-square" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                    <path fill="currentColor" d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"></path>
+                                </svg>
+                            </a>
+                            <input type="text" class="form-control o_wprofile_js_referral_url d-none" t-att-value="partner.referral_url"/>
+                            <a class="ml-4 o_profile_copy_button" href="#" social-key="share" aria-label="Share on copy">
+                                <!-- fontawesome https://fontawesome.com/icons/link?style=solid -->
+                                <svg focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link fa-w-16" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                    <path fill="currentColor" d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </template>
+
+        <template id="db-user-about">
+            <div class="d-flex align-items-center justify-content-between mb24">
+                <h3 class="font-weight-bold mb-0 text-primary">About</h3>
+                <a t-if="request.env.user.partner_id == partner and not about_edit" href="#" class="o_wprofile_about_js_edit">
+                    <svg width="36" height="36" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="currentColor" d="M15.2 4H8.8C6.1528 4 4 6.1528 4 8.8V19.2C4 19.4122 4.08429 19.6157 4.23431 19.7657C4.38434 19.9157 4.58783 20 4.8 20H15.2C17.8472 20 20 17.8472 20 15.2V8.8C20 6.1528 17.8472 4 15.2 4ZM9.5992 16H8V14.4008L12.424 9.9832L14.0232 11.5824L9.5992 16ZM14.7776 10.828L13.1784 9.2288L14.3976 8.0104L15.9968 9.6096L14.7776 10.828V10.828Z"/>
+                    </svg>
+                </a>
+            </div>
+            <div t-if="about_edit" class="about_edit_loader__wrapper">
+                <textarea name="profile_content" id="profile_content" style="min-height: 120px"
+                    class="form-control o_wysiwyg_loader"><t t-esc="partner.profile_content"/></textarea>
+                <div class="mt32 text-right">
+                    <button class="btn btn-primary o_wprofile_about_edit_submit_btn">Update</button>
+                    <button class="border btn btn-lightbg-white o_wprofile_about_edit_js_cancel">Cancel</button>
+                </div>
+            </div>
+            <div t-else="" class="text-break" t-field="partner.profile_content"/>
+        </template>
+
+        <template id="db-user-information">
+            <t t-set="browsable" t-value="request.env.user.partner_id == partner"/>
+            <div class="card shadow-sm" style="border-radius: 0.375rem;">
+                <div class="card-body p-5">
+                    <div class="d-flex align-items-center justify-content-between mb24">
+                        <h3 class="font-weight-bold mb-0 text-primary">Info</h3>
+                        <h4 class="mb-0 text-danger" t-if="not browsable">Unpublished</h4>
+                        <a t-if="request.env.user.partner_id == partner and not info_edit" href="#" class="o_wprofile_info_js_edit" data-edit-type="info">
+                            <svg width="36" height="36" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="currentColor" d="M15.2 4H8.8C6.1528 4 4 6.1528 4 8.8V19.2C4 19.4122 4.08429 19.6157 4.23431 19.7657C4.38434 19.9157 4.58783 20 4.8 20H15.2C17.8472 20 20 17.8472 20 15.2V8.8C20 6.1528 17.8472 4 15.2 4ZM9.5992 16H8V14.4008L12.424 9.9832L14.0232 11.5824L9.5992 16ZM14.7776 10.828L13.1784 9.2288L14.3976 8.0104L15.9968 9.6096L14.7776 10.828V10.828Z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <t t-if="browsable">
+                        <div class="form-row">
+                            <t t-foreach="custom_fields" t-as="field">
+                                <t t-if="field.name == 'email'" t-call="dobtor_user_contact_info.comm_email_info">
+                                    <t t-set="required_mark" t-value="field.required and True or False"/>
+                                    <t t-set="required" t-value="field.required and True or False"/>
+                                </t>
+                                <t t-elif="field.type in ('selection', 'many2one')" t-call="dobtor_user_profile.custom_special_field_tmpl">
+                                    <t t-set="div_class" t-value="'col-lg-6'"/>
+                                    <t t-set="field_title" t-value="field.string"/>
+                                    <t t-set="field_type" t-value="field.type"/>
+                                    <t t-set="field_name" t-value="field.name"/>
+                                    <t t-if="field.required" t-set="required_mark" t-value="True"/>
+                                    <t t-if="field.required" t-set="required" t-value="True"/>
+                                    <t t-set="default_val" t-value="partner[field.name]"/>
+                                    <t t-if="info_edit" t-set="options" t-value="special_field_data[field.name]"/>
+                                </t>
+                                <t t-else="" t-call="dobtor_user_contact_info.comm_field_tml">
+                                    <t t-set="div_class" t-value="'col-lg-6'"/>
+                                    <t t-set="field_title" t-value="field.string"/>
+                                    <t t-set="field_type" t-value="field.input_type"/>
+                                    <t t-set="field_name" t-value="field.name"/>
+                                    <t t-if="field.required" t-set="required_mark" t-value="True"/>
+                                    <t t-if="field.required" t-set="required" t-value="True"/>
+                                    <t t-if="field.readonly" t-set="disabled" t-value="'disabled'" />
+                                    <t t-set="default_val" t-value="partner[field.name]"/>
+                                </t>
+                            </t>
+                            <t t-if="custom_address_fields">
+                                <t t-call="dobtor_user_profile.custom_field_address_tmpl">
+                                    <t t-set="address_required_mark" t-value="any(field.name != 'country_id' and field.required for field in custom_address_fields)"/>
+                                </t>
+                            </t>
+                        </div>
+                        <div t-if="info_edit" class="d-flex flex-column mt32 profile_edit_operate">
+                            <div class="align-self-end">
+                                <button class="btn btn-primary o_wprofile_edit_submit_btn">Update</button>
+                                <button class="border btn btn-lightbg-white o_wprofile_edit_js_cancel">Cancel</button>
+                            </div>
+                            <span class="mt-3 align-self-end">
+                                <span class="text-danger">*</span> mark are required
+                            </span>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </template>
+
+        <template id="custom_special_field_tmpl">
+            <div t-attf-class="form-group #{div_class}">
+                <label class="font-weight-bold" t-att-for="field_name">
+                    <span><t t-esc="field_title or field_name.title()"/><span t-if="info_edit and required_mark" class="text-danger">*</span></span>
+                </label>
+                <div class="w-100">
+                    <span t-if="not info_edit">
+                        <t t-if="field_type == 'many2one'" t-esc="default_val.name"/>
+                        <t t-else="" t-esc="dict(partner._fields[field_name]._description_selection(request.env)).get(default_val)"/>
+                    </span>
+                    <select t-else="" class="form-control" t-att-name="field_name" t-att-required="required">
+                        <t t-foreach="options" t-as="option">
+                            <option t-att-value="option['id'] if field_type == 'many2one' else option['value']" 
+                                    t-att-selected="partner[field_name] == option['id'] if field_type == 'many2one' else partner[field_name] == option['value']" 
+                                    t-esc="option['name']"/>
+                        </t>
+                    </select>
+                </div>
+            </div>
+        </template>
+
+        <template id="custom_field_address_tmpl">
+            <t t-set="taiwan" t-value="request.env.ref('base.tw')"/>
+            <div t-if="custom_country_id" class="form-group col-lg-12" id="country">
+                <label class="font-weight-bold" for="country">
+                    <span>Country<span t-if="info_edit and custom_country_id['field'].required" class="text-danger">*</span></span>
+                </label>
+                <t t-if="not info_edit">
+                    <div class="w-100">
+                        <span t-esc="partner['country_id'].name"/>
+                    </div>
+                </t>
+                <t t-else="">
+                    <div t-if="not custom_country_id['field'].domain" class="d-flex align-items-center w-100">
+                        <t t-set="countries_without_tw" t-value="custom_country_id['data'] - taiwan"/>
+
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="radio" id="country_taiwan" name="country_option" class="custom-control-input" t-att-data-taiwan_id="taiwan.id" t-att-checked="partner and partner['country_id'] not in countries_without_tw or True"/>
+                            <label class="custom-control-label" for="country_taiwan" style="white-space: nowrap;">Taiwan</label>
+                        </div>
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="radio" id="country_other" name="country_option" class="custom-control-input" t-att-checked="partner and partner['country_id'] in countries_without_tw or None"/>
+                            <label class="custom-control-label" for="country_other" style="white-space: nowrap;">Other</label>
+                        </div>
+                        <select id="country_id" name="country_id" t-attf-class="form-control #{None if partner and partner['country_id'] in countries_without_tw else 'd-none'}" required="True">
+                            <t t-foreach="countries_without_tw" t-as="c">
+                                <option t-att-value="c.id" t-att-selected="partner and c.id == partner['country_id'].id">
+                                    <t t-esc="c.name"/>
+                                </option>
+                            </t>
+                        </select>
+                    </div>
+                    <select t-else="" id="country_id" name="country_id" t-attf-class="form-control" required="True">
+                        <t t-foreach="custom_country_id['data']" t-as="c">
+                            <option t-att-value="c.id" t-att-selected="partner and c.id == partner['country_id'].id">
+                                <t t-esc="c.name"/>
+                            </option>
+                        </t>
+                    </select>
+                </t>
+                <!-- TODO: 選擇國外時，填寫的護照名稱、號碼，不知道還有沒有需要使用，這裡先進行隱藏，若確定沒用到時可進行移除 -->
+                <!-- <div t-attf-class="form-row other_country_info_add mt-3 #{None if partner and partner['country_id'] in countries_without_tw else 'd-none'}">
+                    <t t-foreach="['passport_name', 'passport_number']" t-as="field">
+                        <t t-call="dobtor_user_contact_info.comm_field_tml">
+                            <t t-set="div_class" t-value="'col-lg-6 mb-0'"/>
+                            <t t-set="field_title" t-value="request.env.user.partner_id.get_translation(field)"/>
+                            <t t-set="field_name" t-value="field"/>
+                            <t t-set="required_mark" t-value="True"/>
+                            <t t-if="partner and partner['country_id'] in countries_without_tw" t-set="required" t-value="True"/>
+                            <t t-set="default_val" t-value="partner and partner[field]"/>
+                        </t>
+                    </t>
+                </div> -->
+            </div>
+            <div t-if="custom_state_id or custom_city or custom_zip or custom_street" class="form-group col-12" aria-label="Address">
+                <label class="font-weight-bold" for="address">
+                    <span>Address<span t-if="info_edit and address_required_mark" class="text-danger">*</span></span>
+                </label>
+                <t t-if="not info_edit">
+                    <div class="w-100">
+                        <span t-esc="'%s%s%s%s' %(
+                            partner['zip'] if partner['zip'] and custom_zip else '', 
+                            partner['state_id'].name if partner['state_id'] and custom_state_id else '', 
+                            partner['city'] if partner['city'] and custom_city else '', 
+                            partner['street'] if partner['street'] and custom_street else '')
+                        "/>
+                    </div>
+                </t>
+                <t t-else="">
+                    <div class="d-flex flex-column w-100">
+                        <div class="d-flex mb-3">
+                            <select t-if="custom_state_id" name="state_id" t-attf-class="form-control mr-2 #{None if not partner['country_id'] and taiwan.state_ids or partner['country_id'].state_ids else 'd-none'}" t-att-required="custom_state_id['field'].required">
+                                <option value="">Counties...</option>
+                                <t t-foreach="partner['country_id'].state_ids if partner['country_id'] else taiwan.state_ids" t-as="s">
+                                    <option t-att-value="s.id" t-att-selected="partner and s.id == partner['state_id'].id">
+                                        <t t-esc="s.name" />
+                                    </option>
+                                </t>
+                            </select>
+                            <input t-if="custom_city" type="text" class="form-control" id="city" name="city" placeholder="State" t-att-value="partner and partner['city']" t-att-required="custom_city['field'].required"/>
+                            <input t-if="custom_zip" type="text" t-att-class="'form-control %s' %(custom_city and 'ml-2' or None)" id="zip" name="zip" placeholder="Zip" t-att-value="partner and partner['zip']" t-att-required="custom_zip['field'].required"/>
+                        </div>
+                        <input t-if="custom_street" type="text" class="form-control" id="street" name="street" placeholder="Street" t-att-value="partner and partner['street']" t-att-required="custom_street['field'].required"/>
+                    </div>
+                </t>
+            </div>
+        </template>
+    </data>
+</odoo>

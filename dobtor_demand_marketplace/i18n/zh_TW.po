@@ -1,0 +1,1078 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* dobtor_demand_marketplace
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-22 02:02+0000\n"
+"PO-Revision-Date: 2022-07-22 02:02+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: dobtor_demand_marketplace
+#: code:addons/dobtor_demand_marketplace/models/event_registraion.py:0
+#, python-format
+msgid " can help your."
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: code:addons/dobtor_demand_marketplace/models/event_registraion.py:0
+#, python-format
+msgid " need your help."
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_report_total_info
+msgid "/ ppl"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand
+msgid "<span class=\"demand_record__header_title\">Accept</span>"
+msgstr "<span class=\"demand_record__header_title\">已通過</span>"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand
+msgid "<span class=\"demand_record__header_title\">Demand</span>"
+msgstr ""
+"<span class=\"demand_record__header_title\">需求數</span><span style=\"font-"
+"size: 10px;\">（時/次）</span>"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.my_service
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.service_audit
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand
+msgid "<span class=\"demand_record__header_title\">Pay points</span>"
+msgstr "<span class=\"demand_record__header_title\">支付點數</span>"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.service_sidebar_layout
+msgid ""
+"<span class=\"event_chapternav_label px-2\">\n"
+"                                        My Service\n"
+"                                    </span>"
+msgstr "<span class=\"event_chapternav_label px-2\">我的服務</span>"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.service_sidebar_layout
+msgid ""
+"<span class=\"event_chapternav_label px-2\">\n"
+"                                        Service Audit\n"
+"                                    </span>"
+msgstr ""
+"<span class=\"event_chapternav_label px-2\">\n"
+"                                        服務審核\n"
+"                                    </span>"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand_inherit_demand_sidebar_layout
+msgid ""
+"<span class=\"event_chapternav_label px-2\">\n"
+"                            Team Demand\n"
+"                        </span>"
+msgstr "<span class=\"event_chapternav_label px-2\">群組管理</span>"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_statistics_demand_inherit
+msgid "<span class=\"team_profile__statistics_title\">Demand</span>"
+msgstr "<span class=\"team_profile__statistics_title\">需求</span>"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_report_total_info
+msgid "<span><i class=\"fa fa-list-ul\"/>Attend List</span>"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model:mail.template,body_html:dobtor_demand_marketplace.demand_attendee_state_common_mail
+msgid ""
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;\">\n"
+"                    <tr>\n"
+"                        <td align=\"center\">\n"
+"                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"padding: 16px; background-color: white; color: #454748; border-collapse:separate;\">\n"
+"                                <tbody>\n"
+"                                    <tr>\n"
+"                                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"top\" style=\"font-size: 13px;\">\n"
+"                                                        <div>\n"
+"                                                            <span>${ctx['body'] | safe}</span>\n"
+"                                                        </div>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td style=\"text-align:center;\">\n"
+"                                                        <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                </tbody>\n"
+"                            </table>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                </table>\n"
+"            "
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_account_bank_statement_line__is_agent_payment
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_account_move__is_agent_payment
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_account_payment__is_agent_payment
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_sale_order__is_agent_payment
+msgid "Agent Paying"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.my_service
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.service_audit
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand
+msgid "All"
+msgstr "全部顯示"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "All Day"
+msgstr "整天"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "day and night"
+msgstr "整天"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.my_service
+msgid "Appeal"
+msgstr "已投訴"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand_inherit_my_demand
+msgid "Approve"
+msgstr "審核"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_report_total_info
+msgid "Attend Num"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_event_registration_view_form_inhert
+msgid "Attendee Appeal"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_event_registration_view_form_inhert
+msgid "Attendee Appleal"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_event_registration__is_attendee_finish
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_event_registration_view_form_inhert
+msgid "Attendee Finish"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: code:addons/dobtor_demand_marketplace/models/event_registraion.py:0
+#: model:ir.model.fields.selection,name:dobtor_demand_marketplace.selection__event_registration__appeal_state__attendee
+#, python-format
+msgid "Attendee appeal"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_report_table
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.my_service
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.service_audit
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand
+msgid "Audit"
+msgstr "待審核"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_event_registration_view_form_inhert
+msgid "Both Appleal"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: code:addons/dobtor_demand_marketplace/models/event_registraion.py:0
+#: model:ir.model.fields.selection,name:dobtor_demand_marketplace.selection__event_registration__appeal_state__both
+#, python-format
+msgid "Both appeal"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.my_service
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.service_audit
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand
+msgid "By Date"
+msgstr "指定日期"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.my_service
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.service_audit
+msgid "Cancel"
+msgstr "已取消"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand_inherit_my_demand
+msgid "Check"
+msgstr "確認"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "Choose file"
+msgstr "選擇檔案..."
+
+#. module: dobtor_demand_marketplace
+#: code:addons/dobtor_demand_marketplace/models/event_registraion.py:0
+#: model:ir.model.fields.selection,name:dobtor_demand_marketplace.selection__event_registration__organizer_state__open
+#, python-format
+msgid "Confirm"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: code:addons/dobtor_demand_marketplace/models/event_registraion.py:0
+#: model:ir.model.fields.selection,name:dobtor_demand_marketplace.selection__event_registration__appeal_state__creator
+#, python-format
+msgid "Create appeal"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/js/demand_portal_upload.js:0
+#, python-format
+msgid "Create new %s '%s'"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_event_registration_view_form_inhert
+msgid "Creator Appeal"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_event_registration_view_form_inhert
+msgid "Creator Appleal"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_event_registration__is_creator_check
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_event_registration_view_form_inhert
+msgid "Creator Check"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_event_registration_view_form_inhert
+msgid "Creator Confirm"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_event_registration_view_form_inhert
+msgid "Creator Reject"
+msgstr "創建者已拒絕"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_report_table
+msgid "Date"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model:app.upload,name:dobtor_demand_marketplace.app_upload_demand_data
+#: model:ir.model,name:dobtor_demand_marketplace.model_event_demand
+msgid "Demand"
+msgstr "提出需求"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "Demand Description"
+msgstr "需求描述"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "Demand Image"
+msgstr "上傳圖片"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#: code:addons/website-user/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#: code:addons/website-user/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "Demand Name"
+msgstr "需求主題"
+
+#. module: dobtor_demand_marketplace
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_event_registration__demand_so_id
+msgid "Demand Sale Order"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_event_registration__demand_so_line_id
+msgid "Demand Sale Order Line"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#: code:addons/website-user/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#: code:addons/website-user/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "Demand Subtitle"
+msgstr "需求簡述"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "Demand Tags"
+msgstr "需求標籤"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_event_registration_view_form_inhert
+msgid "Demand Taker Info"
+msgstr "接受者資訊"
+
+#. module: dobtor_demand_marketplace
+#: model:app.upload,name:dobtor_demand_marketplace.app_upload_demand_team_data
+msgid "Demand Team"
+msgstr "群組需求"
+
+#. module: dobtor_demand_marketplace
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_event_registration__demand_type
+msgid "Demand Type"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "Demand_Name"
+msgstr "需求主題"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "Demand_Request_Qty"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "Demand_Subtitle"
+msgstr "需求簡述"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/js/demand_portal_upload.js:0
+#: code:addons/website-user/dobtor_demand_marketplace/static/src/js/demand_portal_upload.js:0
+#, python-format
+msgid "Re-edit"
+msgstr "重新編輯"
+
+#. module: dobtor_demand_marketplace
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_account_move__display_name
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_event_demand__display_name
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_event_registration__display_name
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_payment_transaction__display_name
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_purchase_order__display_name
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_sale_order__display_name
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_sale_order_line__display_name
+msgid "Display Name"
+msgstr "顯示名稱"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.view_demand_form_order_rel
+msgid "Down Pay"
+msgstr "預付款項"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.view_demand_form_order_rel
+msgid "DownPay"
+msgstr "預付款項"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand_inherit_my_demand
+msgid "Phone"
+msgstr "電話"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_report_table
+msgid "Email"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#: code:addons/website-user/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "Demand Date"
+msgstr "需求時間"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#: code:addons/website-user/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#: code:addons/website-user/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "Demand Price"
+msgstr "需求費用"
+
+#. module: dobtor_demand_marketplace
+#: model:ir.model,name:dobtor_demand_marketplace.model_event_registration
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_payment_transaction__event_register
+msgid "Event Registration"
+msgstr "活動登記"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/js/demand_portal_upload.js:0
+#, python-format
+msgid "Event Tags"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "Event_Organizer"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "Event_Price"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/js/demand_portal_upload.js:0
+#, python-format
+msgid "File is too big. File size cannot exceed 25MB"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.my_service
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand
+msgid "Finish"
+msgstr "已完成"
+
+#. module: dobtor_demand_marketplace
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_event_demand__demand_giver_order_id
+msgid "Giver DownPay Order"
+msgstr "預付款項訂單"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.my_service
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand
+msgid "I/P"
+msgstr "進行中"
+
+#. module: dobtor_demand_marketplace
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_account_move__id
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_event_demand__id
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_event_registration__id
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_payment_transaction__id
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_purchase_order__id
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_sale_order__id
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_sale_order_line__id
+msgid "ID"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: code:addons/dobtor_demand_marketplace/controllers/controllers.py:0
+#, python-format
+msgid ""
+"Internal server error, please try again later or contact administrator.\n"
+"Here is the error message: %s"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/js/demand_portal_upload.js:0
+#, python-format
+msgid "Invalid file type. Please select image file"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "Is Show Public"
+msgstr "是否公開報名"
+
+#. module: dobtor_demand_marketplace
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_event_demand__is_team
+msgid "Is Team"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model:ir.model,name:dobtor_demand_marketplace.model_account_move
+msgid "Journal Entry"
+msgstr "日記帳分錄"
+
+#. module: dobtor_demand_marketplace
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_account_move____last_update
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_event_demand____last_update
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_event_registration____last_update
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_payment_transaction____last_update
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_purchase_order____last_update
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_sale_order____last_update
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_sale_order_line____last_update
+msgid "Last Modified on"
+msgstr "最後修改於"
+
+#. module: dobtor_demand_marketplace
+#: code:addons/dobtor_demand_marketplace/models/event_registraion.py:0
+#: code:addons/dobtor_demand_marketplace/models/event_registraion.py:0
+#, python-format
+msgid "Manager agree this case."
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model:app.launcher,name:dobtor_demand_marketplace.app_launcher_my_service_data
+msgid "My Service"
+msgstr "服務"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_report_table
+msgid "Name"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: code:addons/dobtor_demand_marketplace/models/event_registraion.py:0
+#: model:ir.model.fields.selection,name:dobtor_demand_marketplace.selection__event_registration__appeal_state__no_one
+#, python-format
+msgid "No one appeal"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.my_service
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.service_audit
+msgid "No service found."
+msgstr "目前沒有服務"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand
+msgid "No team demand found."
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_report_total_info
+msgid "Number of applicants"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_event_registration_view_form_inhert
+msgid "Org Confirm"
+msgstr "組織同意"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_event_registration_view_form_inhert
+msgid "Org Reject"
+msgstr "組織拒絕"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "Organizer"
+msgstr "群組"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_report_table
+msgid "Partner"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_report_table
+msgid "Pay"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model:ir.model,name:dobtor_demand_marketplace.model_payment_transaction
+msgid "Payment Transaction"
+msgstr "付款交易"
+
+#. module: dobtor_demand_marketplace
+#: code:addons/dobtor_demand_marketplace/models/event_registraion.py:0
+#: code:addons/dobtor_demand_marketplace/models/event_registraion.py:0
+#: model:ir.model.fields.selection,name:dobtor_demand_marketplace.selection__event_registration__demand_creator_state__draft
+#: model:ir.model.fields.selection,name:dobtor_demand_marketplace.selection__event_registration__organizer_state__draft
+#, python-format
+msgid "Pending"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model:ir.model,name:dobtor_demand_marketplace.model_purchase_order
+msgid "Purchase Order"
+msgstr "採購訂單"
+
+#. module: dobtor_demand_marketplace
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_payment_transaction__purchase_ids
+msgid "Purchase Orders"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand_inherit_my_demand
+msgid "Qty"
+msgstr "數量"
+
+#. module: dobtor_demand_marketplace
+#: code:addons/dobtor_demand_marketplace/models/event_registraion.py:0
+#: code:addons/dobtor_demand_marketplace/models/event_registraion.py:0
+#: model:ir.model.fields.selection,name:dobtor_demand_marketplace.selection__event_registration__demand_creator_state__cancel
+#: model:ir.model.fields.selection,name:dobtor_demand_marketplace.selection__event_registration__organizer_state__cancel
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.my_service
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.service_audit
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand
+#, python-format
+msgid "Reject"
+msgstr "已拒絕"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_sale_order_line__request_qty
+#, python-format
+msgid "Request Qty"
+msgstr "需求數量"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "Request Unit"
+msgstr "基礎單位"
+
+#. module: dobtor_demand_marketplace
+#: model:ir.model,name:dobtor_demand_marketplace.model_sale_order
+msgid "Sales Order"
+msgstr "銷售訂單"
+
+#. module: dobtor_demand_marketplace
+#: model:ir.model,name:dobtor_demand_marketplace.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "銷售訂單明細"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/js/demand_portal_upload.js:0
+#: code:addons/dobtor_demand_marketplace/static/src/js/demand_portal_upload.js:0
+#: code:addons/website-user/dobtor_demand_marketplace/static/src/js/demand_portal_upload.js:0
+#: code:addons/website-user/dobtor_demand_marketplace/static/src/js/demand_portal_upload.js:0
+#, python-format
+msgid "Submit review"
+msgstr "提交審核"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_report_total_info
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.my_service
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.service_audit
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand
+msgid "Search"
+msgstr "搜尋"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_event_registration_view_form_inhert
+msgid "Settle"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_report_table
+msgid "Status"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.my_service
+msgid "TBC"
+msgstr "待確認"
+
+#. module: dobtor_demand_marketplace
+#: code:addons/dobtor_demand_marketplace/models/event_demand.py:0
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_event_demand__demand_taker_order_id
+#, python-format
+msgid "Taker DownPay Order"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: code:addons/dobtor_demand_marketplace/models/event_registraion.py:0
+#, python-format
+msgid "Thank you ! Anticipate with your cooperation!"
+msgstr "非常感謝您! 期待與您的合作!"
+
+#. module: dobtor_demand_marketplace
+#: code:addons/dobtor_demand_marketplace/models/event_registraion.py:0
+#: code:addons/dobtor_demand_marketplace/models/event_registraion.py:0
+#, python-format
+msgid "Thank you for this apply, but I may have to say no this time."
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand_inherit_my_demand
+msgid "Time"
+msgstr "時間"
+
+#. module: dobtor_demand_marketplace
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_purchase_order__transaction_ids
+msgid "Transactions"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/js/demand_portal_upload.js:0
+#, python-format
+msgid "Upload Demand"
+msgstr "上傳需求"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand_inherit_my_demand
+msgid "Waiter"
+msgstr "服務者"
+
+#. module: dobtor_demand_marketplace
+#: code:addons/dobtor_demand_marketplace/models/event_registraion.py:0
+#, python-format
+msgid "Your Join this Demand, Please wait for agree."
+msgstr "您加入了需求服務, 請等待同意"
+
+#. module: dobtor_demand_marketplace
+#: model:ir.model.fields,help:dobtor_demand_marketplace.field_account_bank_statement_line__is_agent_payment
+#: model:ir.model.fields,help:dobtor_demand_marketplace.field_account_move__is_agent_payment
+#: model:ir.model.fields,help:dobtor_demand_marketplace.field_account_payment__is_agent_payment
+#: model:ir.model.fields,help:dobtor_demand_marketplace.field_sale_order__is_agent_payment
+msgid "agent for the collecting and paying"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_event_registration__appeal_state
+msgid "appeal state"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: code:addons/dobtor_demand_marketplace/models/event_registraion.py:0
+#: model:ir.model.fields.selection,name:dobtor_demand_marketplace.selection__event_registration__demand_creator_state__open
+#, python-format
+msgid "confirm"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_detail_view_extend
+msgid "demand are waiting team review!"
+msgstr "需求已送出！等候群組審核通過中...."
+
+#. module: dobtor_demand_marketplace
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_event_registration__demand_creator_state
+msgid "demand creator state"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "hours."
+msgstr "小時"
+
+#. module: dobtor_demand_marketplace
+#: code:addons/dobtor_demand_marketplace/models/event_registraion.py:0
+#, python-format
+msgid "i can help your."
+msgstr "能提供需求服務給您"
+
+#. module: dobtor_demand_marketplace
+#: code:addons/dobtor_demand_marketplace/models/event_registraion.py:0
+#, python-format
+msgid "i need your help."
+msgstr "我需要您提供需求服務"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/js/demand_portal_upload.js:0
+#, python-format
+msgid "input error"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: code:addons/dobtor_demand_marketplace/controllers/controllers.py:0
+#, python-format
+msgid "insufficient wallet balance"
+msgstr "帳戶餘額不足"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "mins."
+msgstr "分鐘"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "once times :"
+msgstr "完成任務, 每次"
+
+#. module: dobtor_demand_marketplace
+#: model:ir.model.fields,field_description:dobtor_demand_marketplace.field_event_registration__organizer_state
+msgid "organizer state"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "per"
+msgstr "基礎單位"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "point"
+msgstr "點"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "times"
+msgstr "計次"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "timing"
+msgstr "計時"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "to"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "upload"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_detail_view_extend
+msgid "you need finish this service!"
+msgstr "服務登記完尚未結束前，不可以重複登記服務"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/js/demand_portal_upload.js:0
+#, python-format
+msgid "」 input error"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model:app.upload,tips:dobtor_demand_marketplace.app_upload_demand_data
+msgid "你尚未加入群組"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model:app.upload,tips:dobtor_demand_marketplace.app_upload_demand_team_data
+msgid "你尚未成為群組管理者"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: code:addons/dobtor_demand_marketplace/controllers/controllers.py:0
+#, python-format
+msgid "活動開始日期不可超過結束日期"
+msgstr ""
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand
+msgid "Closed"
+msgstr "已關閉"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand
+msgid "Cancelled"
+msgstr "已取消"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand_inherit_my_demand
+msgid "<span class=\"demand_record__header_title text-nowrap\">Undone</span>"
+msgstr "<span class=\"demand_record__header_title text-nowrap\">未完成</span>"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand_inherit_my_demand
+msgid ""
+"<span class=\"demand_record__header_title text-nowrap\">Accepted/Apply "
+"Qty</span>"
+msgstr ""
+"<span class=\"demand_record__header_title text-nowrap\">已接受/申請數</span>"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand_inherit_my_demand
+msgid ""
+"<span class=\"demand_record__header_title text-nowrap\">Completed/Demand "
+"Qty</span>"
+msgstr ""
+"<span class=\"demand_record__header_title text-nowrap\">已完成/需求數</span>"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand_inherit_my_demand
+msgid ""
+"<span class=\"demand_record__header_title text-nowrap\">Reserved/Request "
+"Amount</span>"
+msgstr ""
+"<span class=\"demand_record__header_title text-nowrap\">實際/計畫支付</span>"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand_inherit_my_demand
+msgid "<span class=\"demand_record__header_title text-nowrap\">Audit</span>"
+msgstr "<span class=\"demand_record__header_title text-nowrap\">待審核</span>"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#: code:addons/website-user/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "Demand Address"
+msgstr "需求地點"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#: code:addons/website-user/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "Disabled"
+msgstr "不顯示"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#: code:addons/website-user/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "Show"
+msgstr "顯示"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#: code:addons/website-user/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "Online"
+msgstr "線上"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#: code:addons/website-user/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "Offline"
+msgstr "線下"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/js/demand_portal_upload.js:0
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#: code:addons/website-user/dobtor_demand_marketplace/static/src/js/demand_portal_upload.js:0
+#: code:addons/website-user/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "Counties"
+msgstr "縣市"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#: code:addons/website-user/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "Dist."
+msgstr "區"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#: code:addons/website-user/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "Zip"
+msgstr "郵遞區號"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#: code:addons/website-user/dobtor_demand_marketplace/static/src/xml/demand_portal_upload.xml:0
+#, python-format
+msgid "Street"
+msgstr "地址"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.team_demand
+msgid "Team Pay"
+msgstr "代付"
+
+#. module: dobtor_demand_marketplace
+#. openerp-web
+#: code:addons/dobtor_demand_marketplace/static/src/js/demand_portal_upload.js:0
+#: code:addons/website-user/dobtor_demand_marketplace/static/src/js/demand_portal_upload.js:0
+#, python-format
+msgid "Team pay"
+msgstr "申請群組代付"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_detail_view_extend
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_project_list_extend
+msgid "Team"
+msgstr "群組"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_detail_view_extend
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.demand_project_list_extend
+msgid "Personal"
+msgstr "個人"
+
+#. module: dobtor_demand_marketplace
+#: code:addons/dobtor_demand_marketplace/controllers/controllers.py:0
+#: code:addons/dobtor_demand_marketplace/controllers/controllers.py:0
+#: code:addons/website-user/dobtor_demand_marketplace/controllers/controllers.py:0
+#: code:addons/website-user/dobtor_demand_marketplace/controllers/controllers.py:0
+#, python-format
+msgid ""
+"The balance is less than %s points, and the demand cannot be established"
+msgstr "餘額不足%s點，無法建立需求"
+
+#. module: dobtor_demand_marketplace
+#: model_terms:ir.ui.view,arch_db:dobtor_demand_marketplace.service_audit
+msgid "Pass"
+msgstr "審核通過"

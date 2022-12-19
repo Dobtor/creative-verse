@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="view_team_form_publish" model="ir.ui.view">
+            <field name="name">res.partner.team.form.publish</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="dobtor_team.view_team_form"/>
+            <field name="arch" type="xml">
+                
+                <xpath expr="//sheet" position="before">
+                    <header>
+                        <button name="action_add_team_access_publish" icon="fa-globe" string="Publish" type="object" />
+                    </header>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

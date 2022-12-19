@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_event_demand_active_partner,Active Partner : Demand,dobtor_demand.model_event_demand,dobtor_partner_group_extend.group_active_partner,1,1,1,0
+access_event_demand_schedule_active_partner,Active Partner :  Demand Schedule,dobtor_demand.model_event_demand_schedule,dobtor_partner_group_extend.group_active_partner,1,0,1,0

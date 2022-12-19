@@ -1,0 +1,2043 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* dobtor_demand
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-21 09:43+0000\n"
+"PO-Revision-Date: 2022-07-21 09:43+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_kanban
+msgid "<i class=\"fa fa-arrow-right o_event_fontsize_09\" title=\"End date\"/>"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_project_list
+msgid "<i class=\"fa fa-ban mr-2\"/>Unpublished"
+msgstr "<i class=\"fa fa-ban mr-2\"/>尚未發布"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_kanban
+msgid "<i class=\"fa fa-exchange\" title=\"Demand Type\"/>"
+msgstr "<i class=\"fa fa-exchange\" title=\"招募類型\"/>"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_kanban
+msgid "<i class=\"fa fa-level-up fa-rotate-90\" title=\"Confirmed\"/>"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_form
+msgid ""
+"<i class=\"fa fa-long-arrow-right mx-2\" aria-label=\"Arrow icon\" "
+"title=\"Arrow\"/>"
+msgstr ""
+
+#. module: dobtor_demand
+#: code:addons/dobtor_demand/models/event_demand.py:0
+#, python-format
+msgid ""
+"<p class=\"o_view_nocontent_smiling_face\">\n"
+"                    Create an Attendee\n"
+"                </p>"
+msgstr ""
+"<p class=\"o_view_nocontent_smiling_face\">\n"
+"                    創建一個與會者\n"
+"                </p>"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_register_details
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_detail_view
+msgid "<span>Quantity</span>"
+msgstr "<span>數量</span>"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_sidebar_layout
+msgid ""
+"<span class=\"event_chapternav_label px-2\">\n"
+"                                        My Demand\n"
+"                                    </span>"
+msgstr "<span class=\"event_chapternav_label px-2\">我的需求</span>"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_form
+msgid "<span class=\"o_stat_text\">Sales</span>"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_detail_view
+msgid "<span class=\"small text-muted mr-1\">Share</span>"
+msgstr "<span class=\"small text-muted mr-1\">立即分享</span>"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_detail_view
+msgid "<span class=\"text-muted\">Accept:</span>"
+msgstr "<span class=\"text-muted\">已完成</span>"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_detail_view
+msgid "<span class=\"text-muted\">Demand:</span>"
+msgstr "<span class=\"text-muted\">需求數</span>"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_detail_view
+msgid "<span class=\"text-muted\">Period</span>"
+msgstr "<span class=\"text-muted\">需求期間</span>"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_register_details
+msgid "<span>Base Unit:</span>"
+msgstr "<span>基本單位</span>"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_register_details
+msgid "<span>Creator:</span>"
+msgstr "<span>提案人</span>"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_detail_view
+msgid "<span>Creator</span>"
+msgstr "<span>創建者</span>"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_register_details
+msgid "<span>Date:</span>"
+msgstr "<span>需求日期</span>"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_detail_view
+msgid "<span>Origanizer</span>"
+msgstr "<span>提案人</span>"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_register_details
+msgid "<span>Price:</span>"
+msgstr "<span>每單位獲得</span>"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_register_details
+msgid "<span>Pricing Method:</span>"
+msgstr "<span>需求類型</span>"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_detail_view
+msgid "<span>Related Event</span>"
+msgstr "<span>關聯活動</span>"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_register_confirm
+msgid "<span>Your application already send.</span>"
+msgstr "<span>您的參與服務申請已送出</span>"
+
+#. module: dobtor_demand
+#: model:mail.template,body_html:dobtor_demand.demand_notify_mail
+msgid ""
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;\">\n"
+"                    <tr>\n"
+"                        <td align=\"center\">\n"
+"                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"padding: 16px; background-color: white; color: #454748; border-collapse:separate;\">\n"
+"                                <tbody>\n"
+"                                    <tr>\n"
+"                                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"top\" style=\"font-size: 13px;\">\n"
+"                                                        <div>\n"
+"                                                            <span>${ctx['body'] | safe}</span>\n"
+"                                                        </div>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td style=\"text-align:center;\">\n"
+"                                                        <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                </tbody>\n"
+"                            </table>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                </table>\n"
+"            "
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__active
+msgid "Active"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__menu_register_cta
+msgid "Add Register Button"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_form
+msgid "Add a note..."
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_register_details
+msgid "Add one"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__event_address_disabled
+msgid "Address Disabled"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__event_address_type
+msgid "Address Type"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_header
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.my_demand
+msgid "All"
+msgstr "全部"
+
+#. module: dobtor_demand
+#: code:addons/dobtor_demand/controllers/controllers.py:0
+#, python-format
+msgid "All Countries"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__sale_order_lines_ids
+msgid "All sale order lines pointing to this event"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__allow_appeal
+msgid "Allow Appeal"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__meeting_room_allow_creation
+msgid "Allow Room Creation"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand_schedule__amount
+msgid "Amount"
+msgstr ""
+
+#. module: dobtor_demand
+#: code:addons/dobtor_demand/models/event_demand.py:0
+#, python-format
+msgid "Appeal"
+msgstr "申請"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__appeal_deadline
+msgid "Appeal Deadline"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_search
+msgid "Archived"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__attendance_ids
+msgid "Attendaces"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__registration_ids
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.purchase_order_view_form
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_form
+msgid "Attendees"
+msgstr "參與者"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.my_demand
+msgid "Audit"
+msgstr "待審核"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__auto_confirm
+msgid ""
+"Autoconfirm Registrations. Registrations will automatically be confirmed "
+"upon creation."
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__auto_confirm
+msgid "Autoconfirmation"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__seats_available
+msgid "Available Seats"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__allowed_track_tag_ids
+msgid "Available Track Tags"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__badge_back
+msgid "Badge Back"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__badge_front
+msgid "Badge Front"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__badge_innerleft
+msgid "Badge Inner Left"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__badge_innerright
+msgid "Badge Inner Right"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_registration_editor_form
+msgid "Before confirming"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__behalf_register
+msgid "Behalf Registration"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.my_demand
+msgid "By Date"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__can_publish
+msgid "Can Publish"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_configurator_view_form
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_registration_editor_form
+msgid "Cancel"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__cancel_reason
+msgid "Cancel reason"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_form
+msgid "Cancelled"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__event_category_id
+msgid "Category"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_search
+msgid "Check State"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_purchase_order_line__event_id
+msgid ""
+"Choose an event and it will automatically create a registration for this "
+"event."
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_purchase_order_line__event_ticket_id
+msgid ""
+"Choose an event ticket and it will automatically create a registration for "
+"this event ticket."
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__city
+msgid "City"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_register_details
+msgid "Close"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_form
+msgid "Common"
+msgstr "共用參數"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_form
+msgid "Communication"
+msgstr "通訊設定"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__community_menu
+msgid "Community Menu"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__company_id
+msgid "Company"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_project_list
+msgid "Completed progress"
+msgstr "完成進度"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_detail_view
+msgid "Completed progress :"
+msgstr "完成進度"
+
+#. module: dobtor_demand
+#: model:ir.actions.act_window,name:dobtor_demand.demand_configurator_action
+msgid "Configure a Demand"
+msgstr ""
+
+#. module: dobtor_demand
+#: code:addons/dobtor_demand/models/event_demand.py:0
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_registration_editor_form
+#, python-format
+msgid "Confirm"
+msgstr "同意"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_form
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_kanban
+msgid "Confirmed"
+msgstr "已同意"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_register_details
+msgid "Continue"
+msgstr "送出申請"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__country_id
+msgid "Country"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__cover_properties
+msgid "Cover Properties"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.actions.act_window,help:dobtor_demand.action_demand_view
+msgid "Create a new demand"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_demand_registration_editor__create_uid
+#: model:ir.model.fields,field_description:dobtor_demand.field_demand_registration_editor_line__create_uid
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__create_uid
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand_schedule__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_demand_registration_editor__create_date
+#: model:ir.model.fields,field_description:dobtor_demand.field_demand_registration_editor_line__create_date
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__create_date
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand_schedule__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__website_menu
+msgid ""
+"Creates menus Introduction, Location and Register on the page of the event "
+"on the website."
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__event_creator_partner
+msgid "Creator Partner"
+msgstr "發起人"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_form
+msgid "Cron Test"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__event_current_date
+msgid "Current Date"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__event_custom_registrations_open
+msgid "Custom Registration open"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand_schedule__date
+msgid "Date"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand_schedule__dayofweek
+msgid "Day of Week"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__event_default_cover
+msgid "Default Cover"
+msgstr ""
+
+#. module: dobtor_demand
+#: code:addons/dobtor_demand/models/event_event.py:0
+#: code:addons/dobtor_demand/models/event_event.py:0
+#: model:ir.actions.act_window,name:dobtor_demand.action_demand_view
+#: model:ir.model,name:dobtor_demand.model_event_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand_schedule__master_id
+#: model:ir.model.fields.selection,name:dobtor_demand.selection__event_event__mode__demand
+#: model:ir.model.fields.selection,name:dobtor_demand.selection__event_type__mode__demand
+#: model:ir.ui.menu,name:dobtor_demand.demand_menu
+#: model:ir.ui.menu,name:dobtor_demand.dobtor_demand_root_menu
+#: model:website.menu,name:dobtor_demand.menu_demands
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_search
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_tree
+#, python-format
+msgid "Demand"
+msgstr "需求"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_purchase_order__demand_attendee_count
+msgid "Demand Attendee Count"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_form
+msgid "Demand Date"
+msgstr "服務時間"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_event_registration_view_form
+msgid "Demand Giver Info"
+msgstr "提供需求者資訊"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_form
+msgid "Demand Name"
+msgstr "需求主題"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.index
+msgid "Demand Project"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_registration__demand_po_id
+msgid "Demand Purchase Order"
+msgstr "提供者訂單"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_registration__demand_po_line_id
+msgid "Demand Purchase Order Line"
+msgstr "提供者訂單明細"
+
+#. module: dobtor_demand
+#: model:ir.actions.act_window,name:dobtor_demand.action_purchase_order_event_registration
+msgid "Demand Registrations"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model,name:dobtor_demand.model_event_demand_schedule
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__minion_ids
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_form
+msgid "Demand Schedule"
+msgstr "時間表"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__demand_type
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_event__demand_type
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_event_ticket__demand_type
+msgid "Demand Type"
+msgstr "需求種類"
+
+#. module: dobtor_demand
+#: code:addons/dobtor_demand/models/event_demand.py:0
+#, python-format
+msgid "Demand was cancelled"
+msgstr ""
+
+#. module: dobtor_demand
+#: code:addons/dobtor_demand/models/event_demand.py:0
+#, python-format
+msgid "Demand was confirmed"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__depend_events_ids
+msgid "Depend Events"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__description
+msgid "Description"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_account_move__display_name
+#: model:ir.model.fields,field_description:dobtor_demand.field_demand_registration_editor__display_name
+#: model:ir.model.fields,field_description:dobtor_demand.field_demand_registration_editor_line__display_name
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__display_name
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand_schedule__display_name
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_event__display_name
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_event_ticket__display_name
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_registration__display_name
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_type__display_name
+#: model:ir.model.fields,field_description:dobtor_demand.field_purchase_order__display_name
+#: model:ir.model.fields,field_description:dobtor_demand.field_purchase_order_line__display_name
+msgid "Display Name"
+msgstr "顯示名稱"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__community_menu
+msgid "Display community tab on website"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.my_demand
+msgid "Done State"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model,name:dobtor_demand.model_demand_registration_editor
+msgid "Edit Attendee Details on Demand Confirmation"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model,name:dobtor_demand.model_demand_registration_editor_line
+msgid "Edit Attendee Line on Demand Confirmation"
+msgstr ""
+
+#. module: dobtor_demand
+#. openerp-web
+#: code:addons/dobtor_demand/static/src/js/product_demand_configurator.js:0
+#: code:addons/dobtor_demand/static/src/js/product_demand_configurator.js:0
+#, python-format
+msgid "Edit Configuration"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_demand_registration_editor_line__editor_id
+msgid "Editor"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_demand_registration_editor_line__email
+msgid "Email"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__date_end
+msgid "End Date"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__date_end_located
+msgid "End Date Located"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model,name:dobtor_demand.model_event_event
+#: model:ir.model.fields,field_description:dobtor_demand.field_demand_registration_editor_line__event_id
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__event_id
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__name
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand_schedule__event_id
+#: model:ir.model.fields,field_description:dobtor_demand.field_purchase_order_line__event_id
+msgid "Event"
+msgstr "活動"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__event_address
+msgid "Event Address"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__event_address_note
+msgid "Event Address Note"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__community_menu_ids
+msgid "Event Community Menus"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__event_creator
+msgid "Event Creator"
+msgstr "活動發起人"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__event_date_end_located_date
+msgid "Event End Date Located"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__event_logo
+msgid "Event Logo"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__menu_id
+msgid "Event Menu"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__event_organizer
+msgid "Event Organizer"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__track_proposal_menu_ids
+msgid "Event Proposals Menus"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model,name:dobtor_demand.model_event_registration
+msgid "Event Registration"
+msgstr "活動登記"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__is_session
+msgid "Event Session"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__event_date_begin_located_date
+msgid "Event Start Date Located"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__subtitle
+msgid "Event Subtitle"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model,name:dobtor_demand.model_event_type
+msgid "Event Template"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model,name:dobtor_demand.model_event_event_ticket
+#: model:ir.model.fields,field_description:dobtor_demand.field_demand_registration_editor_line__event_ticket_id
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__event_ticket_ids
+#: model:ir.model.fields,field_description:dobtor_demand.field_purchase_order_line__event_ticket_id
+msgid "Event Ticket"
+msgstr "活動入場券"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__track_menu_ids
+msgid "Event Tracks Menus"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_form
+msgid "Events"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__exhibitor_menu_ids
+msgid "Exhibitors Menus"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_kanban
+msgid "Expected attendees"
+msgstr ""
+
+#. module: dobtor_demand
+#. openerp-web
+#: code:addons/dobtor_demand/static/src/js/product_demand_configurator.js:0
+#: code:addons/dobtor_demand/static/src/js/product_demand_configurator.js:0
+#, python-format
+msgid "External Link"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.my_demand
+msgid "Finish"
+msgstr "已完成"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__seats_max
+msgid ""
+"For each event you can define a maximum registration of seats(number of "
+"attendees), above this numbers the registrations are not accepted."
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__general_question_ids
+msgid "General Questions"
+msgstr ""
+
+#. module: dobtor_demand
+#: code:addons/dobtor_demand/models/event_event.py:0
+#: model:ir.model.fields.selection,name:dobtor_demand.selection__event_event__demand_type__giver
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_search
+#, python-format
+msgid "Giver"
+msgstr "提供服務者"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_search
+msgid "Giver and Taker"
+msgstr "參與者"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_form
+msgid "Giver or Taker"
+msgstr "參與者"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_search
+msgid "Group By"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__is_finished
+msgid "Has the demand create so processed"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__is_processed
+msgid "Has the event create so processed"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand_schedule__hour_from
+msgid "Hour from"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand_schedule__hour_to
+msgid "Hour to"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_register_details
+msgid "Hours"
+msgstr "小時"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_detail_view
+msgid "Hours:"
+msgstr "支付 / 小時"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.my_demand
+msgid "I/P"
+msgstr "進行中"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_account_move__id
+#: model:ir.model.fields,field_description:dobtor_demand.field_demand_registration_editor__id
+#: model:ir.model.fields,field_description:dobtor_demand.field_demand_registration_editor_line__id
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__id
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand_schedule__id
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_event__id
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_event_ticket__id
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_registration__id
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_type__id
+#: model:ir.model.fields,field_description:dobtor_demand.field_purchase_order__id
+#: model:ir.model.fields,field_description:dobtor_demand.field_purchase_order_line__id
+msgid "ID"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__activity_exception_icon
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_detail_view
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_project_list
+msgid "Icon"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_purchase_order_line__event_ok
+msgid ""
+"If checked this product automatically creates an event registration at the "
+"sales order confirmation."
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__message_needaction
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__message_has_error
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__start_sale_date
+msgid ""
+"If ticketing is used, contains the earliest starting sale date of tickets."
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__is_done
+msgid "Is Done"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__is_one_day
+msgid "Is One Day"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__is_ongoing
+msgid "Is Ongoing"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__is_participating
+msgid "Is Participating"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__is_published
+msgid "Is Published"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__is_show_public
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_event__is_show_public
+msgid "Is Show Public"
+msgstr "是否公開報名"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_purchase_order_line__event_ok
+msgid "Is an Event Ticket"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model,name:dobtor_demand.model_account_move
+msgid "Journal Entry"
+msgstr "日記帳分錄"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__legend_blocked
+msgid "Kanban Blocked Explanation"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__legend_normal
+msgid "Kanban Ongoing Explanation"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__kanban_state
+msgid "Kanban State"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__kanban_state_label
+msgid "Kanban State Label"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__legend_done
+msgid "Kanban Valid Explanation"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_account_move____last_update
+#: model:ir.model.fields,field_description:dobtor_demand.field_demand_registration_editor____last_update
+#: model:ir.model.fields,field_description:dobtor_demand.field_demand_registration_editor_line____last_update
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand____last_update
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand_schedule____last_update
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_event____last_update
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_event_ticket____last_update
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_registration____last_update
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_type____last_update
+#: model:ir.model.fields,field_description:dobtor_demand.field_purchase_order____last_update
+#: model:ir.model.fields,field_description:dobtor_demand.field_purchase_order_line____last_update
+msgid "Last Modified on"
+msgstr "最後修改於"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_demand_registration_editor__write_uid
+#: model:ir.model.fields,field_description:dobtor_demand.field_demand_registration_editor_line__write_uid
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__write_uid
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand_schedule__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_demand_registration_editor__write_date
+#: model:ir.model.fields,field_description:dobtor_demand.field_demand_registration_editor_line__write_date
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__write_date
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand_schedule__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__meeting_room_allow_creation
+msgid "Let Visitors Create Rooms"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_form
+msgid "Limit Registrations"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_detail_view
+msgid "Login"
+msgstr "登入"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__event_mail_ids
+msgid "Mail Schedule"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand_schedule__manpower
+msgid "Manpower"
+msgstr "人力"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_form
+msgid "Maximum"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__seats_limited
+msgid "Maximum Attendees"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__seats_max
+msgid "Maximum Attendees Number"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__meeting_room_ids
+msgid "Meeting rooms"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_event_ticket__min_request_unit
+msgid "Min Request Unit"
+msgstr "基本單位"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_register_details
+msgid "Mins"
+msgstr "分鐘"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_detail_view
+msgid "Mins:"
+msgstr "分鐘"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_demand_registration_editor_line__mobile
+msgid "Mobile"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__mode
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_event__mode
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_type__mode
+msgid "Mode"
+msgstr "模式"
+
+#. module: dobtor_demand
+#: model:app.launcher,name:dobtor_demand.app_launcher_my_demand_data
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_search
+msgid "My Demand"
+msgstr "需求"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_register_confirm
+msgid "My Service"
+msgstr "我的服務"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_demand_registration_editor_line__name
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand_schedule__name
+msgid "Name"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__n_login_register
+msgid "No Login Registration"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.my_demand
+msgid "No demand found."
+msgstr "目前沒有需求"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_project_list
+msgid "No demand project found."
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__note
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand_schedule__note
+msgid "Note"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_form
+msgid "Notes"
+msgstr "註記"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__seats_expected
+msgid "Number of Expected Attendees"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__seats_used
+msgid "Number of Participants"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_register_confirm
+msgid "OK"
+msgstr "確定"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__offline_address
+msgid "Offline Add."
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__event_offline_address
+msgid "Offline Address"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__offline_country_id
+msgid "Offline Country"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_configurator_view_form
+msgid "Ok"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_detail_view
+msgid "Once:"
+msgstr "支付／每次"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__online_address
+msgid "Online Add."
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__organizer_id
+msgid "Organizer"
+msgstr "組織者"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__event_organizer_disabled
+msgid "Organizer Disabled"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_demand_registration_editor_line__registration_id
+msgid "Original Registration"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__legend_blocked
+msgid ""
+"Override the default value displayed for the blocked state for kanban "
+"selection."
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__legend_done
+msgid ""
+"Override the default value displayed for the done state for kanban "
+"selection."
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__legend_normal
+msgid ""
+"Override the default value displayed for the normal state for kanban "
+"selection."
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__partner_attendance_ids
+msgid "Partner Attendaces"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__event_creator_partner
+msgid "Partner-related data of the user"
+msgstr ""
+
+#. module: dobtor_demand
+#: code:addons/dobtor_demand/controllers/controllers.py:0
+#, python-format
+msgid "Past Events"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_demand_registration_editor_line__phone
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.my_demand
+msgid "Phone"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__event_price_disabled
+msgid "Price Disabled"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand_schedule__event_ticket_id
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_form
+msgid "Pricing"
+msgstr "定價"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_event_ticket__pricing_method
+msgid "Pricing Method"
+msgstr "計價方式"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__website_track_proposal
+msgid "Proposals on Website"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model,name:dobtor_demand.model_purchase_order
+#: model:ir.model.fields,field_description:dobtor_demand.field_demand_registration_editor__demand_po_id
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_event_registration_view_form
+msgid "Purchase Order"
+msgstr "採購訂單"
+
+#. module: dobtor_demand
+#: model:ir.model,name:dobtor_demand.model_purchase_order_line
+#: model:ir.model.fields,field_description:dobtor_demand.field_demand_registration_editor_line__po_order_line_id
+msgid "Purchase Order Line"
+msgstr "採購訂單項目"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.my_demand
+msgid "Qty"
+msgstr "數量"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__question_ids
+msgid "Questions"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_detail_view
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_project_list
+msgid "Register"
+msgstr "參與服務"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__register_date_end
+msgid "Register End Date"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__event_register_date_end_located_date
+msgid "Register End Date Located"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_register_details
+msgid "Register Server"
+msgstr "參與服務"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__register_date_begin
+msgid "Register Start Date"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__event_register_date_begin_located_date
+msgid "Register Start Date Located"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_registration_editor_form
+msgid "Registration"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__registration_name_required
+msgid "Registration Name Required"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__registration_phone_required
+msgid "Registration Phone Required"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__event_registrations_open
+msgid "Registration open"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__need_register
+msgid "Registration required"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__event_custom_registrations_open
+msgid ""
+"Registrations are open if event is not ended, seats are available on event "
+"and if tickets are sellable if ticketing is used."
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__event_registrations_open
+msgid ""
+"Registrations are open if:\n"
+"- the event is not ended\n"
+"- there are seats available on event\n"
+"- the tickets are sellable (if ticketing is used)"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_demand_registration_editor__event_registration_ids
+msgid "Registrations to Edit"
+msgstr ""
+
+#. module: dobtor_demand
+#: code:addons/dobtor_demand/models/event_demand.py:0
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.my_demand
+#, python-format
+msgid "Reject"
+msgstr "已拒絕"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__start_remaining
+msgid "Remaining before start"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__start_remaining
+msgid "Remaining time before event starts (minutes)"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_register_details
+msgid "Remove one"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_event_ticket__request_qty
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_registration__request_qty
+#: model:ir.model.fields,field_description:dobtor_demand.field_purchase_order_line__request_qty
+msgid "Request Qty"
+msgstr "需求數量"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_event_ticket__request_total_amount
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_registration__request_total_amount
+msgid "Request Total Amount"
+msgstr "計畫支付"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_event_ticket__request_reserved
+msgid "Reserved Qty"
+msgstr "已完成"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__seats_reserved
+msgid "Reserved Seats"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__user_id
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_search
+msgid "Responsible"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__website_id
+msgid "Restrict publishing to this website."
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__meeting_room_count
+msgid "Room count"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__is_seo_optimized
+msgid "SEO optimized"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_form
+msgid "Sales"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__sale_price_subtotal
+msgid "Sales (Tax Excluded)"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.my_demand
+msgid "Search"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_header
+msgid "Search demand project..."
+msgstr "搜尋..."
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__seo_name
+msgid "Seo name"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__event_session_category_id
+msgid "Session Category"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_detail_view
+msgid "Share on Facebook"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_detail_view
+msgid "Share on Line"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_detail_view
+msgid "Share on copy"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__exhibitor_menu
+msgid "Showcase Exhibitors"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__event_registrations_sold_out
+msgid "Sold Out"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__specific_question_ids
+msgid "Specific Questions"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__sponsor_count
+msgid "Sponsor Count"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__sponsor_ids
+msgid "Sponsors"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__stage_id
+msgid "Stage"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__date_begin
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_search
+msgid "Start Date"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__date_begin_located
+msgid "Start Date Located"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__start_today
+msgid "Start Today"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand_schedule__hour_from
+msgid ""
+"Start and End time of Master.\n"
+"A specific value of 24:00 is interpreted as 23:59:59.999999."
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__start_sale_date
+msgid "Start sale date"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__state_id
+msgid "State"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__state
+msgid "Status"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__street
+msgid "Street"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__street2
+msgid "Street2"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__tag_ids
+msgid "Tags"
+msgstr ""
+
+#. module: dobtor_demand
+#: code:addons/dobtor_demand/models/event_event.py:0
+#: model:ir.model.fields.selection,name:dobtor_demand.selection__event_event__demand_type__taker
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_search
+#, python-format
+msgid "Taker"
+msgstr "接受服務者"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__event_type_id
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_form
+msgid "Template"
+msgstr ""
+
+#. module: dobtor_demand
+#: code:addons/dobtor_demand/models/event_demand.py:0
+#, python-format
+msgid "Thank you for this appeal, but I may have to say no this time."
+msgstr "感謝您的申請, 但我們不得不向您取消本次的申請"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__event_registrations_sold_out
+msgid ""
+"The event is sold out if no more seats are available on event. If ticketing "
+"is used and all tickets are sold out, the event will be sold out."
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__website_url
+msgid "The full URL to access the document through the website."
+msgstr ""
+
+#. module: dobtor_demand
+#: code:addons/dobtor_demand/controllers/controllers.py:0
+#, python-format
+msgid "This month"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.my_demand
+msgid "Time"
+msgstr "時間"
+
+#. module: dobtor_demand
+#: code:addons/dobtor_demand/models/event_ticket.py:0
+#: model:ir.model.fields.selection,name:dobtor_demand.selection__event_event_ticket__pricing_method__times
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_register_details
+#, python-format
+msgid "Times"
+msgstr "次"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__date_tz
+msgid "Timezone"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_register_details
+msgid "Timing"
+msgstr "計時"
+
+#. module: dobtor_demand
+#: code:addons/dobtor_demand/controllers/controllers.py:0
+#, python-format
+msgid "Today"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_form
+msgid "Total"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_register_details
+msgid "Total Amount :"
+msgstr "預計獲得 "
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_register_details
+msgid "Total Mins:"
+msgstr "共計 "
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_form
+msgid "Total Registrations for this Event"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_form
+msgid "Total sales for this event"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__track_count
+msgid "Track Count"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__tracks_tag_ids
+msgid "Track Tags"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__track_ids
+msgid "Tracks"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__website_track
+msgid "Tracks on Website"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand_schedule__pricing_method
+msgid "Type"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_form
+msgid "Unconfirmed"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__seats_unconfirmed
+msgid "Unconfirmed Seat Reservations"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_detail_view
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_project_list
+msgid "Upcoming"
+msgstr "即將開始"
+
+#. module: dobtor_demand
+#: code:addons/dobtor_demand/controllers/controllers.py:0
+#, python-format
+msgid "Upcoming Events"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__validate_date
+msgid "Validation Date"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__address_id
+msgid "Venue"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__website_published
+msgid "Visible on current website"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_detail_view
+msgid "Visit Team"
+msgstr "限群組成員參加，立即訪問群組並申請加入"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.my_demand
+msgid "Waiter"
+msgstr "服務者"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__website_id
+msgid "Website"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__website_menu
+msgid "Website Menu"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__website_url
+msgid "Website URL"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__website_meta_description
+msgid "Website meta description"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__website_meta_keywords
+msgid "Website meta keywords"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__website_meta_title
+msgid "Website meta title"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__website_meta_og_img
+msgid "Website opengraph image"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__is_ongoing
+msgid "Whether event has begun"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__is_done
+msgid "Whether event is finished"
+msgstr ""
+
+#. module: dobtor_demand
+#: model:ir.model.fields,help:dobtor_demand.field_event_demand__start_today
+msgid "Whether event is going to start today if still not ongoing"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_register_confirm
+msgid "You can go to"
+msgstr "您可前往"
+
+#. module: dobtor_demand
+#: code:addons/dobtor_demand/models/event_demand.py:0
+#, python-format
+msgid "Your Create Deam, Please wait for agree."
+msgstr "您創建了需求服務, 請等待同意"
+
+#. module: dobtor_demand
+#: code:addons/dobtor_demand/models/event_demand.py:0
+#, python-format
+msgid "Your Create Demand"
+msgstr ""
+
+#. module: dobtor_demand
+#: code:addons/dobtor_demand/models/event_demand.py:0
+#, python-format
+msgid "Your demand was confirmed and published."
+msgstr "您的需求服務已經被確認以及發佈"
+
+#. module: dobtor_demand
+#: model:ir.model.fields,field_description:dobtor_demand.field_event_demand__zip
+msgid "Zip"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_form
+msgid "e.g. Conference for Architects"
+msgstr ""
+
+#. module: dobtor_demand
+#: code:addons/dobtor_demand/models/event_ticket.py:0
+#: model:ir.model.fields.selection,name:dobtor_demand.selection__event_event_ticket__pricing_method__per_hour
+#, python-format
+msgid "per hour"
+msgstr "以小時計費"
+
+#. module: dobtor_demand
+#: code:addons/dobtor_demand/models/event_ticket.py:0
+#: model:ir.model.fields.selection,name:dobtor_demand.selection__event_event_ticket__pricing_method__per_min
+#, python-format
+msgid "per min"
+msgstr "以分鐘計費"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_registration_editor_form
+msgid "please give details about the registrations"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_form
+msgid "to"
+msgstr ""
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_register_confirm
+msgid "to check ."
+msgstr "查看審核進度"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.my_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.view_demand_form
+msgid "Cancelled"
+msgstr "已取消"
+
+#. module: dobtor_demand
+#: code:addons/dobtor_demand/models/event_demand.py:0
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.my_demand
+#, python-format
+msgid "Closed"
+msgstr "已關閉"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.my_demand
+msgid ""
+"<span class=\"demand_record__header_title text-nowrap\">Completed/Demand "
+"Qty</span>"
+msgstr ""
+"<span class=\"demand_record__header_title text-nowrap\">已完成/需求數</span>"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.my_demand
+msgid ""
+"<span class=\"demand_record__header_title text-nowrap\">Reserved/Request "
+"Amount</span>"
+msgstr ""
+"<span class=\"demand_record__header_title text-nowrap\">實際/計畫支付</span>"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_detail_view
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_project_list
+msgid "In progress"
+msgstr "進行中"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_detail_view
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_project_list
+msgid "Ended"
+msgstr "已結束"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_detail_view
+msgid "<span class=\"text-muted\">Location</span>"
+msgstr "<span class=\"text-muted\">地點</span>"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_detail_view
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.my_demand
+msgid "<span class=\"align-self-center\">Online</span>"
+msgstr "<span class=\"align-self-center\">線上地點</span>"
+
+#. module: dobtor_demand
+#: model:ir.actions.act_window,name:dobtor_demand.demand_tag_category_action_tree
+#: model:ir.ui.menu,name:dobtor_demand.demand_tag_category_menu
+msgid "Demand Tags Categories"
+msgstr "需求標籤"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_project_list
+msgid "Demand qty"
+msgstr "需求數"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_project_list
+msgid "Get"
+msgstr "獲得"
+
+#. module: dobtor_demand
+#: model_terms:ir.ui.view,arch_db:dobtor_demand.demand_project_list
+msgid "Registration has ended"
+msgstr "登記已結束"

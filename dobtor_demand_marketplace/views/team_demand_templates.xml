@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="team_demand_inherit_demand_sidebar_layout" inherit_id="dobtor_demand.demand_sidebar_layout" name="Team Demand Sidebar Layout">
+            <xpath expr="//nav[@id='eventchapternav']/ul" position="inside">
+                <li t-if="teams" class="event_chapternav_item">
+                    <a href="/team/demand" t-attf-class="event_chapternav_link #{position == 'team_demand' and 'active'}" aria-expanded="false">
+                        <figure class="event_chapternav_icon" style="background-image: url('/dobtor_demand_marketplace/static/src/img/group_demands.png');"></figure>
+                        <span class="event_chapternav_label px-2">
+                            Team Demand
+                        </span>
+                    </a>
+                </li>
+            </xpath>
+        </template>
+
+        <template id="team_demand" name="Team Demand">
+            <t t-call="website.layout">
+                <t t-call="dobtor_demand.demand_sidebar_layout">
+                    <!-- <div class="container">
+                        <button t-if="len(request.env.user.partner_id.team_join_ids)>0 or request.env['res.partner'].search(['|',('assistant_ids','in',request.env.user.partner_id.ids),('leader_id','=',request.env.user.partner_id.id)])" class="js_upload_demand_portal btn btn-primary" type="button">Create Demand</button>
+                    </div> -->
+                    <div id="wrap" class="container">
+                        <div class="demand_record__top_select_wrapper d-flex flex-wrap">
+                            <a t-attf-class="text-decoration-none #{'active' if searches.get('team') and int(searches.get('team')) == team.id or not searches.get('team') and team_first else None}" t-foreach="teams" t-as="team" t-att-href="'/team/demand?team=%s' % (team.id)">
+                                <span t-esc="team.name"/>
+                            </a>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-lg-8 order-2 order-lg-1">
+                                <t t-if="not demands">
+                                    <div class="text-center text-muted mb-lg-0 mb-4">
+                                        <h3>No team demand found.</h3>
+                                    </div>
+                                </t>
+                                <t t-else="" t-foreach="demands" t-as="demand">
+                                    <div t-att-id="'demand_%s' % demand.id" class="demand_record__wrapper">
+                                        <div class="demand_record__header_wrapper d-flex collapsed">
+                                            <div class="demand_record__header_basic_wrapper d-flex flex-column flex-md-row flex-grow-1 justify-content-center">
+                                                <div class="demand_record__header_status_wrapper d-flex flex-row flex-md-column align-items-center justify-content-md-center">
+                                                    <span t-if="demand.is_use_team_wallet" class="demand_record__header_badge p-0 mb-md-2 mr-2 mr-md-0 text-nowrap">Team Pay</span>
+                                                    <span t-if="demand.is_finished" class="demand_record__header_badge badge">Finish</span>
+                                                    <span t-elif="demand.state == 'draft'" class="demand_record__header_badge badge audit">Audit</span>
+                                                    <span t-elif="demand.state == 'open'" class="demand_record__header_badge badge in_progress">I/P</span>
+                                                    <span t-elif="demand.state == 'cancel'" class="demand_record__header_badge badge">Reject</span>
+                                                    <span t-elif="demand.state == 'give_up'" class="demand_record__header_badge badge">Cancelled</span>
+                                                    <span t-elif="demand.state == 'closed'" class="demand_record__header_badge badge">Closed</span>
+                                                </div>
+                                                <div class="demand_record__header_detail_wrapper d-flex flex-md-grow-1">
+                                                    <div class="demand_record__header_info_wrapper d-flex flex-column flex-grow-1 justify-content-center">
+                                                        <a t-att-href="'/demand/%s' % (slug(demand.event_id.sudo()))" class="demand_record__header_info_name" t-esc="demand.name"/>
+                                                        <div class="demand_record__header_info_datetime d-flex">
+                                                            <svg class="flex-shrink-0" width="20" height="20" viewBox="0 0 24 24"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M12 4C7.58214 4 4 7.58214 4 12C4 16.4179 7.58214 20 12 20C16.4179 20 20 16.4179 20 12C20 7.58214 16.4179 4 12 4ZM15.1518 14.4589L14.6411 15.1554C14.63 15.1705 14.616 15.1833 14.5999 15.1931C14.5838 15.2028 14.566 15.2093 14.5474 15.2121C14.5288 15.2149 14.5098 15.214 14.4916 15.2095C14.4733 15.205 14.4562 15.1969 14.4411 15.1857L11.4875 13.0321C11.4691 13.0189 11.4541 13.0015 11.4439 12.9813C11.4336 12.9611 11.4284 12.9387 11.4286 12.9161V8C11.4286 7.92143 11.4929 7.85714 11.5714 7.85714H12.4304C12.5089 7.85714 12.5732 7.92143 12.5732 8V12.4196L15.1196 14.2607C15.1839 14.3054 15.1982 14.3946 15.1518 14.4589Z"/>
+                                                            </svg>
+                                                            <div class="align-self-center">
+                                                                <span t-esc="demand.with_context(tz=demand.date_tz).date_begin" t-options="{'widget': 'datetime', 'date_only': 'true', 'format': 'yyyy.MM.dd'}"/>
+                                                                -
+                                                                <span t-esc="demand.with_context(tz=demand.date_tz).date_end" t-options="{'widget': 'datetime', 'date_only': 'true', 'format': 'yyyy.MM.dd'}"/>
+                                                            </div>
+                                                        </div>
+                                                        <div t-if="not demand.event_address_disabled and (demand.offline_address or demand.online_address)" class="demand_record__header_info_address d-flex flex-column">
+                                                            <div t-if="demand.online_address" class="d-flex">
+                                                                <a class="d-flex" t-att-href="demand.event_address">
+                                                                    <svg class="flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                                        <path d="M16.8 7.6C16.8 6.7176 16.0824 6 15.2 6H5.6C4.7176 6 4 6.7176 4 7.6V15.6C4 16.4824 4.7176 17.2 5.6 17.2H15.2C16.0824 17.2 16.8 16.4824 16.8 15.6V12.9336L20 15.6V7.6L16.8 10.2664V7.6Z"/>
+                                                                    </svg>
+                                                                    <span class="align-self-center">Online</span>
+                                                                </a>
+                                                            </div>
+                                                            <div t-if="demand.offline_address" class="d-flex">
+                                                                <svg class="flex-shrink-0" width="20" height="20" viewBox="0 0 24 24"
+                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M12.3,4C10.6,4,9,4.7,7.8,5.8C6.7,7,6,8.6,6,10.3c0,1.4,0.4,2.7,1.3,3.8c0,0,0.2,0.2,0.2,0.3l4.8,5.7l4.8-5.7
+                                                                        c0,0,0.2-0.3,0.2-0.3l0,0c0.8-1.1,1.3-2.4,1.3-3.8c0-1.7-0.7-3.3-1.8-4.4C15.5,4.7,14,4,12.3,4z M12.3,12.6c-0.5,0-0.9-0.1-1.3-0.4
+                                                                        c-0.4-0.3-0.7-0.6-0.8-1C10,10.7,10,10.3,10,9.8c0.1-0.4,0.3-0.9,0.6-1.2C11,8.3,11.4,8.1,11.8,8c0.4-0.1,0.9,0,1.3,0.1
+                                                                        c0.4,0.2,0.8,0.5,1,0.8c0.3,0.4,0.4,0.8,0.4,1.3c0,0.6-0.2,1.2-0.7,1.6S12.9,12.6,12.3,12.6z"/>
+                                                                </svg>
+                                                                <span class="align-self-center" t-esc="'%s%s%s' %(demand.sudo().state_id.name or '', demand.sudo().city or '', demand.sudo().street or '')"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="demand_record__header_info_creator d-flex flex-column flex-md-row">
+                                                            <a class="creator_wrapper d-flex align-items-center" t-att-href="'/user/profile/%s' % slug(demand.event_creator_partner)" target="_blank">
+                                                                <svg class="flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M12.1111 12.8889C6.84889 12.8889 5 15.5556 5 17.3334V20H19.2222V17.3334C19.2222 15.5556 17.3733 12.8889 12.1111 12.8889Z"/>
+                                                                    <path d="M12.1105 12C14.3197 12 16.1105 10.2091 16.1105 8C16.1105 5.79086 14.3197 4 12.1105 4C9.9014 4 8.11053 5.79086 8.11053 8C8.11053 10.2091 9.9014 12 12.1105 12Z"/>
+                                                                </svg>
+                                                                <span class="demand_record_desc_truncate_1" t-esc="demand.event_creator_partner.name"/>
+                                                            </a>
+                                                            <a class="team_wrapper d-flex align-items-center" t-att-href="'/user/profile/%s' % slug(demand.organizer_id)" target="_blank">
+                                                                <svg class="flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M14.754 10C15.72 10 16.504 10.784 16.504 11.75V16.499C16.504 17.6927 16.0298 18.8376 15.1857 19.6817C14.3416 20.5258 13.1967 21 12.003 21C10.8093 21 9.66441 20.5258 8.82031 19.6817C7.97621 18.8376 7.502 17.6927 7.502 16.499V11.75C7.502 10.784 8.285 10 9.252 10H14.754V10ZM7.131 10C6.781 10.422 6.556 10.95 6.511 11.53L6.501 11.75V16.499C6.501 17.346 6.693 18.148 7.035 18.864C6.44228 19.0226 5.82103 19.0427 5.21929 18.9228C4.61756 18.8029 4.05145 18.5463 3.56475 18.1727C3.07805 17.7991 2.68379 17.3185 2.41246 16.7682C2.14114 16.2179 2.00001 15.6126 2 14.999V11.75C2.00002 11.3108 2.16517 10.8877 2.46268 10.5646C2.76019 10.2415 3.1683 10.0421 3.606 10.006L3.75 10H7.131V10ZM16.875 10H20.25C21.216 10 22 10.784 22 11.75V15C22.0001 15.6132 21.8593 16.2182 21.5884 16.7682C21.3175 17.3183 20.9237 17.7987 20.4376 18.1724C19.9514 18.546 19.3858 18.8029 18.7846 18.9232C18.1833 19.0435 17.5625 19.0239 16.97 18.866C17.27 18.238 17.454 17.546 17.495 16.814L17.504 16.499V11.75C17.504 11.085 17.268 10.475 16.874 10H16.875ZM12 3C12.7956 3 13.5587 3.31607 14.1213 3.87868C14.6839 4.44129 15 5.20435 15 6C15 6.79565 14.6839 7.55871 14.1213 8.12132C13.5587 8.68393 12.7956 9 12 9C11.2044 9 10.4413 8.68393 9.87868 8.12132C9.31607 7.55871 9 6.79565 9 6C9 5.20435 9.31607 4.44129 9.87868 3.87868C10.4413 3.31607 11.2044 3 12 3V3ZM18.5 4C19.163 4 19.7989 4.26339 20.2678 4.73223C20.7366 5.20107 21 5.83696 21 6.5C21 7.16304 20.7366 7.79893 20.2678 8.26777C19.7989 8.73661 19.163 9 18.5 9C17.837 9 17.2011 8.73661 16.7322 8.26777C16.2634 7.79893 16 7.16304 16 6.5C16 5.83696 16.2634 5.20107 16.7322 4.73223C17.2011 4.26339 17.837 4 18.5 4ZM5.5 4C6.16304 4 6.79893 4.26339 7.26777 4.73223C7.73661 5.20107 8 5.83696 8 6.5C8 7.16304 7.73661 7.79893 7.26777 8.26777C6.79893 8.73661 6.16304 9 5.5 9C4.83696 9 4.20107 8.73661 3.73223 8.26777C3.26339 7.79893 3 7.16304 3 6.5C3 5.83696 3.26339 5.20107 3.73223 4.73223C4.20107 4.26339 4.83696 4 5.5 4V4Z"/>
+                                                                </svg>
+                                                                <span class="demand_record_desc_truncate_1" t-esc="demand.organizer_id.name"/>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <!-- <a t-if="demand.state == 'open'" t-att-href="'/team_demand/%s/report' % (slug(demand.event_id))" class="demand_record__header_audit_wrapper d-flex flex-column flex-shrink-0 align-items-center justify-content-center">
+                                                        <span class="demand_record__header_title">Audit</span>
+                                                        <span class="demand_record__header_num">
+                                                            <span t-esc="len(demand.registration_ids.filtered(lambda self: self.state == 'draft'))"/>
+                                                            <i class="fa fa-chevron-circle-right"/>
+                                                        </span>
+                                                    </a> -->
+                                                </div>
+                                            </div>
+                                            <div class="demand_record__header_situation_wrapper d-flex d-flex flex-column flex-md-row">
+                                                <div class="demand_record__header_collapsed_wrapper d-flex flex-column flex-md-row order-2 order-md-1 collapsed" data-toggle="collapse" t-att-href="'#demand_collapse_%s' % demand.id" aria-expanded="false" t-att-aria-controls="'demand_collapse_%s' % demand.id">
+                                                    <a t-if="demand.state in ('open', 'closed') and demand.registration_ids.filtered(lambda self: self.organizer_state == 'open')" class="demand_record__header_collapsed_btn d-flex align-items-center text-decoration-none order-last order-md-0" href="#">
+                                                        <i class="fa demand_record__header_collapsed_btn_icon flex-grow-1 text-center"/>
+                                                    </a>
+                                                    <div class="demand_record__header_statistics_wrapper d-flex flex-column align-items-center justify-content-sm-between flex-wrap">
+                                                        <div class="d-flex flex-column align-items-center">
+                                                            <span class="demand_record__header_title text-nowrap">Undone</span>
+                                                            <span class="demand_record__header_num imp demand_record_desc_truncate_1" t-esc="demand.event_ticket_ids[:1].not_yet_request_qty"/>
+                                                        </div>
+                                                        <div class="d-flex flex-column align-items-center">
+                                                            <span class="demand_record__header_title text-nowrap">Audit</span>
+                                                            <span class="demand_record__header_num imp demand_record_desc_truncate_1" t-esc="demand.event_ticket_ids[:1].audit_request_qty"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="demand_record__header_statistics_wrapper d-none d-md-flex flex-md-column align-items-center justify-content-sm-between flex-wrap border-left-0">
+                                                        <div class="d-flex flex-column align-items-center">
+                                                            <span class="demand_record__header_title text-nowrap">Completed/Demand Qty</span>
+                                                            <span class="demand_record__header_num demand_record_desc_truncate_1">
+                                                                <t t-esc="demand.event_ticket_ids[:1].request_reserved"/>/<t t-esc="demand.event_ticket_ids[:1].request_qty"/>
+                                                            </span>
+                                                        </div>
+                                                        <div class="d-flex flex-column align-items-center">
+                                                            <span class="demand_record__header_title text-nowrap">Accepted/Apply Qty</span>
+                                                            <span class="demand_record__header_num demand_record_desc_truncate_1">
+                                                                <t t-esc="demand.event_ticket_ids[:1].organizer_confirm_request_qty"/>/<t t-esc="demand.event_ticket_ids[:1].apply_request_qty"/>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="demand_record__header_price_wrapper d-none d-md-flex flex-md-column align-items-center justify-content-center">
+                                                        <span class="demand_record__header_title text-nowrap">Reserved/Request Amount</span>
+                                                        <span class="demand_record__header_num demand_record_desc_truncate_1" t-esc="'%s/%s' %(website.convert_pricelist_pirce(demand, demand.event_ticket_ids[:1].reserved_total_amount, website.pricelist_id), website.convert_pricelist_pirce(demand, demand.event_ticket_ids[:1].request_total_amount, website.pricelist_id))"/>
+                                                    </div>
+                                                </div>
+                                                <div t-if="demand.state == 'draft'" class="demand_record__header_operate_wrapper d-flex flex-column align-items-center justify-content-center order-1 order-md-2" t-att-data-demand_id="demand.id">
+                                                    <a class="btn p-0 open" href="#" role="button">
+                                                        <svg width="24" height="24" viewBox="0 0 24 24"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M19.8428 6H18.4723C18.2801 6 18.0978 6.09086 17.9802 6.24633L9.89616 16.7921L6.01984 11.7343C5.96121 11.6576 5.88646 11.5956 5.80123 11.5529C5.71599 11.5103 5.62248 11.488 5.52771 11.4879H4.15717C4.02581 11.4879 3.95326 11.6434 4.03365 11.7484L9.40402 18.7547C9.65499 19.0818 10.1373 19.0818 10.3903 18.7547L19.9664 6.25845C20.0467 6.15547 19.9742 6 19.8428 6V6Z"/>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="btn p-0 cancel" href="#" role="button">
+                                                        <svg width="24" height="24" viewBox="0 0 24 24"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M13.2143 12L19.3666 4.66641C19.4697 4.54453 19.383 4.35938 19.2236 4.35938H17.3533C17.2432 4.35938 17.1377 4.40859 17.065 4.49297L11.9908 10.5422L6.91659 4.49297C6.84628 4.40859 6.74081 4.35938 6.62831 4.35938H4.758C4.59863 4.35938 4.51191 4.54453 4.61503 4.66641L10.7674 12L4.61503 19.3336C4.59193 19.3608 4.57711 19.394 4.57233 19.4293C4.56755 19.4647 4.57301 19.5006 4.58806 19.533C4.60312 19.5653 4.62713 19.5926 4.65725 19.6117C4.68737 19.6308 4.72234 19.6408 4.758 19.6406H6.62831C6.73847 19.6406 6.84394 19.5914 6.91659 19.507L11.9908 13.4578L17.065 19.507C17.1353 19.5914 17.2408 19.6406 17.3533 19.6406H19.2236C19.383 19.6406 19.4697 19.4555 19.3666 19.3336L13.2143 12Z"/>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div t-if="demand.state in ('open', 'closed') and demand.registration_ids.filtered(lambda self: self.organizer_state == 'open')" t-att-id="'demand_collapse_%s' % demand.id" class="demand_record__body_wrapper demand_table collapse" t-att-data-parent="'#demand_%s' % demand.id">
+                                            <table class="table table-borderless mb-0" style="word-break: break-all;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Waiter</th>
+                                                        <th>Phone</th>
+                                                        <th>Qty</th>
+                                                        <th>Time</th>
+                                                        <th>Approve</th>
+                                                        <th>Check</th>
+                                                        <!-- <th class="text-lg-center">Done State</th> -->
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <t t-foreach="demand.registration_ids.filtered(lambda self: self.organizer_state == 'open')" t-as="registration">
+                                                        <tr>
+                                                            <td data-title="Waiter" t-esc="registration.name or '-'"/>
+                                                            <td data-title="Phone" t-esc="registration.phone or '-'"/>
+                                                            <td class="text-nowrap" data-title="Qty" t-esc="registration.request_qty"/>
+                                                            <td t-if="registration.date_open" class="text-nowrap" data-title="Time" t-esc="registration.date_open" t-options="{'widget': 'datetime', 'format': 'yyyy-MM-dd HH:mm'}"/>
+                                                            <td t-else="" class="text-nowrap" data-title="Time" t-esc="'-'"/>
+                                                            <td t-if="registration.state == 'cancel'" data-title="Approve">
+                                                                <svg width="20" height="20" viewBox="0 0 24 24"
+                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M13.2143 12L19.3666 4.66641C19.4697 4.54453 19.383 4.35938 19.2236 4.35938H17.3533C17.2432 4.35938 17.1377 4.40859 17.065 4.49297L11.9908 10.5422L6.91659 4.49297C6.84628 4.40859 6.74081 4.35938 6.62831 4.35938H4.758C4.59863 4.35938 4.51191 4.54453 4.61503 4.66641L10.7674 12L4.61503 19.3336C4.59193 19.3608 4.57711 19.394 4.57233 19.4293C4.56755 19.4647 4.57301 19.5006 4.58806 19.533C4.60312 19.5653 4.62713 19.5926 4.65725 19.6117C4.68737 19.6308 4.72234 19.6408 4.758 19.6406H6.62831C6.73847 19.6406 6.84394 19.5914 6.91659 19.507L11.9908 13.4578L17.065 19.507C17.1353 19.5914 17.2408 19.6406 17.3533 19.6406H19.2236C19.383 19.6406 19.4697 19.4555 19.3666 19.3336L13.2143 12Z"/>
+                                                                </svg>
+                                                            </td>
+                                                            <td t-elif="registration.demand_creator_state == 'draft'" class="demand_record__body_operate_wrapper d-flex" data-title="Approve">
+                                                                <a class="btn p-0 open" href="#" role="button" t-att-data-registration_id="registration.id">
+                                                                    <svg width="20" height="20" viewBox="0 0 24 24"
+                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                        <path d="M19.8428 6H18.4723C18.2801 6 18.0978 6.09086 17.9802 6.24633L9.89616 16.7921L6.01984 11.7343C5.96121 11.6576 5.88646 11.5956 5.80123 11.5529C5.71599 11.5103 5.62248 11.488 5.52771 11.4879H4.15717C4.02581 11.4879 3.95326 11.6434 4.03365 11.7484L9.40402 18.7547C9.65499 19.0818 10.1373 19.0818 10.3903 18.7547L19.9664 6.25845C20.0467 6.15547 19.9742 6 19.8428 6V6Z"/>
+                                                                    </svg>
+                                                                </a>
+                                                                <a class="btn p-0 cancel" href="#" role="button" t-att-data-registration_id="registration.id">
+                                                                    <svg width="20" height="20" viewBox="0 0 24 24"
+                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                        <path d="M13.2143 12L19.3666 4.66641C19.4697 4.54453 19.383 4.35938 19.2236 4.35938H17.3533C17.2432 4.35938 17.1377 4.40859 17.065 4.49297L11.9908 10.5422L6.91659 4.49297C6.84628 4.40859 6.74081 4.35938 6.62831 4.35938H4.758C4.59863 4.35938 4.51191 4.54453 4.61503 4.66641L10.7674 12L4.61503 19.3336C4.59193 19.3608 4.57711 19.394 4.57233 19.4293C4.56755 19.4647 4.57301 19.5006 4.58806 19.533C4.60312 19.5653 4.62713 19.5926 4.65725 19.6117C4.68737 19.6308 4.72234 19.6408 4.758 19.6406H6.62831C6.73847 19.6406 6.84394 19.5914 6.91659 19.507L11.9908 13.4578L17.065 19.507C17.1353 19.5914 17.2408 19.6406 17.3533 19.6406H19.2236C19.383 19.6406 19.4697 19.4555 19.3666 19.3336L13.2143 12Z"/>
+                                                                    </svg>
+                                                                </a>
+                                                            </td>
+                                                            <td t-else="" data-title="Approve">
+                                                                <svg t-if="registration.demand_creator_state == 'open'" width="20" height="20" viewBox="0 0 24 24"
+                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M19.8428 6H18.4723C18.2801 6 18.0978 6.09086 17.9802 6.24633L9.89616 16.7921L6.01984 11.7343C5.96121 11.6576 5.88646 11.5956 5.80123 11.5529C5.71599 11.5103 5.62248 11.488 5.52771 11.4879H4.15717C4.02581 11.4879 3.95326 11.6434 4.03365 11.7484L9.40402 18.7547C9.65499 19.0818 10.1373 19.0818 10.3903 18.7547L19.9664 6.25845C20.0467 6.15547 19.9742 6 19.8428 6V6Z"/>
+                                                                </svg>
+                                                                <svg t-if="registration.demand_creator_state == 'cancel'" width="20" height="20" viewBox="0 0 24 24"
+                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M13.2143 12L19.3666 4.66641C19.4697 4.54453 19.383 4.35938 19.2236 4.35938H17.3533C17.2432 4.35938 17.1377 4.40859 17.065 4.49297L11.9908 10.5422L6.91659 4.49297C6.84628 4.40859 6.74081 4.35938 6.62831 4.35938H4.758C4.59863 4.35938 4.51191 4.54453 4.61503 4.66641L10.7674 12L4.61503 19.3336C4.59193 19.3608 4.57711 19.394 4.57233 19.4293C4.56755 19.4647 4.57301 19.5006 4.58806 19.533C4.60312 19.5653 4.62713 19.5926 4.65725 19.6117C4.68737 19.6308 4.72234 19.6408 4.758 19.6406H6.62831C6.73847 19.6406 6.84394 19.5914 6.91659 19.507L11.9908 13.4578L17.065 19.507C17.1353 19.5914 17.2408 19.6406 17.3533 19.6406H19.2236C19.383 19.6406 19.4697 19.4555 19.3666 19.3336L13.2143 12Z"/>
+                                                                </svg>
+                                                            </td>
+                                                            <td class="demand_record__creator_check_operate_wrapper" data-title="Check">
+                                                                <t t-if="registration.state == 'cancel' or registration.demand_creator_state != 'open'" t-esc="'-'"/>
+                                                                <svg t-elif="registration.is_creator_check" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M19.8428 6H18.4723C18.2801 6 18.0978 6.09086 17.9802 6.24633L9.89616 16.7921L6.01984 11.7343C5.96121 11.6576 5.88646 11.5956 5.80123 11.5529C5.71599 11.5103 5.62248 11.488 5.52771 11.4879H4.15717C4.02581 11.4879 3.95326 11.6434 4.03365 11.7484L9.40402 18.7547C9.65499 19.0818 10.1373 19.0818 10.3903 18.7547L19.9664 6.25845C20.0467 6.15547 19.9742 6 19.8428 6V6Z"/>
+                                                                </svg>
+                                                                <svg t-elif="registration.appeal_state in ('creator', 'both')" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M13.2143 12L19.3666 4.66641C19.4697 4.54453 19.383 4.35938 19.2236 4.35938H17.3533C17.2432 4.35938 17.1377 4.40859 17.065 4.49297L11.9908 10.5422L6.91659 4.49297C6.84628 4.40859 6.74081 4.35938 6.62831 4.35938H4.758C4.59863 4.35938 4.51191 4.54453 4.61503 4.66641L10.7674 12L4.61503 19.3336C4.59193 19.3608 4.57711 19.394 4.57233 19.4293C4.56755 19.4647 4.57301 19.5006 4.58806 19.533C4.60312 19.5653 4.62713 19.5926 4.65725 19.6117C4.68737 19.6308 4.72234 19.6408 4.758 19.6406H6.62831C6.73847 19.6406 6.84394 19.5914 6.91659 19.507L11.9908 13.4578L17.065 19.507C17.1353 19.5914 17.2408 19.6406 17.3533 19.6406H19.2236C19.383 19.6406 19.4697 19.4555 19.3666 19.3336L13.2143 12Z"/>
+                                                                </svg>
+                                                                <t t-else="">
+                                                                    <a class="btn p-0 open" href="#" role="button" t-att-data-registration_id="registration.id">
+                                                                        <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M19.8428 6H18.4723C18.2801 6 18.0978 6.09086 17.9802 6.24633L9.89616 16.7921L6.01984 11.7343C5.96121 11.6576 5.88646 11.5956 5.80123 11.5529C5.71599 11.5103 5.62248 11.488 5.52771 11.4879H4.15717C4.02581 11.4879 3.95326 11.6434 4.03365 11.7484L9.40402 18.7547C9.65499 19.0818 10.1373 19.0818 10.3903 18.7547L19.9664 6.25845C20.0467 6.15547 19.9742 6 19.8428 6V6Z"/>
+                                                                        </svg>
+                                                                    </a>
+                                                                    <a class="btn p-0 appeal" href="#" role="button" t-att-data-registration_id="registration.id">
+                                                                        <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M13.2143 12L19.3666 4.66641C19.4697 4.54453 19.383 4.35938 19.2236 4.35938H17.3533C17.2432 4.35938 17.1377 4.40859 17.065 4.49297L11.9908 10.5422L6.91659 4.49297C6.84628 4.40859 6.74081 4.35938 6.62831 4.35938H4.758C4.59863 4.35938 4.51191 4.54453 4.61503 4.66641L10.7674 12L4.61503 19.3336C4.59193 19.3608 4.57711 19.394 4.57233 19.4293C4.56755 19.4647 4.57301 19.5006 4.58806 19.533C4.60312 19.5653 4.62713 19.5926 4.65725 19.6117C4.68737 19.6308 4.72234 19.6408 4.758 19.6406H6.62831C6.73847 19.6406 6.84394 19.5914 6.91659 19.507L11.9908 13.4578L17.065 19.507C17.1353 19.5914 17.2408 19.6406 17.3533 19.6406H19.2236C19.383 19.6406 19.4697 19.4555 19.3666 19.3336L13.2143 12Z"/>
+                                                                        </svg>
+                                                                    </a>
+                                                                </t>
+                                                            </td>
+                                                            <!-- <td class="text-lg-center" data-title="Done State">
+                                                                <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M10 7.6V10H7.6V7.6H10ZM11.2 6.4H6.4V11.2H11.2V6.4ZM10 14V16.4H7.6V14H10ZM11.2 12.8H6.4V17.6H11.2V12.8ZM16.4 7.6V10H14V7.6H16.4ZM17.6 6.4H12.8V11.2H17.6V6.4ZM12.8 12.8H14V14H12.8V12.8ZM14 14H15.2V15.2H14V14ZM15.2 12.8H16.4V14H15.2V12.8ZM12.8 15.2H14V16.4H12.8V15.2ZM14 16.4H15.2V17.6H14V16.4ZM15.2 15.2H16.4V16.4H15.2V15.2ZM16.4 14H17.6V15.2H16.4V14ZM16.4 16.4H17.6V17.6H16.4V16.4ZM20 8H18.4V5.6H16V4H20V8ZM20 20V16H18.4V18.4H16V20H20ZM4 20H8V18.4H5.6V16H4V20ZM4 4V8H5.6V5.6H8V4H4Z"/>
+                                                                </svg>
+                                                            </td> -->
+                                                        </tr>
+                                                    </t>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                            <div class="col-lg-4 order-1 order-lg-2">
+                                <div class="d-flex flex-column flex-grow-1 mb-lg-0 mb-4">
+                                    <form method="GET" class="form-inline" action="/team/demand">
+                                        <div class="input-group w-100">
+                                            <input type="search" name="search" class="form-control" placeholder="Search" t-att-value="searches and searches['search']"/>
+                                            <t t-foreach="searches" t-as="search">
+                                                <input t-if="search != 'search'" type="hidden" t-att-name="search" t-att-value="search_value"/>
+                                            </t>
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary oe_search_button" type="submit" aria-label="Search" title="Search">
+                                                    <i class="fa fa-search"/>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!-- <t t-call="website.pager"/> -->
+                                    <!-- <div class="btn-group-toggle d-flex" data-toggle="buttons">
+                                        <label class="btn btn-secondary mr-2 active" title="All" style="flex: 1;">
+                                            All
+                                            <input type="radio" name="demand_filter_date_select" checked="checked"/>
+                                        </label>
+                                        <label class="btn btn-secondary" title="By Date" style="flex: 1;">
+                                            By Date
+                                            <input type="radio" name="demand_filter_date_select"/>
+                                        </label>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

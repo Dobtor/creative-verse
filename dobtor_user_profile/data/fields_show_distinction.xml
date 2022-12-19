@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="fields_show_distinction_profile_data" model="fields.show.distinction">
+            <field name="name">Profile</field>
+        </record>
+    </data>
+</odoo>

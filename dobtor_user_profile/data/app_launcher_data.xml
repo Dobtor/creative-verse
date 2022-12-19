@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="app_launcher_my_member_data" model="app.launcher">
+            <field name="name">Member</field>
+            <field name="url">/my/member</field>
+            <field name="group_ids" eval="[(4, ref('base.group_user')), (4, ref('dobtor_partner_group_extend.group_active_partner'))]"/>
+            <field name="image_64" type="base64" file="dobtor_user_profile/static/src/img/app_member_icon.svg"/>
+        </record>
+    </data>
+</odoo>

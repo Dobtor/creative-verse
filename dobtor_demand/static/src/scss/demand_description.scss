@@ -1,0 +1,251 @@
+.demand {
+
+    &_home {
+
+        &__main{
+
+            &_wrapper {
+                border: 0.5px solid #EDEDED;
+                border-radius: 8px;
+            }
+        }
+
+        &__list {
+
+            &_wrapper {
+
+                .opt_events_list_columns header {
+                    height: 140px !important;
+                }
+            }
+        }
+
+        &__cover {
+
+            &_wrapper {
+                background-color: #FFFFFF;
+                border-bottom: 0.5px solid #EDEDED;
+
+                .o_record_cover_component {
+                    margin: 27.5px 44px 12.5px;
+                    background-size: contain;
+                    background-color: #EDEDED;
+                }
+            }
+        }
+
+        &__detail {
+
+            &_wrapper {
+                gap: 6px;
+                padding: 9px 24px;
+            }
+
+            &_organizer {
+
+                &_wrapper {
+                    gap: 3px;
+                    font-weight: 300;
+                    font-size: 10px;
+                    line-height: 10px;
+                    color: #9B918C;
+
+                    img {
+                        width: 20px;
+                        height: 20px;
+                        border: 0.5px solid #9B918C;
+                        border-radius: 6px;
+                        object-fit: cover;
+                    }
+                }
+            }
+
+            &_title {
+
+                &_wrapper {
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 20px;
+                    color: color('o-color-1');
+                }
+            }
+
+            &_price {
+
+                &_wrapper {
+                    font-weight: 300;
+                    font-size: 10px;
+                    line-height: 10px;
+                    color: #9B918C;
+
+                    .qty, .reserved {
+                        gap: 6px;
+                    }
+
+                    .point {
+                        font-weight: 400;
+                        font-size: 14px;
+                        line-height: 14px;
+                        color: color('o-color-1');
+                    }
+
+                    svg {
+                        margin: 0;
+                        fill: #9B918C;
+                    }
+                }
+            }
+
+            &_progress {
+
+                &_wrapper {
+                    gap: 3px;
+                }
+
+                &_title {
+
+                    &_wrapper {
+                        gap: 12px;
+                        font-weight: 300;
+                        font-size: 10px;
+                        line-height: 10px;
+                        color: #9B918C;
+
+                        .stats {
+
+                            &_wrapper {
+                                font-weight: 400;
+                                font-size: 14px;
+                                line-height: 14px;
+                                color: #000000;
+
+                                .reserved {
+                                    color: color('o-color-1');
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &_bar {
+
+                    &_wrapper {
+                        height: 8px;
+                        border-radius: 8px;
+                    }
+                }
+            }
+
+            &_subtitle {
+
+                &_wrapper {
+                    font-weight: 300;
+                    font-size: 10px;
+                    line-height: 15px;
+                    color: color('o-color-1');
+                    
+                    word-wrap: break-word;
+                    word-break: break-all;
+                    white-space: normal;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                }
+            }
+
+            &_tags {
+
+                &_wrapper {
+                    gap: 3px;
+                    font-weight: 300;
+                    font-size: 10px;
+                    line-height: 10px;
+                    color: #9B918C;
+                }
+
+                &_cate {
+                    gap: 3px;
+
+                    &_wrapper {
+                        gap: 3px;
+                        font-weight: 400;
+                        font-size: 10px;
+                        line-height: 10px;
+                        color: #9B918C;
+
+                        svg {
+                            margin: 0;
+                            fill: #9B918C;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &_desc {
+
+        &__badge {
+
+            &_wrapper {
+                gap: 6px;
+            }
+        }
+    
+        &__loc {
+    
+            &_wrapper {
+                margin-bottom: 12px;
+            }
+    
+            &_info {
+    
+                &_wrapper {
+                    gap: 24px;
+                }
+            }
+    
+            &_online {
+    
+                &_wrapper {
+                    font-size: 14px;
+                    font-weight: 300;
+                    line-height: 20px;
+    
+                    svg {
+                        fill: color('o-color-1');
+                    }
+                }
+            }
+    
+            &_offline {
+    
+                &_wrapper {
+                    font-size: 14px;
+                    font-weight: 300;
+                    line-height: 20px;
+    
+                    svg {
+                        fill: color('o-color-1');
+                    }
+                }
+            }
+        }
+
+        &__organizer, &__creator {
+
+            &_img {
+                width: 36px;
+                height: 36px;
+                border-radius: 4px;
+                object-fit: cover;
+            }
+
+            &_name {
+
+            }
+        }
+    }
+}

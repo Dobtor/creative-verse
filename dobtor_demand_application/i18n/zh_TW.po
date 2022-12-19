@@ -1,0 +1,160 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* dobtor_demand_application
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-05 04:55+0000\n"
+"PO-Revision-Date: 2022-10-05 04:55+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: dobtor_demand_application
+#: model:ir.model,name:dobtor_demand_application.model_event_demand
+msgid "Demand"
+msgstr "提出需求"
+
+#. module: dobtor_demand_application
+#: model:request.action,text_template:dobtor_demand_application.action_demand_reject
+msgid "Demand Approve"
+msgstr "同意申請的需求"
+
+#. module: dobtor_demand_application
+#. openerp-web
+#: code:addons/dobtor_demand_application/static/src/js/damand_closed_application.js:0
+#, python-format
+msgid "Demand Closed"
+msgstr "關閉需求"
+
+#. module: dobtor_demand_application
+#: model:request.action,name:dobtor_demand_application.action_demand_creator_closed
+msgid "Demand Create Close Action"
+msgstr "關閉需求"
+
+#. module: dobtor_demand_application
+#: model:request.action,name:dobtor_demand_application.action_demand_give_up
+msgid "Demand Give Up Action"
+msgstr "放棄需求"
+
+#. module: dobtor_demand_application
+#. openerp-web
+#: code:addons/dobtor_demand_application/static/src/js/damand_give_up_application.js:0
+#, python-format
+msgid "Demand GiveUp"
+msgstr "放棄需求"
+
+#. module: dobtor_demand_application
+#. openerp-web
+#: code:addons/dobtor_demand_application/static/src/js/demand_reject_application.js:0
+#, python-format
+msgid "Demand Reject"
+msgstr "拒絕需求"
+
+#. module: dobtor_demand_application
+#: model:request.action,apply_text_template:dobtor_demand_application.action_demand_reject
+msgid "Demand Upload"
+msgstr "新需求申請"
+
+#. module: dobtor_demand_application
+#: model:request.action,name:dobtor_demand_application.action_demand_reject
+msgid "Demand Apply Action"
+msgstr "需求申請"
+
+#. module: dobtor_demand_application
+#: model:ir.model.fields,field_description:dobtor_demand_application.field_event_demand__display_name
+#: model:ir.model.fields,field_description:dobtor_demand_application.field_event_registration__display_name
+msgid "Display Name"
+msgstr "顯示名稱"
+
+#. module: dobtor_demand_application
+#: model:ir.model,name:dobtor_demand_application.model_event_registration
+msgid "Event Registration"
+msgstr "活動登記"
+
+#. module: dobtor_demand_application
+#: model:ir.model.fields,field_description:dobtor_demand_application.field_event_demand__id
+#: model:ir.model.fields,field_description:dobtor_demand_application.field_event_registration__id
+msgid "ID"
+msgstr ""
+
+#. module: dobtor_demand_application
+#: model:request.action,apply_text_template:dobtor_demand_application.action_attendee_appeal_reject
+#: model:request.action,apply_text_template:dobtor_demand_application.action_creator_appeal_reject
+msgid "Is Service Finish"
+msgstr "確認服務是否完成"
+
+#. module: dobtor_demand_application
+#: model:ir.model.fields,field_description:dobtor_demand_application.field_event_demand____last_update
+#: model:ir.model.fields,field_description:dobtor_demand_application.field_event_registration____last_update
+msgid "Last Modified on"
+msgstr "最後修改於"
+
+#. module: dobtor_demand_application
+#. openerp-web
+#: code:addons/dobtor_demand_application/static/src/js/service_appeal_application.js:0
+#, python-format
+msgid "Service Appeal"
+msgstr "服務申訴"
+
+#. module: dobtor_demand_application
+#: model:request.action,name:dobtor_demand_application.action_attendee_appeal_reject
+msgid "Service Finish Action (Attendee)"
+msgstr "服務完成 (給予者)"
+
+#. module: dobtor_demand_application
+#: model:request.action,name:dobtor_demand_application.action_creator_appeal_reject
+msgid "Service Finish Action (Creator)"
+msgstr "服務完成 (需求者)"
+
+#. module: dobtor_demand_application
+#. openerp-web
+#: code:addons/dobtor_demand_application/static/src/js/service_appeal_application.js:0
+#, python-format
+msgid "Service Appeals"
+msgstr "服務申訴"
+
+#. module: dobtor_demand_application
+#: model:request.action,apply_text_template:dobtor_demand_application.action_creator_service_reject
+#: model:request.action,apply_text_template:dobtor_demand_application.action_service_reject
+msgid "Service Apply"
+msgstr "服務申請"
+
+#. module: dobtor_demand_application
+#: model:request.action,name:dobtor_demand_application.action_creator_service_reject
+msgid "Service Creator Option Action"
+msgstr "服務申請 (需求者確認)"
+
+#. module: dobtor_demand_application
+#: model:request.action,text_template:dobtor_demand_application.action_creator_service_reject
+msgid "Service Approve (Create)"
+msgstr "同意服務申請 (需求者)"
+
+#. module: dobtor_demand_application
+#: model:request.action,text_template:dobtor_demand_application.action_service_reject
+msgid "Service Approve (Team)"
+msgstr "同意服務申請 (管理者)"
+
+#. module: dobtor_demand_application
+#. openerp-web
+#: code:addons/dobtor_demand_application/static/src/js/demand_reject_application.js:0
+#: code:addons/dobtor_demand_application/static/src/js/demand_reject_application.js:0
+#, python-format
+msgid "Service Reject"
+msgstr "拒絕服務"
+
+#. module: dobtor_demand_application
+#: model:request.action,name:dobtor_demand_application.action_service_reject
+msgid "Service Apply Action"
+msgstr "服務申請 (管理者確認)"
+
+#. module: dobtor_demand_application
+#: model:request.action,text_template:dobtor_demand_application.action_attendee_appeal_reject
+#: model:request.action,text_template:dobtor_demand_application.action_creator_appeal_reject
+msgid "Service is finish, thx"
+msgstr "服務順利完成, 非常感謝"

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="dobtor.team.member.kick.modal">
+       <input type="hidden" name="member_id" t-att-value="options.member_id" />
+       <input type="hidden" name="kick" t-att-value="options.kick" />
+       <input type="hidden" name="organizer_id" t-att-value="options.organizer_id" />
+    </t>
+</templates>

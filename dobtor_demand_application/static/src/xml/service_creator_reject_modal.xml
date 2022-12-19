@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="dobtor.service.creator.reject.modal">
+       <input type="hidden" name="registration_id" t-att-value="options.registration_id" />
+       <input type="hidden" name="reject" t-att-value="options.reject" />
+    </t>
+</templates>

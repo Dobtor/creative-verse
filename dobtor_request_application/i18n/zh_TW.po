@@ -1,0 +1,513 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* dobtor_request_application
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0-20210504\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-15 09:43+0000\n"
+"PO-Revision-Date: 2022-10-20 09:23+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: dobtor_request_application
+#: code:addons/dobtor_request_application/models/res_partner.py:0
+#, python-format
+msgid " Record"
+msgstr " 紀錄"
+
+#. module: dobtor_request_application
+#: code:addons/dobtor_request_application/models/request.py:0
+#, python-format
+msgid " has canceled."
+msgstr " 已被取消"
+
+#. module: dobtor_request_application
+#: model:mail.template,body_html:dobtor_request_application.application_notify_mail
+msgid ""
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;\">\n"
+"                    <tr>\n"
+"                        <td align=\"center\">\n"
+"                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"padding: 16px; background-color: white; color: #454748; border-collapse:separate;\">\n"
+"                                <tbody>\n"
+"                                    <tr>\n"
+"                                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"top\" style=\"font-size: 13px;\">\n"
+"                                                        <div>\n"
+"                                                            <p/>\n"
+"                                                            Hello \n"
+"                                                            <br/>\n"
+"                                                            % if object.state == 'cancel':\n"
+"                                                                Your \"${object.action_id.name}\" application has canceled.\n"
+"                                                            % else:\n"
+"                                                                Your \"${object.action_id.name}\" application has confirmed.\n"
+"                                                            % endif\n"
+"                                                            <br/>\n"
+"                                                            <span>${ctx['body'] | safe}</span>\n"
+"                                                            <br/>\n"
+"                                                            % if object.auditor:\n"
+"                                                                Operator : ${object.auditor.name}\n"
+"                                                            % endif\n"
+"                                                        </div>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td style=\"text-align:center;\">\n"
+"                                                        <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                </tbody>\n"
+"                            </table>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                </table>\n"
+"            "
+msgstr ""
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;\">\n"
+"                    <tr>\n"
+"                        <td align=\"center\">\n"
+"                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"padding: 16px; background-color: white; color: #454748; border-collapse:separate;\">\n"
+"                                <tbody>\n"
+"                                    <tr>\n"
+"                                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"top\" style=\"font-size: 13px;\">\n"
+"                                                        <div>\n"
+"                                                            <p/>\n"
+"                                                            您好： \n"
+"                                                            <br/>\n"
+"                                                            % if object.state == 'cancel':\n"
+"                                                                您的 \"${object.action_id.name}\" 操作已被取消。\n"
+"                                                            % else:\n"
+"                                                                您的 \"${object.action_id.name}\" 操作已被確認。\n"
+"                                                            % endif\n"
+"                                                            <br/>\n"
+"                                                            <span>${ctx['body'] | safe}</span>\n"
+"                                                            <br/>\n"
+"                                                             % if object.auditor:\n"
+"                                                                操作者 : ${object.auditor.name}\n"
+"                                                             % endif\n"
+"                                                        </div>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td style=\"text-align:center;\">\n"
+"                                                        <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                </tbody>\n"
+"                            </table>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                </table>\n"
+"            "
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application__action_id
+#: model_terms:ir.ui.view,arch_db:dobtor_request_application.view_request_application_search
+msgid "Action"
+msgstr "動作"
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_action__name
+msgid "Action Name"
+msgstr "動作名稱"
+
+#. module: dobtor_request_application
+#: model_terms:ir.ui.view,arch_db:dobtor_request_application.view_request_application_search
+msgid "Action Type"
+msgstr "動作"
+
+#. module: dobtor_request_application
+#: model:ir.actions.act_window,name:dobtor_request_application.action_request_actions_view
+#: model:ir.ui.menu,name:dobtor_request_application.request_action_menu
+msgid "Actions"
+msgstr "動作"
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application__partner_id
+msgid "Applicant"
+msgstr "申請者"
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_res_partner__application_count
+#: model:ir.model.fields,field_description:dobtor_request_application.field_res_users__application_count
+msgid "Application Count"
+msgstr "申請數量"
+
+#. module: dobtor_request_application
+#: model:ir.actions.act_window,name:dobtor_request_application.action_application_view
+#: model:ir.model.fields,field_description:dobtor_request_application.field_res_partner__request_application_ids
+#: model:ir.model.fields,field_description:dobtor_request_application.field_res_users__request_application_ids
+#: model:ir.ui.menu,name:dobtor_request_application.request_application_menu
+msgid "Applications"
+msgstr "申請"
+
+#. module: dobtor_request_application
+#: model:ir.model.fields.selection,name:dobtor_request_application.selection__request_application__state__draft
+#: model_terms:ir.ui.view,arch_db:dobtor_request_application.view_action_from
+msgid "Apply"
+msgstr "申請"
+
+#. module: dobtor_request_application
+#: model_terms:ir.ui.view,arch_db:dobtor_request_application.request_applicatoin_modal
+msgid "Apply action:"
+msgstr "請求功能："
+
+#. module: dobtor_request_application
+#: model:res.groups,comment:dobtor_request_application.group_request_manager
+msgid "Backend Manage request"
+msgstr "後台管理請求"
+
+#. module: dobtor_request_application
+#: model:ir.model.fields.selection,name:dobtor_request_application.selection__request_application__state__cancel
+#: model_terms:ir.ui.view,arch_db:dobtor_request_application.view_application_tree
+#: model_terms:ir.ui.view,arch_db:dobtor_request_application.view_application_wizard
+msgid "Cancel"
+msgstr "拒絕"
+
+#. module: dobtor_request_application
+#: model_terms:ir.ui.view,arch_db:dobtor_request_application.request_applicatoin_modal
+#: model_terms:ir.ui.view,arch_db:dobtor_request_application.view_application_wizard
+msgid "Close"
+msgstr "關閉"
+
+#. module: dobtor_request_application
+#: model:ir.model.fields.selection,name:dobtor_request_application.selection__request_application__state__confirm
+#: model_terms:ir.ui.view,arch_db:dobtor_request_application.view_action_from
+#: model_terms:ir.ui.view,arch_db:dobtor_request_application.view_application_tree
+msgid "Confirm"
+msgstr "同意"
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_action__confirmation_template_id
+msgid "Confirmation Email"
+msgstr "寄件樣板"
+
+#. module: dobtor_request_application
+#: model:ir.model,name:dobtor_request_application.model_res_partner
+msgid "Contact"
+msgstr "聯繫人"
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_action__create_uid
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_action__create_date
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application__create_date
+msgid "Created on"
+msgstr "時間"
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application__rel_model
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application__rel_model_id
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application_reject__rel_model
+msgid "Depends Model"
+msgstr "依賴模型"
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application__rel_id
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application__rel_name
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application_reject__rel_name
+msgid "Depends Record"
+msgstr "依賴紀錄"
+
+#. module: dobtor_request_application
+#: model_terms:ir.ui.view,arch_db:dobtor_request_application.request_applicatoin_modal
+msgid "Description"
+msgstr "描述"
+
+#. module: dobtor_request_application
+#. openerp-web
+#: code:addons/dobtor_request_application/static/src/xml/request_modal.xml:0
+#: model_terms:ir.ui.view,arch_db:dobtor_request_application.request_applicatoin_modal
+#, python-format
+msgid "Description:"
+msgstr "描述:"
+
+#. module: dobtor_request_application
+#. openerp-web
+#: code:addons/dobtor_request_application/static/src/js/request_modal.js:0
+#, python-format
+msgid "Discard"
+msgstr "放棄"
+
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_action__display_name
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application__display_name
+#: model:ir.model.fields,field_description:dobtor_request_application.field_res_partner__display_name
+msgid "Display Name"
+msgstr "顯示名稱"
+
+#. module: dobtor_request_application
+#: model:ir.model.fields.selection,name:dobtor_request_application.selection__request_action__apply_notic_type__email
+#: model:ir.model.fields.selection,name:dobtor_request_application.selection__request_action__notic_type__email
+#: model:ir.model.fields.selection,name:dobtor_request_application.selection__request_action__reject_notic_type__email
+msgid "Email Template"
+msgstr "信件樣板"
+
+#. module: dobtor_request_application
+#: model_terms:ir.ui.view,arch_db:dobtor_request_application.view_action_from
+msgid "Function"
+msgstr "函式"
+
+#. module: dobtor_request_application
+#: model_terms:ir.ui.view,arch_db:dobtor_request_application.view_request_application_search
+msgid "Group By"
+msgstr ""
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_action__id
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application__id
+#: model:ir.model.fields,field_description:dobtor_request_application.field_res_partner__id
+msgid "ID"
+msgstr ""
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_action____last_update
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application____last_update
+#: model:ir.model.fields,field_description:dobtor_request_application.field_res_partner____last_update
+msgid "Last Modified on"
+msgstr "最後修改於"
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_action__write_uid
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_action__write_date
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: dobtor_request_application
+#: model_terms:ir.ui.view,arch_db:dobtor_request_application.view_request_application_search
+msgid "Mail To"
+msgstr "收件者"
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_action__model_id
+msgid "Model"
+msgstr "模型"
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,help:dobtor_request_application.field_request_action__model_id
+msgid "Model on which the server action runs."
+msgstr ""
+
+#. module: dobtor_request_application
+#: model:ir.model.fields.selection,name:dobtor_request_application.selection__request_action__apply_notic_type__no_notic_type
+#: model:ir.model.fields.selection,name:dobtor_request_application.selection__request_action__notic_type__no_notic_type
+#: model:ir.model.fields.selection,name:dobtor_request_application.selection__request_action__reject_notic_type__no_notic_type
+msgid "No Notice"
+msgstr "只紀錄(不通知)"
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application__note
+msgid "Note"
+msgstr "描述"
+
+#. module: dobtor_request_application
+#: code:addons/dobtor_request_application/models/request.py:0
+#, python-format
+msgid "Note："
+msgstr "說明："
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_action__apply_notic_type
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_action__reject_notic_type
+#: model_terms:ir.ui.view,arch_db:dobtor_request_application.view_action_from
+msgid "Notic"
+msgstr "通知方式"
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_action__notic_type
+msgid "Notice"
+msgstr "通知方式"
+
+
+#. module: dobtor_request_application
+#: model:ir.model.fields.selection,name:dobtor_request_application.selection__request_application__mode__record
+msgid "Only record"
+msgstr "紀錄模式"
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application__name
+msgid "Object"
+msgstr "對象"
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application__auditor
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application__auditor_id
+msgid "Operator"
+msgstr "操作者"
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application__reject_reason
+msgid "Origin Note"
+msgstr "原始描述"
+
+#. module: dobtor_request_application
+#: model_terms:ir.ui.view,arch_db:dobtor_request_application.view_request_application_search
+msgid "Partner"
+msgstr "申請者"
+
+#. module: dobtor_request_application
+#. openerp-web
+#: code:addons/dobtor_request_application/static/src/js/request_modal.js:0
+#, python-format
+msgid "Please fill out Description."
+msgstr "請填寫事由"
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_action__code
+msgid "Python Code"
+msgstr ""
+
+#. module: dobtor_request_application
+#: model:ir.actions.act_window,name:dobtor_request_application.action_record_view
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application__partner_id
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application_reject__partner_id
+#: model:ir.ui.menu,name:dobtor_request_application.request_record_menu
+msgid "Record"
+msgstr "紀錄"
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application__related_partner_ids
+msgid "Record (C.C)"
+msgstr "紀錄(關聯者)"
+
+#. module: dobtor_request_application
+#: model_terms:ir.ui.view,arch_db:dobtor_request_application.view_action_from
+msgid "Reject"
+msgstr "拒絕"
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application__reject_reason
+msgid "Reject Reason"
+msgstr "拒絕原因"
+
+#. module: dobtor_request_application
+#: code:addons/dobtor_request_application/models/request.py:0
+#, python-format
+msgid "Reject Reason："
+msgstr "拒絕原因："
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application__res_model
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application_reject__res_model
+msgid "Related Model"
+msgstr "關聯模型"
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application__res_id
+msgid "Related Record"
+msgstr "關聯紀錄"
+
+#. module: dobtor_request_application
+#: model:ir.model,name:dobtor_request_application.model_request_action
+msgid "Request Action"
+msgstr ""
+
+#. module: dobtor_request_application
+#: model:ir.model,name:dobtor_request_application.model_request_application
+msgid "Request Application"
+msgstr ""
+
+#. module: dobtor_request_application
+#: model:res.groups,name:dobtor_request_application.group_request_manager
+msgid "Request Manager"
+msgstr "申請紀錄管理"
+
+#. module: dobtor_request_application
+#: model:ir.ui.menu,name:dobtor_request_application.request_main_menu
+msgid "Requests"
+msgstr "請求"
+
+#. module: dobtor_request_application
+#. openerp-web
+#: code:addons/dobtor_request_application/static/src/js/request_modal.js:0
+#, python-format
+msgid "Save"
+msgstr "送出"
+
+#. module: dobtor_request_application
+#: model_terms:ir.ui.view,arch_db:dobtor_request_application.request_applicatoin_modal
+msgid "Send"
+msgstr "送出"
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application__send_mail_partner_id
+msgid "Sent Mail Partner"
+msgstr "收件人"
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application__state
+msgid "Status"
+msgstr "狀態"
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_action__apply_text_template
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_action__reject_text_template
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_action__text_template
+#: model:ir.model.fields.selection,name:dobtor_request_application.selection__request_action__apply_notic_type__text
+#: model:ir.model.fields.selection,name:dobtor_request_application.selection__request_action__notic_type__text
+#: model:ir.model.fields.selection,name:dobtor_request_application.selection__request_action__reject_notic_type__text
+msgid "Text Template"
+msgstr "罐頭文字"
+
+#. module: dobtor_request_application
+#: model_terms:ir.ui.view,arch_db:dobtor_request_application.view_action_from
+msgid "Type"
+msgstr "通知種類"
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,help:dobtor_request_application.field_request_action__code
+msgid ""
+"Write Python code that the action will execute. Some variables are available"
+" for use; help about python expression is given in the help tab."
+msgstr ""
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_action__auto_confirm
+msgid "auto confirm"
+msgstr "自動確認"
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,help:dobtor_request_application.field_request_application__rel_model
+#: model:ir.model.fields,help:dobtor_request_application.field_request_application__rel_model_id
+#: model:ir.model.fields,help:dobtor_request_application.field_request_application_reject__rel_model
+msgid "depends model"
+msgstr "依賴模型"
+
+#. module: dobtor_request_application
+#: model_terms:ir.ui.view,arch_db:dobtor_request_application.view_application_from
+#: model_terms:ir.ui.view,arch_db:dobtor_request_application.view_application_record_tree
+#: model_terms:ir.ui.view,arch_db:dobtor_request_application.view_application_tree
+msgid "email to"
+msgstr "收件者"
+
+#. module: dobtor_request_application
+#: model:ir.model.fields,field_description:dobtor_request_application.field_request_application__mode
+msgid "mode"
+msgstr "模式"

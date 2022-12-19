@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="apply_confirm_modal" name="Team apply - confirm">
+            <div id="modal_team_apply_confirm" class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+                    <div class="modal-content team_apply_modal__wrapper">
+                        <div class="team_apply_modal__header modal-header border-0 p-0"/>
+                        <div class="team_apply_modal__body modal-body">
+                            <div class="d-flex flex-column align-items-center">
+                                <i class="fa fa-check-circle fa-2x"/>
+                                <span class="text-center">Request to join message has been sent</span>
+                            </div>
+                        </div>
+                        <div class="team_apply_modal__footer modal-footer border-0 justify-content-between">
+                            <button type="button" class="btn btn-primary reload w-100" data-dismiss="modal">Confirm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="apply_cancel_modal" name="Team apply - cancel">
+            <div id="modal_team_apply_cancel" class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+                    <div class="modal-content team_apply_modal__wrapper">
+                        <div class="team_apply_modal__header modal-header border-0 p-0"/>
+                        <div class="team_apply_modal__body modal-body">
+                            <div class="d-flex flex-column align-items-center">
+                                <i class="fa fa-check-circle fa-2x success_display d-none"/>
+                                <i class="fa fa-exclamation-triangle fa-2x double_check"/>
+                                <span class="double_check text-center">Are you sure you want to cancel the request to join the team？</span>
+                                <span class="success_display text-center d-none">Team request cancelled</span>
+                            </div>
+                        </div>
+                        <div class="team_apply_modal__footer modal-footer border-0 justify-content-between">
+                            <button type="button" class="btn btn-primary confirm w-100 double_check">Confirm</button>
+                            <button type="button" class="btn btn-primary reload w-100 success_display d-none" data-dismiss="modal">Confirm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="leave_modal" name="Team - leave">
+            <div id="modal_team_leave" class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+                    <div class="modal-content team_apply_modal__wrapper">
+                        <div class="team_apply_modal__header modal-header border-0 p-0"/>
+                        <div class="team_apply_modal__body modal-body">
+                            <div class="d-flex flex-column align-items-center">
+                                <i class="fa fa-check-circle fa-2x success_display d-none"/>
+                                <i class="fa fa-exclamation-triangle fa-2x double_check"/>
+                                <span class="double_check text-center">Are you sure you want to leave this team？</span>
+                                <span class="success_display text-center d-none">You are logged out</span>
+                            </div>
+                        </div>
+                        <div class="team_apply_modal__footer modal-footer border-0 justify-content-between">
+                            <button type="button" class="btn btn-primary confirm w-100 double_check">Confirm</button>
+                            <button type="button" class="btn btn-primary reload w-100 success_display d-none" data-dismiss="modal">Confirm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </data>
+</odoo>

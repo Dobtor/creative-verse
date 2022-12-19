@@ -1,0 +1,123 @@
+<odoo>
+    <data>
+        <template id="profile_header" name="User Profile Header">
+            <div class="db-profile__wrapper">
+                <div class="db-profile__header_wrapper">
+                    <div class="container">
+                        <header id="db-profile-header" class="db-profile__header-cover-wrapper pt32">
+                            <div class="db-profile__header-cover rocket-lazyload">
+                                <section t-attf-class="overflow-hidden h-100 #{partner.profile_section and ' ' or 'bg-900'}">
+                                    <div t-if="partner.profile_section" class="h-100" t-field="partner.profile_section" t-options="{'widget': 'image', 'class': 'h-100 w-100 bg-900', 'style': 'object-fit: cover;'}"/>
+                                    <div t-else="" class="h-100">
+                                        <img class="h-100 w-100" src="/dobtor_user_profile/static/src/img/profile_section_default.jpg" style="object-fit: cover;"/>
+                                    </div>
+                                    <a t-if="request.env.user.partner_id == partner" href="#" class="position-absolute o_wprofile_js_edit" t-att-data-partner_id="partner.id" data-edit-type="section" style="right: 30px; bottom: 35px;">
+                                        <i class="fa fa-camera fa-2x rounded-circle"/>
+                                    </a>
+                                </section>
+                                <div class="db-profile__header-cover-content container">
+                                    <div class="db-profile__header-cover-photo">
+                                        <img t-att-src="website.image_url(partner, 'image_256') if partner.image_256 else '/dobtor_user_profile/static/src/img/profile_avatar_default.jpg'"/>
+                                        <a t-if="request.env.user.partner_id == partner" href="#" class="position-absolute o_wprofile_js_edit" t-att-data-partner_id="partner.id" data-edit-type="avatar" style="right: 0; bottom: 0;">
+                                            <i class="fa fa-pencil fa-lg rounded-circle shadow-sm"/>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </header>
+                        <div class="db-profile__header_title_wrapper">
+                            <div class="d-flex flex-column flex-grow-1">
+                                <div class="db-profile__header_title_name">
+                                    <span t-esc="partner.name"/>
+                                </div>
+                                <!-- TODO: 還未確定要帶入甚麼資料，等確定好後再打開 -->
+                                <!-- <div class="d-flex">
+                                    <div class="db-profile__header_desc_wrapper desc_truncate_1 mr-1">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M18.4,11.2c-0.4-0.8-0.9-1.5-1.5-2.1l-0.5-0.5c0,0,0,0-0.1,0c0,0,0,0-0.1,0c0,0,0,0-0.1,0s0,0,0,0.1l-0.2,0.7
+                                                c-0.1,0.4-0.4,0.8-0.8,1.3c0,0-0.1,0-0.1,0c0,0-0.1,0-0.1,0c0,0,0-0.1,0-0.1c0.1-1.1-0.3-2.3-1-3.6c-0.6-1.1-1.4-2-2.5-2.6L10.7,4
+                                                c-0.1-0.1-0.2,0-0.2,0.1l0,0.9c0,0.6,0,1.1-0.2,1.5c-0.2,0.5-0.5,1-0.9,1.5C9.1,8.3,8.8,8.6,8.5,8.8C7.7,9.4,7.1,10.1,6.7,11
+                                                C6.2,11.9,6,12.8,6,13.8c0,0.8,0.2,1.7,0.5,2.4c0.3,0.7,0.8,1.4,1.4,2c0.6,0.6,1.3,1,2.1,1.3c0.8,0.3,1.7,0.5,2.5,0.5
+                                                s1.7-0.2,2.5-0.5c0.8-0.3,1.5-0.8,2.1-1.3c0.6-0.6,1.1-1.2,1.4-2c0.3-0.8,0.5-1.6,0.5-2.4C19,12.9,18.8,12,18.4,11.2z"/>
+                                        </svg>
+                                        <span>社區營造、長青學苑、人文關懷</span>
+                                    </div>
+                                    <div class="db-profile__header_desc_wrapper desc_truncate_1">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12.3,4C10.6,4,9,4.7,7.8,5.8C6.7,7,6,8.6,6,10.3c0,1.4,0.4,2.7,1.3,3.8c0,0,0.2,0.2,0.2,0.3l4.8,5.7l4.8-5.7
+                                                c0,0,0.2-0.3,0.2-0.3l0,0c0.8-1.1,1.3-2.4,1.3-3.8c0-1.7-0.7-3.3-1.8-4.4C15.5,4.7,14,4,12.3,4z M12.3,12.6c-0.5,0-0.9-0.1-1.3-0.4
+                                                c-0.4-0.3-0.7-0.6-0.8-1C10,10.7,10,10.3,10,9.8c0.1-0.4,0.3-0.9,0.6-1.2C11,8.3,11.4,8.1,11.8,8c0.4-0.1,0.9,0,1.3,0.1
+                                                c0.4,0.2,0.8,0.5,1,0.8c0.3,0.4,0.4,0.8,0.4,1.3c0,0.6-0.2,1.2-0.7,1.6S12.9,12.6,12.3,12.6z"/>
+                                        </svg>
+                                        <span>承德路, 大同區, Taipei City</span>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                        <t t-call="dobtor_user_profile.content_collapse"/>
+                    </div>
+                </div>
+                <div class="db-profile__body_wrapper">
+                    <div class="container">
+                        <div class="db-profile__body_content_wrapper">
+                            <main class="db-profile__body_main_wrapper tab-content">
+                                <t t-raw="0"/>
+                            </main>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="portal_profile" name="User Profile Portal">
+            <t t-call="website.layout">
+                <t t-set="additional_title">
+                    <t t-esc="partner.name"/>
+ Profile</t>
+                <t t-call="dobtor_user_profile.profile_header">
+                    <t t-call="dobtor_user_profile.content_tabpanel"/>
+                </t>
+            </t>
+        </template>
+
+        <!-- #region: (九宮格選單/底部選單)帳戶管理xpath -->
+        <!-- TODO: img class加入'o_lang_flag'的原因是防止頂部選單透明無法顯示問題，因官方js寫的例外處理不好擴充，只好選擇一個影響較小的加入
+                   預防，以後若有更好的方法在進行修正
+         -->
+        <template id="profile_launcher_tmpl">
+            <t groups="dobtor_partner_group_extend.group_active_partner,base.group_user">
+                <t t-if="request.env.user.image_256" t-set="avatar_source" t-value="image_data_uri(request.env.user.image_256)"/>
+                <t t-else="" t-set="avatar_source" t-value="'/web/static/src/img/placeholder.png'"/>
+                <li class="app_li">
+                    <a t-att-href="'/user/profile/%s' % slug(request.env.user.partner_id)" class="app_url">
+                        <img class="o_lang_flag" t-att-src="avatar_source" alt="Icon"/>
+                        <span class="app_text">Account Management</span>
+                    </a>
+                </li>
+            </t>
+        </template>
+
+        <template id="app_profile_launcher_inherit" name="Link to frontend Profile portal" inherit_id="dobtor_user_apps.apps_launcher">
+            <xpath expr="//ul[hasclass('apps_launcher_main')]/t" position="before">
+                <t t-call="dobtor_user_profile.profile_launcher_tmpl"/>
+            </xpath>
+        </template>
+
+        <template id="btm_navi_profile_launcher_inherit" name="Btm Navi - Link to frontend Profile portal" inherit_id="dobtor_user_apps.mobile_bottom_navigation_bar_inherit_launcher">
+            <xpath expr="//ul[hasclass('apps_launcher_main')]/t" position="before">
+                <t t-call="dobtor_user_profile.profile_launcher_tmpl"/>
+            </xpath>
+        </template>
+        <!-- #endregion -->
+
+        <template id="customize_my_account" customize_show="True" active="True" inherit_id="portal.my_account_link" name="My Account Invisible">
+            <xpath expr="//a[@href='/my/home']" position="replace"/>
+        </template>
+
+        <template id="user_dropdown_invisible" inherit_id="portal.user_dropdown" name="User Dropdown Invisible">
+            <xpath expr="//t[@t-if='_avatar']/.." position="attributes">
+                <attribute name="t-attf-class" add="d-none" separator=" "/>
+            </xpath>
+        </template>
+    </data>
+</odoo>

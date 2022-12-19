@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_request_application_all,ALL : Request Applcation,model_request_application,,1,0,1,0
+access_request_application_user,User : Request Applcation,model_request_application,dobtor_request_application.group_request_manager,1,1,1,0
+access_request_application_system,System : Request Applcation,model_request_application,base.group_system,1,1,1,1
+access_request_application_reject_all,ALL : Request Applcation Reject,model_request_application_reject,,1,0,1,0
+access_request_application_reject_user,User : Request Applcation Reject,model_request_application_reject,dobtor_request_application.group_request_manager,1,1,1,0
+access_request_application_reject_system,System : Request Applcation Reject,model_request_application_reject,base.group_system,1,1,1,1
+access_request_action_all,ALL : request actions,model_request_action,,1,0,0,0
+access_request_action_user,User : request actions,model_request_action,dobtor_request_application.group_request_manager,1,1,1,0
+access_request_action_system,System : Request Applcation,model_request_action,base.group_system,1,1,1,1

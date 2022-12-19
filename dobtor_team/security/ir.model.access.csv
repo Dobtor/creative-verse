@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_member_apply_list_all,Member Apply List: all,model_member_apply_list,,1,0,0,0
+access_member_apply_list,Member Apply List,model_member_apply_list,base.group_user,1,1,1,1
+access_team_title_all,team_title: all,model_team_title,,1,0,0,0
+access_team_title_user,team_title: user,model_team_title,base.group_user,1,1,1,1
+access_res_partner_tag_team,partner.tag.team,dobtor_user_signup.model_partner_tag,dobtor_team.group_team_manager,1,1,1,1
+access_res_partner_tag_group_team,res.partner.tag.group.team,dobtor_user_signup.model_res_partner_tag_group,dobtor_team.group_team_manager,1,1,1,1

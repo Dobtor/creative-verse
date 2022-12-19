@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <menuitem id="request_main_menu" name="Requests" web_icon="dobtor_request_application,static/description/icon.png">
+            <menuitem id="request_application_menu" name="Applications" action="action_application_view" sequence="10"/>
+            <menuitem id="request_record_menu" name="Record" action="action_record_view" sequence="20"/>
+            <menuitem id="request_action_menu" name="Actions" action="action_request_actions_view" groups="base.group_system" sequence="30"/>
+        </menuitem>
+
+    </data>
+</odoo>

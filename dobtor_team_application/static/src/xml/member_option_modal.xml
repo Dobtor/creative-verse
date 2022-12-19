@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="dobtor.team.member.option.modal">
+    <!-- TODO : 預留 xml file, 目前採用罐頭文無需此檔案, 但如果流程變更需要填寫事由, 則需要實作該檔案 -->
+       <input type="hidden" name="member_id" t-att-value="options.member_id" />
+       <input type="hidden" name="organizer_id" t-att-value="options.organizer_id" />
+    </t>
+</templates>

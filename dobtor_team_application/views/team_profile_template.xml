@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- tag檢查 -->
+        <template id="team_publish_check" inherit_id="dobtor_team.team_profile_left_panel" name="Team publish check">
+            <xpath expr="//div[@id='apply_block']" position="attributes">
+                <attribute name="t-if" add="and team_publish" separator=" "/>
+            </xpath>
+            <xpath expr="//div[hasclass('db-profile__widget_content_wrapper')]" position="before">
+                <div t-if="not team_publish and partner.leader_id == request.env.user.partner_id and not publish_waiting_review" class="db-profile__widget_content_wrapper">
+                    <div id="team_applicaiton">
+                        <form action="/team/publish/apply" method="post" class="js_website_submit_form" itemscope="itemscope" itemprop="offers" itemtype="http://schema.org/AggregateOffer">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <input type="hidden" name="partner_id" t-att-value="partner.id"/>
+                            <button type="button" id="confirm_button" class="btn btn-light btn-block a-submit">
+                                Apply Premium Team
+                            </button>
+                        </form>
+                    </div>
+                    <span class="text-muted small" data-toggle="modal" data-target=".premium_team_info">About premium team
+                        <i class="fa fa-chevron-circle-right"/>
+                    </span>
+                    <div class="modal fade premium_team_info" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Premium Team</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span>×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Authentication team can add team members, team wallets and apply for extended functions
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <t t-if="required_fields_unfilled">
+                        <div id="team_applicaiton" class="modal fade" tabindex="-1" role="dialog">
+                            <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header border-0 align-items-center justify-content-center">
+                                        <span class="fa fa-times-circle fa-2x text-primary" />
+                                    </div>
+                                    <div class="modal-body bg-light border-bottom">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <span>Please complete the required information about the team</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer border-0 justify-content-center">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+                <div t-if="partner.leader_id == request.env.user.partner_id and publish_waiting_review" class="db-profile__widget_content_wrapper">
+                    <div class="alert alert-warning" role="alert">
+                        <b>Team Publish</b>
+                        waiting for manager review!
+                    </div>
+                </div>
+                <!-- 先寫leader才看得到認證群組 -->
+                <div t-if="team_publish and (partner.leader_id == request.env.user.partner_id )" class="db-profile__widget_content_wrapper">
+                    <button type="button" class="btn btn-light btn-block" data-toggle="modal" data-target="#team_applicaiton">
+                        <div>
+                            <span class="text-primary">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 4L5 6.90909V11.2727C5 15.3091 7.98667 19.0836 12 20C16.0133 19.0836 19 15.3091 19 11.2727V6.90909L12 4ZM14.3956 14.9091L12 13.5636L9.61222 14.9091L10.2422 12.3636L8.13444 10.6618L10.9189 10.4364L12 8.03636L13.0811 10.4291L15.8656 10.6545L13.7578 12.3636L14.3956 14.9091V14.9091Z" fill="currentColor"/>
+                                </svg>
+                            </span>
+                        </div>
+                        <span>Premium Team</span>
+                    </button>
+                </div>
+            </xpath>
+        </template>
+
+        <!-- 類似藍勾勾在頭像旁邊提示 -->
+        <template id="team_publish_hint" inherit_id="dobtor_user_profile.profile_header">
+            <xpath expr="//div[hasclass('db-profile__header_title_name')]" position="inside">
+                <span t-if="team_publish" class="text-primary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 4L5 6.90909V11.2727C5 15.3091 7.98667 19.0836 12 20C16.0133 19.0836 19 15.3091 19 11.2727V6.90909L12 4ZM14.3956 14.9091L12 13.5636L9.61222 14.9091L10.2422 12.3636L8.13444 10.6618L10.9189 10.4364L12 8.03636L13.0811 10.4291L15.8656 10.6545L13.7578 12.3636L14.3956 14.9091V14.9091Z" fill="currentColor"/>
+                    </svg>
+                </span>
+            </xpath>
+        </template>
+
+        <!-- 申請後提示窗 -->
+        <template id="team_application_confirm">
+            <div id="modal_team_application" class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header border-0 align-items-center justify-content-center">
+                            <span class="fa fa-check-circle-o fa-2x text-primary" />
+                        </div>
+                        <div class="modal-body bg-light border-bottom">
+                            <div class="row">
+                                <div class="col-12">
+                                    <span>Your application already send.</span>
+                                </div>
+                                <div class="col-12">
+                                    <span>Please wait for manager review.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer border-0 justify-content-center">
+                            <button type="button" onclick="location.reload(true);" class="btn btn-secondary" data-dismiss="modal">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <!-- 上方nav 連結 (會友跟群組的申請紀錄)-->
+        <template id="application_collapse_inherit" inherit_id="dobtor_user_profile.content_collapse">
+            <xpath expr="//ul" position="inside">
+                <li t-if="partner.request_application_ids and ((partner.is_team and partner.leader_id == request.env.user.partner_id) or (not partner.is_team and partner.id == request.env.user.partner_id.id))" class="nav-item">
+                    <a href="#team_application_list" aria-controls="team_application_list" class="nav-link" role="tab" data-toggle="tab">
+                        Application List
+                    </a>
+                </li>
+            </xpath>
+        </template>
+
+        <!-- 成員nav連結未認證隱藏 -->
+        <template id="content_collapse_inherit" inherit_id="dobtor_team.content_collapse_inherit">
+            <xpath expr="//li[@t-if='partner.is_team and (is_member or is_assistant or is_leader)']" position="attributes">
+                <attribute name="t-if" add="and team_publish" separator=" "/>
+            </xpath>
+        </template>
+
+        <!-- nav連結的內文 -->
+        <template id="applicatoin_content">
+            <div role="tabpanel" class="team_profile__pane_wrapper tab-pane fade" id="team_application_list">
+                <div class="card shadow-sm form-row">
+                    <t t-if="partner.request_application_ids">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Type</th> <!-- Name -->
+                                    <th scope="col">Object</th>
+                                    <th scope="col">Note</th>
+                                    <th scope="col">Time</th> <!--Create Date -->
+                                    <th scope="col">Auditor</th>
+                                    <th scope="col">Action</th> <!-- Status -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="partner.request_application_ids.sorted(lambda request: (request.action_id ,request.create_date), reverse=True)" t-as="application">
+                                    <tr>
+                                        <th t-field="application.action_id.name"/>
+                                        <th t-esc="application.rel_name +'('+application.name+')'if application.rel_name else application.name" />
+                                        <td>
+                                            <span t-esc="application.note"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="application.create_date" t-options="{'format': 'short'}"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="application.auditor.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-if="application.state =='draft'" class="badge badge-pill badge-info" t-field="application.state"></span>
+                                            <span t-if="application.state =='confirm'" class="badge badge-pill badge-success" t-field="application.state"></span>
+                                            <span t-if="application.state =='cancel'" class="badge badge-pill badge-danger" t-field="application.state"></span>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </t>
+                </div>
+            </div>
+        </template>
+
+        <template id="application_team_content_tabpanel" inherit_id="dobtor_team.team_content_tabpanel">
+            <xpath expr="//div[hasclass('row')]/div[hasclass('tab-content')]" position="inside">
+                <t t-call="dobtor_team_application.applicatoin_content" />
+            </xpath>
+        </template>
+
+        <template id="application_self_content_tabpanel" inherit_id="dobtor_user_profile.content_tabpanel">
+            <xpath expr="//div[hasclass('row')]/div[hasclass('tab-content')]" position="inside">
+                <t t-call="dobtor_team_application.applicatoin_content" />
+            </xpath>
+        </template>
+
+        <!--群組卡片，檢查是否認證 -->
+        <template id="team_care_publish_check" inherit_id="dobtor_team.team_card">
+            <xpath expr="//t[@t-if='apply']" position="after">
+                <t t-elif="application_teams and team in application_teams">
+                    <t t-if="team_publish_tag and team_publish_tag not in team.tag_ids">
+                        <span class="badge team__card_body_badge w-100 text-wrap">Audit Premium Team</span>
+                    </t>
+                </t>
+                <t t-elif="team_publish_tag and team_publish_tag not in team.tag_ids">
+                    <span class="badge team__card_body_badge w-100 text-wrap">Not yet certified</span>
+                </t>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

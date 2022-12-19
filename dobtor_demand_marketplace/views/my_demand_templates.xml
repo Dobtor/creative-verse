@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="team_demand_inherit_my_demand" inherit_id="dobtor_demand.my_demand" name="Team Demand Inherit My Demand">
+            <xpath expr="//div[hasclass('demand_record__header_collapsed_wrapper')]" position="attributes">
+                <attribute name="t-if">not demand.organizer_id</attribute>
+            </xpath>
+            <xpath expr="//div[hasclass('demand_record__header_collapsed_wrapper')]" position="after">
+                <div t-else="" class="demand_record__header_collapsed_wrapper d-flex flex-column flex-md-row order-2 order-md-1 collapsed" data-toggle="collapse" t-att-href="'#demand_collapse_%s' % demand.id" aria-expanded="false" t-att-aria-controls="'demand_collapse_%s' % demand.id">
+                    <a t-if="demand.id in team_demand" class="demand_record__header_collapsed_btn d-flex align-items-center text-decoration-none order-last order-md-0" href="#">
+                        <i class="fa demand_record__header_collapsed_btn_icon flex-grow-1 text-center"/>
+                    </a>
+                    <div class="demand_record__header_statistics_wrapper d-flex flex-column align-items-center justify-content-sm-between flex-wrap">
+                        <div class="d-flex flex-column align-items-center">
+                            <span class="demand_record__header_title text-nowrap">Undone</span>
+                            <span class="demand_record__header_num imp demand_record_desc_truncate_1" t-esc="demand.event_ticket_ids[:1].not_yet_request_qty"/>
+                        </div>
+                        <div class="d-flex flex-column align-items-center">
+                            <span class="demand_record__header_title text-nowrap">Audit</span>
+                            <span class="demand_record__header_num imp demand_record_desc_truncate_1" t-esc="demand.event_ticket_ids[:1].audit_request_qty"/>
+                        </div>
+                    </div>
+                    <div class="demand_record__header_statistics_wrapper d-none d-md-flex flex-md-column align-items-center justify-content-sm-between flex-wrap border-left-0">
+                        <div class="d-flex flex-column align-items-center">
+                            <span class="demand_record__header_title text-nowrap">Completed/Demand Qty</span>
+                            <span class="demand_record__header_num demand_record_desc_truncate_1">
+                                <t t-esc="demand.event_ticket_ids[:1].request_reserved"/>/<t t-esc="demand.event_ticket_ids[:1].request_qty"/>
+                            </span>
+                        </div>
+                        <div class="d-flex flex-column align-items-center">
+                            <span class="demand_record__header_title text-nowrap">Accepted/Apply Qty</span>
+                            <span class="demand_record__header_num demand_record_desc_truncate_1">
+                                <t t-esc="demand.event_ticket_ids[:1].organizer_confirm_request_qty"/>/<t t-esc="demand.event_ticket_ids[:1].apply_request_qty"/>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="demand_record__header_price_wrapper d-none d-md-flex flex-md-column align-items-center justify-content-center">
+                        <span class="demand_record__header_title text-nowrap">Reserved/Request Amount</span>
+                        <span class="demand_record__header_num demand_record_desc_truncate_1" t-esc="'%s/%s' %(website.convert_pricelist_pirce(demand, demand.event_ticket_ids[:1].reserved_total_amount, website.pricelist_id), website.convert_pricelist_pirce(demand, demand.event_ticket_ids[:1].request_total_amount, website.pricelist_id))"/>
+                    </div>
+                </div>
+            </xpath>
+            <xpath expr="//div[hasclass('demand_record__header_operate_wrapper')]" position="attributes">
+                <attribute name="t-if" add="demand.state in ('cancel', 'give_up')" separator=" or "/>
+            </xpath>
+            <xpath expr="//div[hasclass('demand_record__header_operate_wrapper')]" position="inside">
+                <a t-if="demand.state in ('cancel', 'give_up')" class="btn p-0 re_edit" href="#" role="button">
+                    <svg t-if="demand.state == 'cancel'" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.0408 11.8371C18.0413 13.1836 17.5794 14.4894 16.7324 15.5362C15.8854 16.583 14.7047 17.3072 13.3878 17.5877C12.0708 17.8682 10.6974 17.6881 9.49741 17.0773C8.29737 16.4666 7.34342 15.4623 6.7951 14.2325L4.97829 14.9705C5.69851 16.6207 6.96494 17.9727 8.56466 18.799C10.1644 19.6254 11.9998 19.8758 13.7625 19.5081C15.5251 19.1405 17.1074 18.1772 18.2433 16.7802C19.3792 15.3832 19.9996 13.6377 20 11.8371C20.0001 10.2015 19.4884 8.60684 18.5366 7.27664C17.5849 5.94644 16.2408 4.94737 14.6927 4.41944C13.1447 3.89152 11.4702 3.86119 9.90403 4.33272C8.33786 4.80425 6.95847 5.75399 5.95918 7.04886V4.65343H4V9.87792L4.97959 10.8575H9.55102V8.89833H7.072C7.71867 7.77724 8.71728 6.90095 9.91288 6.40542C11.1085 5.90989 12.4342 5.82284 13.6843 6.15778C14.9345 6.49271 16.0391 7.23091 16.8268 8.2578C17.6145 9.2847 18.0413 10.5429 18.0408 11.8371V11.8371Z"/>
+                    </svg>
+                    <svg t-if="demand.state == 'give_up'" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 17.3333L14.6667 6.66667L17.3333 9.33333L6.66667 20H4V17.3333ZM15.5556 5.77778L17.3333 4L20 6.66667L18.2213 8.44533L15.5556 5.77778Z"/>
+                    </svg>
+                </a>
+            </xpath>
+            <xpath expr="//div[hasclass('demand_record__body_wrapper')]" position="attributes">
+                <attribute name="t-if" add="not demand.organizer_id" separator=" and "/>
+            </xpath>
+            <xpath expr="//div[hasclass('demand_record__body_wrapper')]" position="after">
+                <div t-elif="demand.id in team_demand" t-att-id="'demand_collapse_%s' % demand.id" class="demand_record__body_wrapper demand_table collapse" t-att-data-parent="'#demand_%s' % demand.id">
+                    <table class="table table-borderless mb-0" style="word-break: break-all;">
+                        <thead>
+                            <tr>
+                                <th>Waiter</th>
+                                <th>Phone</th>
+                                <th>Qty</th>
+                                <th>Time</th>
+                                <th>Approve</th>
+                                <th>Check</th>
+                                <!-- <th class="text-lg-center">Done State</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="demand.registration_ids.filtered(lambda self: self.organizer_state == 'open')" t-as="registration">
+                                <tr>
+                                    <td data-title="Waiter" t-esc="registration.name or '-'"/>
+                                    <td data-title="Phone" t-esc="registration.phone or '-'"/>
+                                    <td class="text-nowrap" data-title="Qty" t-esc="registration.request_qty"/>
+                                    <td t-if="registration.date_open" class="text-nowrap" data-title="Time" t-esc="registration.date_open" t-options="{'widget': 'datetime', 'format': 'yyyy-MM-dd HH:mm'}"/>
+                                    <td t-else="" class="text-nowrap" data-title="Time" t-esc="'-'"/>
+                                    <td t-if="registration.state == 'cancel'" data-title="Approve">
+                                        <svg width="20" height="20" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M13.2143 12L19.3666 4.66641C19.4697 4.54453 19.383 4.35938 19.2236 4.35938H17.3533C17.2432 4.35938 17.1377 4.40859 17.065 4.49297L11.9908 10.5422L6.91659 4.49297C6.84628 4.40859 6.74081 4.35938 6.62831 4.35938H4.758C4.59863 4.35938 4.51191 4.54453 4.61503 4.66641L10.7674 12L4.61503 19.3336C4.59193 19.3608 4.57711 19.394 4.57233 19.4293C4.56755 19.4647 4.57301 19.5006 4.58806 19.533C4.60312 19.5653 4.62713 19.5926 4.65725 19.6117C4.68737 19.6308 4.72234 19.6408 4.758 19.6406H6.62831C6.73847 19.6406 6.84394 19.5914 6.91659 19.507L11.9908 13.4578L17.065 19.507C17.1353 19.5914 17.2408 19.6406 17.3533 19.6406H19.2236C19.383 19.6406 19.4697 19.4555 19.3666 19.3336L13.2143 12Z"/>
+                                        </svg>
+                                    </td>
+                                    <td t-elif="registration.demand_creator_state == 'draft'" class="demand_record__body_operate_wrapper d-flex" data-title="Approve">
+                                        <a class="btn p-0 open" href="#" role="button" t-att-data-registration_id="registration.id">
+                                            <svg width="20" height="20" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M19.8428 6H18.4723C18.2801 6 18.0978 6.09086 17.9802 6.24633L9.89616 16.7921L6.01984 11.7343C5.96121 11.6576 5.88646 11.5956 5.80123 11.5529C5.71599 11.5103 5.62248 11.488 5.52771 11.4879H4.15717C4.02581 11.4879 3.95326 11.6434 4.03365 11.7484L9.40402 18.7547C9.65499 19.0818 10.1373 19.0818 10.3903 18.7547L19.9664 6.25845C20.0467 6.15547 19.9742 6 19.8428 6V6Z"/>
+                                            </svg>
+                                        </a>
+                                        <a class="btn p-0 cancel" href="#" role="button" t-att-data-registration_id="registration.id">
+                                            <svg width="20" height="20" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.2143 12L19.3666 4.66641C19.4697 4.54453 19.383 4.35938 19.2236 4.35938H17.3533C17.2432 4.35938 17.1377 4.40859 17.065 4.49297L11.9908 10.5422L6.91659 4.49297C6.84628 4.40859 6.74081 4.35938 6.62831 4.35938H4.758C4.59863 4.35938 4.51191 4.54453 4.61503 4.66641L10.7674 12L4.61503 19.3336C4.59193 19.3608 4.57711 19.394 4.57233 19.4293C4.56755 19.4647 4.57301 19.5006 4.58806 19.533C4.60312 19.5653 4.62713 19.5926 4.65725 19.6117C4.68737 19.6308 4.72234 19.6408 4.758 19.6406H6.62831C6.73847 19.6406 6.84394 19.5914 6.91659 19.507L11.9908 13.4578L17.065 19.507C17.1353 19.5914 17.2408 19.6406 17.3533 19.6406H19.2236C19.383 19.6406 19.4697 19.4555 19.3666 19.3336L13.2143 12Z"/>
+                                            </svg>
+                                        </a>
+                                    </td>
+                                    <td t-else="" data-title="Approve">
+                                        <svg t-if="registration.demand_creator_state == 'open'" width="20" height="20" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M19.8428 6H18.4723C18.2801 6 18.0978 6.09086 17.9802 6.24633L9.89616 16.7921L6.01984 11.7343C5.96121 11.6576 5.88646 11.5956 5.80123 11.5529C5.71599 11.5103 5.62248 11.488 5.52771 11.4879H4.15717C4.02581 11.4879 3.95326 11.6434 4.03365 11.7484L9.40402 18.7547C9.65499 19.0818 10.1373 19.0818 10.3903 18.7547L19.9664 6.25845C20.0467 6.15547 19.9742 6 19.8428 6V6Z"/>
+                                        </svg>
+                                        <svg t-if="registration.demand_creator_state == 'cancel'" width="20" height="20" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M13.2143 12L19.3666 4.66641C19.4697 4.54453 19.383 4.35938 19.2236 4.35938H17.3533C17.2432 4.35938 17.1377 4.40859 17.065 4.49297L11.9908 10.5422L6.91659 4.49297C6.84628 4.40859 6.74081 4.35938 6.62831 4.35938H4.758C4.59863 4.35938 4.51191 4.54453 4.61503 4.66641L10.7674 12L4.61503 19.3336C4.59193 19.3608 4.57711 19.394 4.57233 19.4293C4.56755 19.4647 4.57301 19.5006 4.58806 19.533C4.60312 19.5653 4.62713 19.5926 4.65725 19.6117C4.68737 19.6308 4.72234 19.6408 4.758 19.6406H6.62831C6.73847 19.6406 6.84394 19.5914 6.91659 19.507L11.9908 13.4578L17.065 19.507C17.1353 19.5914 17.2408 19.6406 17.3533 19.6406H19.2236C19.383 19.6406 19.4697 19.4555 19.3666 19.3336L13.2143 12Z"/>
+                                        </svg>
+                                    </td>
+                                    <td class="demand_record__creator_check_operate_wrapper" data-title="Check">
+                                        <t t-if="registration.state == 'cancel' or registration.demand_creator_state != 'open'" t-esc="'-'"/>
+                                        <svg t-elif="registration.is_creator_check" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M19.8428 6H18.4723C18.2801 6 18.0978 6.09086 17.9802 6.24633L9.89616 16.7921L6.01984 11.7343C5.96121 11.6576 5.88646 11.5956 5.80123 11.5529C5.71599 11.5103 5.62248 11.488 5.52771 11.4879H4.15717C4.02581 11.4879 3.95326 11.6434 4.03365 11.7484L9.40402 18.7547C9.65499 19.0818 10.1373 19.0818 10.3903 18.7547L19.9664 6.25845C20.0467 6.15547 19.9742 6 19.8428 6V6Z"/>
+                                        </svg>
+                                        <svg t-elif="registration.appeal_state in ('creator', 'both')" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M13.2143 12L19.3666 4.66641C19.4697 4.54453 19.383 4.35938 19.2236 4.35938H17.3533C17.2432 4.35938 17.1377 4.40859 17.065 4.49297L11.9908 10.5422L6.91659 4.49297C6.84628 4.40859 6.74081 4.35938 6.62831 4.35938H4.758C4.59863 4.35938 4.51191 4.54453 4.61503 4.66641L10.7674 12L4.61503 19.3336C4.59193 19.3608 4.57711 19.394 4.57233 19.4293C4.56755 19.4647 4.57301 19.5006 4.58806 19.533C4.60312 19.5653 4.62713 19.5926 4.65725 19.6117C4.68737 19.6308 4.72234 19.6408 4.758 19.6406H6.62831C6.73847 19.6406 6.84394 19.5914 6.91659 19.507L11.9908 13.4578L17.065 19.507C17.1353 19.5914 17.2408 19.6406 17.3533 19.6406H19.2236C19.383 19.6406 19.4697 19.4555 19.3666 19.3336L13.2143 12Z"/>
+                                        </svg>
+                                        <t t-else="">
+                                            <a class="btn p-0 open" href="#" role="button" t-att-data-registration_id="registration.id">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M19.8428 6H18.4723C18.2801 6 18.0978 6.09086 17.9802 6.24633L9.89616 16.7921L6.01984 11.7343C5.96121 11.6576 5.88646 11.5956 5.80123 11.5529C5.71599 11.5103 5.62248 11.488 5.52771 11.4879H4.15717C4.02581 11.4879 3.95326 11.6434 4.03365 11.7484L9.40402 18.7547C9.65499 19.0818 10.1373 19.0818 10.3903 18.7547L19.9664 6.25845C20.0467 6.15547 19.9742 6 19.8428 6V6Z"/>
+                                                </svg>
+                                            </a>
+                                            <a class="btn p-0 appeal" href="#" role="button" t-att-data-registration_id="registration.id">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M13.2143 12L19.3666 4.66641C19.4697 4.54453 19.383 4.35938 19.2236 4.35938H17.3533C17.2432 4.35938 17.1377 4.40859 17.065 4.49297L11.9908 10.5422L6.91659 4.49297C6.84628 4.40859 6.74081 4.35938 6.62831 4.35938H4.758C4.59863 4.35938 4.51191 4.54453 4.61503 4.66641L10.7674 12L4.61503 19.3336C4.59193 19.3608 4.57711 19.394 4.57233 19.4293C4.56755 19.4647 4.57301 19.5006 4.58806 19.533C4.60312 19.5653 4.62713 19.5926 4.65725 19.6117C4.68737 19.6308 4.72234 19.6408 4.758 19.6406H6.62831C6.73847 19.6406 6.84394 19.5914 6.91659 19.507L11.9908 13.4578L17.065 19.507C17.1353 19.5914 17.2408 19.6406 17.3533 19.6406H19.2236C19.383 19.6406 19.4697 19.4555 19.3666 19.3336L13.2143 12Z"/>
+                                                </svg>
+                                            </a>
+                                        </t>
+                                    </td>
+                                    <!-- <td class="text-lg-center" data-title="Done State">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 7.6V10H7.6V7.6H10ZM11.2 6.4H6.4V11.2H11.2V6.4ZM10 14V16.4H7.6V14H10ZM11.2 12.8H6.4V17.6H11.2V12.8ZM16.4 7.6V10H14V7.6H16.4ZM17.6 6.4H12.8V11.2H17.6V6.4ZM12.8 12.8H14V14H12.8V12.8ZM14 14H15.2V15.2H14V14ZM15.2 12.8H16.4V14H15.2V12.8ZM12.8 15.2H14V16.4H12.8V15.2ZM14 16.4H15.2V17.6H14V16.4ZM15.2 15.2H16.4V16.4H15.2V15.2ZM16.4 14H17.6V15.2H16.4V14ZM16.4 16.4H17.6V17.6H16.4V16.4ZM20 8H18.4V5.6H16V4H20V8ZM20 20V16H18.4V18.4H16V20H20ZM4 20H8V18.4H5.6V16H4V20ZM4 4V8H5.6V5.6H8V4H4Z"/>
+                                        </svg>
+                                    </td> -->
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>

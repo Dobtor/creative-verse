@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="website.user.select.team">
+        <div>
+            <form class="clearfix">
+                <div class="form-group row order-0" aria-label="organizer_id">
+                    <label class="col-form-label col-md-3" for="organizer_id">Team</label>
+                    <div class="col-md-9">
+                        <input id="organizer_id" placeholder="Team" class="form-control" required="required"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="demand_tag_category_action_tree" model="ir.actions.act_window">
+            <field name="name">Demand Tags Categories</field>
+            <field name="res_model">event.tag.category</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_mode': 'demand'}</field>
+            <field name="domain">[('mode','=','demand')]</field>
+        </record>
+    </data>
+</odoo>

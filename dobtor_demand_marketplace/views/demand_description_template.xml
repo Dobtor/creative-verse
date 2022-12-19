@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="demand_detail_view_extend" inherit_id="dobtor_demand.demand_detail_view" name="Demand register button">
+        
+        <!-- #region: 需求群組資訊改為群組profile導向 -->
+        <xpath expr="//img[hasclass('demand_desc__organizer_img')]" position="replace">
+            <a t-attf-href="/user/profile/#{demand.sudo().organizer_id.id}">
+                <img class="demand_desc__organizer_img" t-att-src="avatar_source" alt="Icon"/>
+            </a>
+        </xpath>
+        <xpath expr="//span[hasclass('demand_desc__organizer_name')]" position="replace">
+            <a t-attf-href="/user/profile/#{demand.sudo().organizer_id.id}">
+                <span class="demand_desc__organizer_name" t-field="demand.sudo().organizer_id"/>
+            </a>
+        </xpath>
+        <!-- #endregion -->
+
+        <!-- #region: 需求創建者資訊改為個人profile導向 -->
+        <xpath expr="//img[hasclass('demand_desc__creator_img')]" position="replace">
+            <a t-attf-href="/user/profile/#{demand.sudo().event_creator_partner.id}">
+                <img class="demand_desc__creator_img" t-att-src="image_data_uri(demand.sudo().event_creator_partner.image_256)" alt="Icon"/>
+            </a>
+        </xpath>
+        <xpath expr="//span[hasclass('demand_desc__creator_name')]" position="replace">
+            <a t-attf-href="/user/profile/#{demand.sudo().event_creator_partner.id}">
+                <span class="demand_desc__creator_name" t-field="demand.sudo().event_creator_partner"/>
+            </a>
+        </xpath>
+        <!-- #endregion -->
+
+        <xpath expr="//form[@id='login_form']/parent::t" position="attributes">
+            <attribute name="t-if">event.is_published and is_public_user</attribute>
+        </xpath>
+
+        <xpath expr="//form[@id='registration_form']/parent::t" position="attributes">
+            <attribute name="t-elif">event.is_published and any(not ticket.is_expired for ticket in event.event_ticket_ids) and not is_public_user and not is_not_yet_finish and (event.is_show_public and has_join_team or not event.is_show_public and is_team_user)</attribute>
+        </xpath>
+
+        <xpath expr="//form[@id='registration_form']/parent::t" position="after">
+            <t t-elif="event.is_published and any(not ticket.is_expired for ticket in event.event_ticket_ids) and not is_public_user and not is_not_yet_finish and (event.is_show_public and not has_join_team or not event.is_show_public and not is_team_user)">
+                <a class="btn btn-primary btn-block open_visit_team" t-attf-href="/user/profile/#{slug(demand.organizer_id)}">Visit Team</a>
+            </t>
+        </xpath>
+
+        <xpath expr="//form[@id='registration_form']/parent::t" position="after">
+            <div t-if="not event.is_published" class="alert alert-warning" role="alert">
+                demand are waiting team review!
+            </div>
+        </xpath>
+
+        <xpath expr="//form[@id='registration_form']/parent::t" position="after">
+            <div t-if="is_not_yet_finish" class="alert alert-warning" role="alert">
+                you need finish this service!
+            </div>
+        </xpath>
+        
+        <xpath expr="//div[hasclass('demand_desc__badge_wrapper')]" position="inside">
+            <span class="event__badge badge bg-white" style="border: 0.5px solid #000000;">
+                <t t-if="event.demand_ids.is_team">Team</t>
+                <t t-else="">Personal</t>
+            </span>
+        </xpath>
+
+    </template>
+
+
+</odoo>

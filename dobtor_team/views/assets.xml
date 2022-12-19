@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <template id="assets_frontend" inherit_id="website.assets_frontend" name="User Team Frontend Assets">
+            
+            <xpath expr="//script[last()]" position="after">
+                <script type="text/javascript" src="/dobtor_team/static/src/js/team_upload.js"/>
+                <script type="text/javascript" src="/dobtor_team/static/src/js/team_apply.js"/>
+                <script type="text/javascript" src="/dobtor_team/static/src/js/team_member_option.js"/>
+                <script type="text/javascript" src="/dobtor_team/static/src/js/team_profile_info_edit.js"/>
+            </xpath>
+            <xpath expr="//link[last()]" position="after">
+                <link rel="stylesheet" type="text/scss" href="/dobtor_team/static/src/scss/membership.scss" t-ignore="true"/>
+            </xpath>
+            
+        </template>
+
+    </data>
+</odoo>

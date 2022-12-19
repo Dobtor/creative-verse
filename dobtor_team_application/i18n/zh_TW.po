@@ -1,0 +1,244 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* dobtor_team_application
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0-20210504\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-20 08:44+0000\n"
+"PO-Revision-Date: 2022-07-20 08:44+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: dobtor_team_application
+#: model_terms:ir.ui.view,arch_db:dobtor_team_application.team_publish_check
+msgid ""
+"<b>Team Publish</b>\n"
+"                        waiting for manager review!"
+msgstr "<b>群組認證請求</b>&amp;nbsp;<br/>正在等待審核<br/>"
+
+#. module: dobtor_team_application
+#: model_terms:ir.ui.view,arch_db:dobtor_team_application.team_care_publish_check
+msgid ""
+"<span class=\"badge team__card_body_badge w-100 text-wrap\">Audit Premium "
+"Team</span>"
+msgstr "<span class=\"badge team__card_body_badge w-100 text-wrap\">認證申請中</span>"
+
+#. module: dobtor_team_application
+#: model_terms:ir.ui.view,arch_db:dobtor_team_application.team_care_publish_check
+msgid ""
+"<span class=\"badge team__card_body_badge w-100 text-wrap\">Not yet "
+"certified</span>"
+msgstr ""
+"<span class=\"badge team__card_body_badge w-100 text-wrap\">尚未認證</span>"
+
+#. module: dobtor_team_application
+#: model_terms:ir.ui.view,arch_db:dobtor_team_application.team_publish_check
+msgid ""
+"<span class=\"text-muted small\" data-toggle=\"modal\" data-target=\".premium_team_info\">About premium team\n"
+"                        <i class=\"fa fa-chevron-circle-right\"/>\n"
+"                    </span>"
+msgstr ""
+"<span class=\"text-muted small\" data-toggle=\"modal\" data-target=\".premium_team_info\">了解成為「認證群組」的好處\n"
+"                        <i class=\"fa fa-chevron-circle-right\"/>\n"
+"                    </span>"
+
+#. module: dobtor_team_application
+#: model_terms:ir.ui.view,arch_db:dobtor_team_application.team_application_confirm
+msgid "<span>Please wait for manager review.</span>"
+msgstr "<span>請等待管理者審核</span>"
+
+#. module: dobtor_team_application
+#: model_terms:ir.ui.view,arch_db:dobtor_team_application.team_publish_check
+msgid "<span>Premium Team</span>"
+msgstr "<span>認證群組</span>"
+
+#. module: dobtor_team_application
+#: model_terms:ir.ui.view,arch_db:dobtor_team_application.team_application_confirm
+msgid "<span>Your application already send.</span>"
+msgstr "<span>您的申請已送出</span>"
+
+#. module: dobtor_team_application
+#: model_terms:ir.ui.view,arch_db:dobtor_team_application.applicatoin_content
+msgid "Action"
+msgstr "動作"
+
+#. module: dobtor_team_application
+#: model:request.action,name:dobtor_team_application.action_team_publish
+msgid "Add team publish access"
+msgstr "群組發布"
+
+#. module: dobtor_team_application
+#: model_terms:ir.ui.view,arch_db:dobtor_team_application.application_collapse_inherit
+msgid "Application List"
+msgstr "紀錄"
+
+#. module: dobtor_team_application
+#: model_terms:ir.ui.view,arch_db:dobtor_team_application.team_publish_check
+msgid "Apply Premium Team"
+msgstr "申請認證群組"
+
+#. module: dobtor_team_application
+#: model_terms:ir.ui.view,arch_db:dobtor_team_application.applicatoin_content
+msgid "Auditor"
+msgstr "審核者"
+
+#. module: dobtor_team_application
+#: model_terms:ir.ui.view,arch_db:dobtor_team_application.team_publish_check
+msgid ""
+"Authentication team can add team members, team wallets and apply for "
+"extended functions"
+msgstr "認證群組能夠新增群友,擁有群組錢包以及申請更多擴充功能"
+
+#. module: dobtor_team_application
+#: model_terms:ir.ui.view,arch_db:dobtor_team_application.team_publish_check
+msgid "Close"
+msgstr "關閉"
+
+#. module: dobtor_team_application
+#: model:ir.model,name:dobtor_team_application.model_res_partner
+msgid "Contact"
+msgstr "聯繫人"
+
+#. module: dobtor_team_application
+#: model:ir.model.fields,field_description:dobtor_team_application.field_res_partner__display_name
+msgid "Display Name"
+msgstr "顯示名稱"
+
+#. module: dobtor_team_application
+#: model:ir.model.fields,field_description:dobtor_team_application.field_res_partner__id
+msgid "ID"
+msgstr ""
+
+#. module: dobtor_team_application
+#: model:request.action,apply_text_template:dobtor_team_application.action_member_join_operate_record
+msgid "Join Team"
+msgstr "申請加入群組"
+
+#. module: dobtor_team_application
+#: model:ir.model.fields,field_description:dobtor_team_application.field_res_partner____last_update
+msgid "Last Modified on"
+msgstr "最後修改於"
+
+#. module: dobtor_team_application
+#. openerp-web
+#: code:addons/dobtor_team_application/static/src/js/team_kick_application.js:0
+#, python-format
+msgid "Member Kick"
+msgstr "請離群組"
+
+#. module: dobtor_team_application
+#: model_terms:ir.ui.view,arch_db:dobtor_team_application.applicatoin_content
+msgid "Note"
+msgstr "說明"
+
+#. module: dobtor_team_application
+#: model_terms:ir.ui.view,arch_db:dobtor_team_application.team_application_confirm
+#: model_terms:ir.ui.view,arch_db:dobtor_team_application.team_publish_check
+msgid "OK"
+msgstr "確認"
+
+#. module: dobtor_team_application
+#: model_terms:ir.ui.view,arch_db:dobtor_team_application.applicatoin_content
+msgid "Object"
+msgstr "對象"
+
+#. module: dobtor_team_application
+#: model_terms:ir.ui.view,arch_db:dobtor_team_application.team_publish_check
+msgid "Premium Team"
+msgstr "認證群組"
+
+#. module: dobtor_team_application
+#: model_terms:ir.ui.view,arch_db:dobtor_team_application.application_content_tabpanel
+msgid "Reject Reason"
+msgstr "拒絕原因"
+
+#. module: dobtor_team_application
+#: model:request.action,name:dobtor_team_application.action_remove_from_a_team
+msgid "Removed From a Team"
+msgstr "請離群組"
+
+
+#. module: dobtor_team_application
+#: model:res.partner.tag.group,name:dobtor_team_application.team_access_tag_group
+msgid "Team Access"
+msgstr "群組權限"
+
+#. module: dobtor_team_application
+#: model:partner.tag,name:dobtor_team_application.team_tag_team_publish
+msgid "Team Publish"
+msgstr "群組發布"
+
+#. module: dobtor_team_application
+#: model:request.action,text_template:dobtor_team_application.action_member_join_operate_record
+msgid "Team approve your Join"
+msgstr "群組同意您的加入"
+
+#. module: dobtor_team_application
+#: model:request.action,reject_text_template:dobtor_team_application.action_member_join_operate_record
+msgid "Team reject your Join"
+msgstr "群組拒絕您的加入"
+
+#. module: dobtor_team_application
+#: model_terms:ir.ui.view,arch_db:dobtor_team_application.applicatoin_content
+msgid "Time"
+msgstr "時間"
+
+#. module: dobtor_team_application
+#: model_terms:ir.ui.view,arch_db:dobtor_team_application.applicatoin_content
+msgid "Type"
+msgstr "類別"
+
+#. module: dobtor_team_application
+#: model_terms:ir.ui.view,arch_db:dobtor_team_application.team_publish_check
+msgid "<span>Please complete the required information about the team</span>"
+msgstr "<span>請完善群組相關必填資訊</span>"
+
+#. module: dobtor_team_application
+#. openerp-web
+#: code:addons/dobtor_team_application/static/src/js/team_upload.js:0
+#, python-format
+msgid "Create team constraint"
+msgstr "建立群組限制"
+
+#. module: dobtor_team_application
+#. openerp-web
+#: code:addons/dobtor_team_application/static/src/js/team_upload.js:0
+#, python-format
+msgid ""
+"Unable to create a team, you need to complete team authentication to create "
+"a new team"
+msgstr "無法建立群組，需完成群組認證才能建立新的群組"
+
+#. module: dobtor_team_application
+#: model:request.action,apply_text_template:dobtor_team_application.action_team_publish
+msgid "apply team to publish"
+msgstr "群組請求認證"
+
+#. module: dobtor_team_application
+#. openerp-web
+#: code:addons/dobtor_team_application/static/src/js/team_upload.js:0
+#, python-format
+msgid "Cancel"
+msgstr "取消"
+
+#. module: dobtor_team_application
+#: model:request.action,name:dobtor_team_application.action_member_join_operate_record
+msgid "member join team record"
+msgstr "加入群組"
+
+
+#. module: dobtor_team_application
+#: model:request.action,name:dobtor_team_application.action_member_operate_record
+msgid "member operate record"
+msgstr "群組操作"
+
+#. module: dobtor_team_application
+#: model:request.action,text_template:dobtor_team_application.action_team_publish
+msgid "team was published"
+msgstr "請求群組通過並發布"

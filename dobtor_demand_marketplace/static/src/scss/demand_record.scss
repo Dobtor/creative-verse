@@ -1,0 +1,203 @@
+.demand_record {
+
+    &__header {
+        
+        &_info_creator {
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 14px;
+            margin-top: 6px;
+
+            @include media-breakpoint-down(sm) {
+                gap: 3px;
+            }
+
+            svg {
+                fill: color('o-color-1');
+            }
+
+            .creator_wrapper, .team_wrapper {
+                padding-right: 21.67px;
+
+                @include media-breakpoint-up(sm) {
+                    max-width: 50%;
+                }
+
+                @include media-breakpoint-down(sm) {
+                    padding-right: 0;
+                }
+            }
+        }
+
+        &_audit {
+
+            &_wrapper {
+                padding: 20px 24px;
+                border-left: 0.5px solid #9B918C;
+                text-decoration: none !important;
+                
+                span:not(:first-child) {
+                    margin-top: 6px;
+                }
+
+                i {
+                    margin-left: 2.67px;
+                }
+            }
+        }
+    }
+
+    &__top_select {
+            
+        &_wrapper {
+            gap: 12px;
+            
+            a {
+                padding: 9px 15px;
+                background: #EDEDED;
+                border-radius: 6px;
+                font-weight: 300;
+                font-size: 14px;
+                line-height: 14px;
+
+                &:hover, &:focus, &.active {
+                    color: #FFFFFF;
+                    background: color('o-color-1');
+                    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+                }
+
+                span {
+                    word-wrap: break-word;
+                    word-break: break-all;
+                    white-space: normal;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 1;
+                }
+            }
+        }
+    }
+    
+    // TODO: 之後再跟其他operate btn做樣式整合
+    &__body {
+
+        &_operate {
+
+            &_wrapper {
+                a {
+                    svg {
+                        fill: #9B918C;
+                        background: #EDEDED;
+                        border-radius: 6px;
+                    }
+
+                    &:hover, &:focus {
+                        box-shadow: none;
+
+                        svg {
+                            fill: darken(#9B918C, 15%);
+                            background: darken(#EDEDED, 15%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__creator {
+
+        &_check {
+
+            &_operate {
+
+                &_wrapper {
+                    a {
+                        svg {
+                            fill: #9B918C;
+                            background: #EDEDED;
+                            border-radius: 6px;
+                        }
+    
+                        &:hover, &:focus {
+                            box-shadow: none;
+    
+                            svg {
+                                fill: darken(#9B918C, 15%);
+                                background: darken(#EDEDED, 15%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.team_demand {
+
+    // TODO: 之後再跟其他operate btn做樣式整合
+    &__body {
+
+        &_operate {
+
+            &_wrapper {
+                a {
+                    svg {
+                        fill: #9B918C;
+                        background: #EDEDED;
+                        border-radius: 6px;
+                    }
+
+                    &:hover, &:focus {
+                        box-shadow: none;
+
+                        svg {
+                            fill: darken(#9B918C, 15%);
+                            background: darken(#EDEDED, 15%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__report {
+        
+        // TODO: 之後再跟其他operate btn做樣式整合
+        &_operate {
+
+            &_wrapper {
+                a {
+                    svg {
+                        fill: #9B918C;
+                        background: #EDEDED;
+                        border-radius: 6px;
+                    }
+
+                    &:hover, &:focus {
+                        box-shadow: none;
+
+                        svg {
+                            fill: darken(#9B918C, 15%);
+                            background: darken(#EDEDED, 15%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.demand {
+
+    &_homepage {
+
+        &__badge {
+            position: absolute;
+            top: 15px;
+            right: 24px;
+        }
+    }
+}
